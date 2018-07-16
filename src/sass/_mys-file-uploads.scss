@@ -141,7 +141,7 @@ $gutter-size: 2em;
 	flex-basis: 0;
 	flex-grow: 1;
 	float: left\0; // ie9
-	width: calc(100% - 1em + 1.75em)\0; // ie9
+	width: calc(100% - 1em - 1.75em)\0; // ie9
 
 	@include uikit-media(xs) {
 		display: table;
