@@ -60,6 +60,7 @@ $gutter-size: 2em;
 		flex-basis: 100%;
 		margin-top: $gutter-size * 0.1;
 		margin-bottom: $gutter-size * 0.1;
+		display: block\0; // ie9
 	}
 }
 
