@@ -74,6 +74,7 @@ $gutter-size: 2em;
 	float: left; // ie9
 
 	@include uikit-media(xs) {
+		float: none; // ie9
 		padding-right: 0;
 	}
 }
