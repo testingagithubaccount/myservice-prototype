@@ -43,7 +43,7 @@ $gutter-size: 2em;
 
 		& > * {
 			padding: 0 ($gutter-size * 0.5);
-			display: table-cell; // ie9
+			display: table-cell\0; // ie9
 		}
 	}
 }
@@ -146,8 +146,14 @@ $gutter-size: 2em;
 	width: calc(100% - 1em - 1.75em)\0; // ie9
 
 	@include uikit-media(xs) {
+		float: none; // ie9
+	}
+}
+
+.mys-file-uploads__info-wrapper {
+	@include uikit-media(xs) {
 		display: table;
-		table-layout: auto;
+		width: 100%;
 	}
 }
 
