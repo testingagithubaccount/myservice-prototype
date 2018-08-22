@@ -289,7 +289,7 @@ h3.heading-icon {
   .toast-container {
     left: auto;
     right: 1em;
-    top: 2em;
+    top: 3.4em;
     width: auto;
   }
 
@@ -614,6 +614,9 @@ ul.progress-container {
         top: 50%;
       }
     }
+    .progress-container--reversed {
+      margin-top: 0px;
+    }
   }
     
   
@@ -624,4 +627,14 @@ ul.progress-container {
 
 @media (min-width: 992px) {
   .progress-step-label {}
+}
+
+.progress-container--reversed {
+  .progress-step-label {
+    top: 50px;
+    font-size: 0.9em;
+  }
+  .progress-step--last {
+    flex: 0;
+  }
 }
