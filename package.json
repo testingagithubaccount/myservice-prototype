@@ -4,14 +4,8 @@
 	"description": "",
 	"license": "ISC",
 	"scripts": {
-		"build": "node-sass src/sass/main.scss docs/css/main.css --output-style compressed",
-		"gulp": "gulp",
-		"watch:sass": "npm run build && onchange 'src/sass/*.scss' 'tests/docs/*.scss' -- npm run build",
-		"serve": "browser-sync start --server --startPath 'docs' --files 'docs/*.html, docs/css/*.css, docs/js/*.js'",
-		"watch": "npm-run-all --parallel serve watch:*",
-		"start": "node index.js",
-		"prod": "NODE_ENV=production node --experimental-modules scripts/build.mjs",
-		"dev": "node --experimental-modules scripts/build.mjs --task=dev"
+		"prod": "NODE_ENV=production node --experimental-modules env/build.mjs",
+		"dev": "node --experimental-modules env/build.mjs --task=dev"
 	},
 	"browserslist": [
 		"last 2 versions",
@@ -44,6 +38,5 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/AusDVA/myservice-prototype"
-	},
-	"dependencies": {}
+	}
 }
