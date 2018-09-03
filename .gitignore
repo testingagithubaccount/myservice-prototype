@@ -22,3 +22,7 @@ docs/css
 
 # OS auto files
 .DS_Store
+
+# Output directories
+/dev
+/prod
