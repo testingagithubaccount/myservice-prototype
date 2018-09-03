@@ -1,7 +1,7 @@
 import glob from 'glob'
 
 export default function promisePaths(pPaths) {
-	const paths = pPaths === 'string' ? [pPaths] : pPaths
+	const paths = typeof pPaths === 'string' ? [pPaths] : pPaths
 
 	if (!(paths instanceof Array)) {
 		return Promise.reject(new Error('Paths argument must be a string or instance of Array'))
