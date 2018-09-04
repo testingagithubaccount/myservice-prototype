@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width" name="viewport">
   <title>Add claim: Review and submit | MyService</title>
-  <link href="docs/css/main.css" rel="stylesheet">
+  <link href="/docs/css/main.css" rel="stylesheet">
   <style>
     .hide-fields>div {
       display: none;
@@ -31,7 +31,7 @@
             <h1>Review and submit</h1>
             <table class="cover-detail">
               <caption>Student details
-                <button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/claim1'">Change</button>
+                <button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/auth/claim/pages/claim1'">Change</button>
               </caption>
 
               <thead>
@@ -70,7 +70,7 @@
 
             <table class="cover-detail">
               <caption>Study details
-                <button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/claim3'">Change</button>
+                <button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/auth/claim/pages/claim3'">Change</button>
               </caption>
               <tr>
                 <th>What type of education will you undertake this year?</th>
@@ -88,7 +88,7 @@
 
             <table class="cover-detail">
               <caption>Living arrangements
-                <button class="uikit-btn uikit-btn--tertiary floated small floated--always" onclick="window.location.href = '/claim4'">Change</button>
+                <button class="uikit-btn uikit-btn--tertiary floated small floated--always" onclick="window.location.href = '/auth/claim/pages/claim4'">Change</button>
               </caption>
               <thead>
                 <tr>
@@ -141,8 +141,8 @@
               <button class="uikit-btn uikit-btn--tertiary" onclick="javascript:history.back()">Previous</button>
               <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '#open-modal'">Cancel claim</button>
               <div class="floated">
-                <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/index-claims'">Save and exit</button>
-                <button class="uikit-btn btnNext" onclick="window.location.href = '/studentclaim6'">Submit claim</button>
+                <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/index-claims'">Save and exit</button>
+                <button class="uikit-btn btnNext" onclick="window.location.href = '/auth/claim/pages/studentclaim6'">Submit claim</button>
               </div>
             </div>
             <% include ../partials/cancel-modal.ejs %>

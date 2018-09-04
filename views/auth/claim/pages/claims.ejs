@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width" name="viewport">
   <title>Claims | MyService</title>
-  <link href="docs/css/main.css" rel="stylesheet">
+  <link href="/docs/css/main.css" rel="stylesheet">
 </head>
 
 <body class="uikit-body uikit-grid uikit-refactor">
@@ -47,7 +47,7 @@
                       <b>injuries or illness</b>
                     </h2>
                     <p>Access treatment and support if you have an injury or condition resulting from your service.</p>
-                    <button class="uikit-btn" onclick="window.location.href='/claim1'">Get started</button>
+                    <button class="uikit-btn" onclick="window.location.href='/auth/claim/pages/claim1'">Get started</button>
                   </div>
 
                   <div class="col-sm-5">
@@ -65,25 +65,25 @@
                       </div>
                       <div class="action-group__reveal--closed" id="entitlement-mh">
                         <p class="margin-below--none margin-above--mid">Get immediate mental health treatment at no cost to you.</p>
-                        <button class="uikit-btn small margin-above--mid" onclick="window.location.href='/health-card0'">
+                        <button class="uikit-btn small margin-above--mid" onclick="window.location.href='/auth/claim/pages/health-card0'">
                           <b>Access now</b>
                         </button>
                       </div>
                       <div class="action-group__reveal--closed" id="entitlement-afi">
                         <p class="margin-below--none margin-above--mid">Apply for a payment increase to your disability pension.</p>
-                        <button class="uikit-btn small margin-above--mid" onclick="window.location.href='/afi-start'">
+                        <button class="uikit-btn small margin-above--mid" onclick="window.location.href='/auth/claim/pages/afi-start'">
                           <b>Make a claim</b>
                         </button>
                       </div>
                       <div class="action-group__reveal--closed" id="entitlement-student">
                         <p class="margin-below--none margin-above--mid">Get help with the cost of education for your family.</p>
-                        <button class="uikit-btn small margin-above--mid" onclick="window.location.href='/studentpreeligibility?flow=veteranFlow' ">
+                        <button class="uikit-btn small margin-above--mid" onclick="window.location.href='/auth/claim/pages/studentpreeligibility?flow=veteranFlow' ">
                           <b>Make a claim</b>
                         </button>
                       </div>
                       <div class="action-group__reveal--closed" id="entitlement-dhoas-subsidy">
                         <p class="margin-below--none margin-above--mid">Apply for a subsidy on the interest of your home loan.</p>
-                        <button class="uikit-btn small margin-above--mid" onclick="window.location.href='/dhoas-start' ">
+                        <button class="uikit-btn small margin-above--mid" onclick="window.location.href='/auth/claim/pages/dhoas-start' ">
                           <b>Start application</b>
                         </button>
                       </div>
@@ -136,8 +136,8 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'updateClaimInProgress'">Update</button>
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'viewClaimInProgress'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/updateClaimInProgress'">Update</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewClaimInProgress'">View</button>
                         <button class="uikit-btn small uikit-btn--tertiary" id="button-withdrawclaimmodal">Withdraw</button>
                       </td>
                     </tr>
@@ -153,7 +153,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'qs-claimdetail'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewQSClaimDetail'">View</button>
                       </td>
                     </tr>
                     <tr>
@@ -167,7 +167,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'afi-claimdetail'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewAFIClaimDetail'">View</button>
                         <!-- <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '#open-deleteclaimmodal'">Withdraw</button> -->
                       </td>
                     </tr>
@@ -182,7 +182,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'viewDhoasDetail'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewDhoasDetail'">View</button>
                       </td>
                     </tr>
                     <tr>
@@ -196,7 +196,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'afi-claim1'">Resume</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/afi-claim1'">Resume</button>
                         <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '#open-deleteclaimmodal'">Delete</button>
                         <!-- <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '#open-deleteclaimmodal'">Withdraw</button> -->
                       </td>
@@ -212,7 +212,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '/pi-lsq-start'">Resume</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '/auth/claim/pages/pi-lsq-start'">Resume</button>
                         <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '#open-deleteclaimmodal'">Delete</button>
                         <!-- <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '#open-deleteclaimmodal'">Withdraw</button> -->
                       </td>
@@ -228,7 +228,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '/viewPI-LSQ-detail'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '/auth/claim/pages/viewPI-LSQ-detail'">View</button>
                         <!-- <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '#open-deleteclaimmodal'">Withdraw</button> -->
                       </td>
                     </tr>
@@ -258,7 +258,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'viewNLHCClaimDetail'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewNLHCClaimDetail'">View</button>
                       </td>
                     </tr>
                     <tr>
@@ -272,7 +272,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'viewClaimDetail'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewClaimDetail'">View</button>
                       </td>
                     </tr>
                     <tr>
@@ -286,7 +286,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'viewClaimDetailStudent'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewClaimDetailStudent'">View</button>
                       </td>
                     </tr>
                     <tr>
@@ -300,7 +300,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'viewClaimRejected'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewClaimRejected'">View</button>
                       </td>
                     </tr>
                     <tr>
@@ -314,7 +314,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'viewClaimWithdrawn'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewClaimWithdrawn'">View</button>
                       </td>
                     </tr>
 
@@ -331,7 +331,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'viewClaimWithdrawn'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewClaimWithdrawn'">View</button>
                       </td>
                     </tr>
                   </table>
@@ -344,7 +344,7 @@
             <p>This page is seen by Veterans with no claims, no nlhc, who
               <b>are</b> eligible for student payments.</p>
             <p>
-              <a href="/claims-nostudentpayments">Next ></a>
+              <a href="/auth/claim/pages/claims-nostudentpayments">Next ></a>
             </p>
             <% include ../partials/dhoas-start-modal.ejs %>
 

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width" name="viewport">
   <title>My profile | MyService</title>
-  <link href="docs/css/main.css" rel="stylesheet">
+  <link href="/docs/css/main.css" rel="stylesheet">
   <style>
     #templates {
       display: none;
@@ -30,16 +30,16 @@
               <div class="col-sm-3">
                 <ul class="secondary-navigation">
                   <li class="secondary-navigation__item">
-                    <a class="secondary-navigation__link" href="profile">Personal details</a>
+                    <a class="secondary-navigation__link" href="auth/profile">Personal details</a>
                   </li>
                   <li class="secondary-navigation__item">
-                    <a class="secondary-navigation__link" href="profile-contact">Contact details</a>
+                    <a class="secondary-navigation__link" href="auth/profile-contact">Contact details</a>
                   </li>
                   <li class="secondary-navigation__item">
-                    <a class="secondary-navigation__link" href="profile-account">Account settings</a>
+                    <a class="secondary-navigation__link" href="auth/profile-account">Account settings</a>
                   </li>
                   <li class="secondary-navigation__item secondary-navigation__item--active">
-                    <a class="secondary-navigation__link" href="profile-history">Service history</a>
+                    <a class="secondary-navigation__link" href="auth/profile-history">Service history</a>
                   </li>
                 </ul>
               </div>
@@ -249,7 +249,7 @@
               };
 
               periodElement.getElementsByClassName('edit')[0].onclick = function () {
-                window.location.href = '/service-period-1?period=' + pIndex;
+                window.location.href = '/auth/service-period-1?period=' + pIndex;
               };
 
               periodElement.getElementsByClassName('delete')[0].onclick = function () {
@@ -257,7 +257,7 @@
                   serviceHistory.periods.splice(pIndex, 1);
                   setServiceHistory(serviceHistory);
                   var toastMessage = encodeURIComponent('Service period successfully deleted');
-                  window.location.href = '/profile-history?continue=true&toastType=success&toastMessage=' + toastMessage;
+                  window.location.href = '/auth/profile-history?continue=true&toastType=success&toastMessage=' + toastMessage;
                 }
 
                 document.getElementById('modal').classList.add('modal-visible');
@@ -275,7 +275,7 @@
 
           document.getElementById('add-period').onclick = function () {
             var nextIndex = addPeriod();
-            window.location.href = '/service-period-1?period=' + nextIndex;
+            window.location.href = '/auth/service-period-1?period=' + nextIndex;
           }
 
           document.getElementById('modal-cancel').onclick = function () {

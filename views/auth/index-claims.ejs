@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width" name="viewport">
   <title>Home | MyService</title>
-  <link href="docs/css/main.css" rel="stylesheet">
+  <link href="/docs/css/main.css" rel="stylesheet">
 </head>
 
 <body class="uikit-body uikit-grid uikit-refactor">
@@ -37,8 +37,8 @@
                   </span>
                   <span class="widget-actions floated">
 
-                    <button class="uikit-btn uikit-btn--tertiary small widget-btn " onclick="window.location.href = '/claims-manage'">Manage your claims</button>
-                    <button class="uikit-btn small widget-btn " onclick="window.location.href = '/claims-make'">Make a claim</button>
+                    <button class="uikit-btn uikit-btn--tertiary small widget-btn " onclick="window.location.href = '/auth/claim/pages/claims-manage'">Manage your claims</button>
+                    <button class="uikit-btn small widget-btn " onclick="window.location.href = '/auth/claim/pages/claims-make'">Make a claim</button>
                   </span>
                 </h2>
 
@@ -63,7 +63,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'qs-claimdetail'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewQSClaimDetail'">View</button>
                       </td>
                     </tr>
                     <tr>
@@ -77,7 +77,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'afi-claimdetail'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewAFIClaimDetail'">View</button>
                       </td>
                     </tr>
                     <tr>
@@ -91,7 +91,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'afi-claim1'">Resume</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/afi-claim1'">Resume</button>
                         <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '#open-deleteclaimmodal'">Delete</button>
                       </td>
                     </tr>
@@ -110,7 +110,7 @@
           <div class="flex-container flex-container--wrap hover-container">
 
             <div class="flex-item flex-item--centred card card--medium hover-element">
-              <a href="/needs1">
+              <a href="/auth/needs1">
                 <figure>
                   <img class="card__image" src="../../../docs/images/ico-db-needs.svg" alt="">
                 </figure>
@@ -123,7 +123,7 @@
             </div>
 
             <div class="flex-item flex-item--centred card card--medium hover-element">
-              <a href="/healthcard-home">
+              <a href="/auth/healthcard/healthcard-home">
                 <figure>
                   <img class="card__image" src="../../../docs/images/ico-db-card.svg" alt="">
                 </figure>
@@ -136,7 +136,7 @@
             </div>
 
             <div class="flex-item flex-item--centred card card--medium hover-element">
-              <a href="/profile">
+              <a href="/auth/profile">
                 <figure>
                   <img class="card__image" src="../../../docs/images/ico-db-profile.svg" alt="">
                 </figure>

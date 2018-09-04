@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width" name="viewport">
 	<title>DHOAS Application for a subsidy certificate | MyService</title>
-	<link href="docs/css/main.css" rel="stylesheet">
+	<link href="/docs/css/main.css" rel="stylesheet">
 </head>
 
 <body class="uikit-body uikit-grid uikit-refactor">
@@ -242,10 +242,10 @@
 					</div>
 
 					<div class="pagination margin-above--large">
-						<button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href='/dhoas1'">Previous</button>
+						<button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href='/auth/claim/pages/dhoas1'">Previous</button>
               <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href='#open-modal'">Cancel application</button>
 						<div class="floated">
-							<button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href='/claims'">Save and exit</button>
+							<button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href='/auth/claim/pages/claims'">Save and exit</button>
 							<button class="uikit-btn btnNext" id="btnNext">Save and next</button>
 						</div>
 					</div>
@@ -313,11 +313,11 @@
 									}
 								})
 								if (buttonon) {
-									window.location.href = "/dhoas2b";
+									window.location.href = "/auth/claim/pages/dhoas2b";
 									return
 								}
 							}
-							window.location.href = "/dhoas3";
+							window.location.href = "/auth/claim/pages/dhoas3";
 						});
 
 					</script>

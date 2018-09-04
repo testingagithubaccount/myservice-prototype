@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width" name="viewport">
 	<title>Add claim: Review and submit | MyService</title>
-	<link href="docs/css/main.css" rel="stylesheet">
+	<link href="/docs/css/main.css" rel="stylesheet">
 </head>
 
 <body class="uikit-body uikit-grid uikit-refactor">
@@ -28,7 +28,7 @@
 					<h1>Review and submit</h1>
 					<table class="cover-detail">
 						<caption>Diagnosis
-							<button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/claim1'">Change</button>
+							<button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/auth/claim/pages/claim1'">Change</button>
 						</caption>
 						<tbody>
 							<tr>
@@ -48,7 +48,7 @@
 
 					<table class="cover-detail">
 						<caption>How did it happen?
-							<button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/claim3'">Change</button>
+							<button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/auth/claim/pages/claim3'">Change</button>
 						</caption>
 						<tr>
 							<th>Which statement best describes how your condition happened?</th>
@@ -76,7 +76,7 @@
 
 					<table class="cover-detail">
 						<caption>Service history
-							<button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/claim2a'">Change</button>
+							<button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/auth/claim/pages/claim2a'">Change</button>
 						</caption>
 						<tr>
 							<th>Service number</th>
@@ -94,7 +94,7 @@
 
 					<table class="cover-detail">
 						<caption>When your condition started
-							<button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/claim2a'">Change</button>
+							<button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/auth/claim/pages/claim2a'">Change</button>
 						</caption>
 						<tr>
 							<th>Branch/arm</th>
@@ -138,7 +138,7 @@
 
 					<table class="cover-detail">
 						<caption>How have you been affected?
-							<button class="uikit-btn uikit-btn--tertiary floated small floated--always" onclick="window.location.href = '/claim4'">Change</button>
+							<button class="uikit-btn uikit-btn--tertiary floated small floated--always" onclick="window.location.href = '/auth/claim/pages/claim4'">Change</button>
 						</caption>
 						<thead>
 							<tr>
@@ -192,7 +192,7 @@
 
 					<table class="cover-detail">
 						<caption>Permanent impairment compensation
-							<button class="uikit-btn uikit-btn--tertiary floated small floated--always" onclick="window.location.href = '/claim4'">Change</button>
+							<button class="uikit-btn uikit-btn--tertiary floated small floated--always" onclick="window.location.href = '/auth/claim/pages/claim4'">Change</button>
 						</caption>
 						<thead>
 							<tr>
@@ -260,11 +260,11 @@
 					<div class="pagination">
 						<p>By clicking
 							<strong>submit claim</strong> you confirm this information is truthful and accurate.</p>
-						<button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/claim5'">Previous</button>
+						<button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/claim/pages/claim5'">Previous</button>
 						<button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '#open-modal'">Cancel claim</button>
 						<div class="floated">
-							<button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth'">Save and exit</button>
-							<button class="uikit-btn btnNext" onclick="window.location.href = '/claim8'">Submit claim</button>
+							<button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/index'">Save and exit</button>
+							<button class="uikit-btn btnNext" onclick="window.location.href = '/auth/claim/pages/claim8'">Submit claim</button>
 						</div>
 					</div>
 					<% include ../partials/cancel-modal.ejs %>

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width" name="viewport">
   <title>My profile | MyService</title>
-  <link href="docs/css/main.css" rel="stylesheet">
+  <link href="/docs/css/main.css" rel="stylesheet">
 </head>
 
 <body class="uikit-body uikit-grid uikit-refactor">
@@ -61,7 +61,7 @@
                   <!-- Medicare -->
                   <fieldset class="id-types id-medicare" style="display: none">
                     <legend>Medicare card</legend>
-                    <img src="docs/images/medicare-card.jpg" alt="Medicare card showing the card number, IRN number located to the left of the name on the card, and an expiry date in the format MM/YYYY"
+                    <img src="/docs/images/medicare-card.jpg" alt="Medicare card showing the card number, IRN number located to the left of the name on the card, and an expiry date in the format MM/YYYY"
                     />
                     <div class="form-group">
                       <label class="uikit-text-input__label" for="medicare-number">Medicare card number</span>
@@ -84,7 +84,7 @@
 
                   <div class="pagination">
                     <button class="uikit-btn btnSavePassword btnNext">Next</button>
-                    <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = 'profile'">Cancel</button>
+                    <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = 'auth/profile'">Cancel</button>
                   </div>
 
                 </div>
@@ -96,7 +96,7 @@
       <% include ../global/partials/footer.ejs %>
         <script>
           $('.btnNext').click(function () {
-            location.href = '/change-email';
+            location.href = '/auth/change-email';
           });
 
           // Choose POI fieldset

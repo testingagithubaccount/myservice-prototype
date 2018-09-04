@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width" name="viewport">
   <title>My profile | MyService</title>
-  <link href="docs/css/main.css" rel="stylesheet">
+  <link href="/docs/css/main.css" rel="stylesheet">
 </head>
 
 <body class="uikit-body uikit-grid uikit-refactor">
@@ -44,7 +44,7 @@
                   </div>
                   <div class="pagination">
                     <button class="uikit-btn btnSavePassword btnNext">Send code</button>
-                    <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = 'profile'">Cancel</button>
+                    <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = 'auth/profile'">Cancel</button>
                   </div>
                 </div>
         </section>
@@ -56,7 +56,7 @@
         <script>
           $('.btnNext').click(function () {
             localStorage.myNewEmail = $('#newEmail').val();
-            location.href = '/change-email-enter-code';
+            location.href = '/auth/change-email-enter-code';
           });
         </script>
 </body>

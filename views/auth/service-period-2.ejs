@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width" name="viewport">
 	<title>Service history</title>
-	<link href="docs/css/main.css" rel="stylesheet">
+	<link href="/docs/css/main.css" rel="stylesheet">
 	<style>
 		#templates {
 			display: none;
@@ -229,18 +229,18 @@
 
 					document.getElementById('next').onclick = function () {
 						setOperations();
-						window.location.href = '/service-period-3?period=' + urlParameter('period');
+						window.location.href = '/auth/service-period-3?period=' + urlParameter('period');
 					}
 
 					document.getElementById('exit').onclick = function () {
 						setOperations();
 						var toastMessage = encodeURIComponent('Service history successfully updated');
-						window.location.href = '/profile-history?continue=true&toastType=Success&toastMessage=' + toastMessage;
+						window.location.href = '/auth/profile-history?continue=true&toastType=Success&toastMessage=' + toastMessage;
 					}
 
 					document.getElementById('previous').onclick = function () {
 						setOperations();
-						window.location.href = '/service-period-1?period=' + urlParameter('period');
+						window.location.href = '/auth/service-period-1?period=' + urlParameter('period');
 					}
 
 					document.getElementById('cancel').onclick = function () {
@@ -248,7 +248,7 @@
 					};
 
 					document.getElementById('modal-ok').onclick = function () {
-						window.location.href = '/profile-history?continue=true';
+						window.location.href = '/auth/profile-history?continue=true';
 					};
 
 					document.getElementById('modal-cancel').onclick = function () {

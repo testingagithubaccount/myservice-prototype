@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width" name="viewport">
   <title>Home | MyService</title>
-  <link href="docs/css/main.css" rel="stylesheet">
+  <link href="/docs/css/main.css" rel="stylesheet">
 </head>
 
 <body class="uikit-body uikit-grid uikit-refactor">
@@ -36,14 +36,14 @@
                     <img src="../../../docs/images/ico-claims.svg" alt="">Claim activity
                   </span>
                   <span class="widget-actions floated">
-                    <button class="uikit-btn small widget-btn" onclick="window.location.href = '/claims'">Make a claim</button>
+                    <button class="uikit-btn small widget-btn" onclick="window.location.href = '/auth/claim/pages/claims'">Make a claim</button>
                   </span>
                 </h2>
               </div>
               <div class="row widget-content">
                 <div class="col-md-12 widget--noclaims">
                   <p id="no-claims" class="text-fullwidth">Making a claim is the first step to accessing entitlements.
-                    <a href="/claims">Add a claim</a>
+                    <a href="/auth/claim/pages/claims">Add a claim</a>
                   </p>
 
                   <table id="claims" class="table-claims table-responsive">
@@ -64,7 +64,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'qs-claimdetail'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewQSClaimDetail'">View</button>
                       </td>
                     </tr>
                     <tr id="lsq-claim">
@@ -78,7 +78,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'pi-lsq-start'">Resume</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/pi-lsq-start'">Resume</button>
                       </td>
                     </tr>
                     <tr id="lsq-claim-submitted">
@@ -92,7 +92,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'viewPI-LSQ-detail'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewPI-LSQ-detail'">View</button>
                       </td>
                     </tr>
                     <tr id="nlhc-claim-approved">
@@ -106,7 +106,7 @@
                         </p>
                       </td>
                       <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'viewNLHCClaimDetail'">View</button>
+                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'auth/claim/pages/viewNLHCClaimDetail'">View</button>
                       </td>
                     </tr>
                   </table>
@@ -126,7 +126,7 @@
 
 
               <div class="flex-item flex-item--centred card card--medium hover-element" id="nlhc-access">
-                <a href="/nlhc-start">
+                <a href="/auth/claim/pages/nlhc-start">
                   <figure>
                     <img class="card__image" src="../../../docs/images/ico-db-treatment.svg" alt="">
                   </figure>
@@ -139,7 +139,7 @@
               </div>
 
               <div class="flex-item flex-item--centred card card--medium hover-element">
-                <a href="/profile">
+                <a href="/auth/profile">
                   <figure>
                     <img class="card__image" src="../../../docs/images/ico-db-profile.svg" alt="">
                   </figure>

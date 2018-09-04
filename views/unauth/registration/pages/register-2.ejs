@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width" name="viewport">
   <title>Register: Personal details | MyService</title>
-  <link href="docs/css/main.css" rel="stylesheet">
+  <link href="/docs/css/main.css" rel="stylesheet">
 </head>
 
 <body class="uikit-body uikit-grid uikit-refactor">
@@ -160,7 +160,7 @@
 
 
               <div class="pagination">
-                <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = 'register'">Previous</button>
+                <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = unauth/registration/pages/register'">Previous</button>
                 <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '#open-cancelrego-modal'">Cancel registration</button>
                 <button class="uikit-btn floated btnNext">Next</button>
               </div>
@@ -234,11 +234,11 @@
               localStorage.myEmail = $('#email').val();
 
               if ("neverserved" in sessionStorage) {
-                location.href = '/register-7';
+                location.href = '/unauth/registration/pages/register-7';
               } else if ("formerserving" in sessionStorage && "2poi" in sessionStorage) {
-                location.href = '/register-7';
+                location.href = '/unauth/registration/pages/register-7';
               } else {
-                location.href = '/register-3';
+                location.href = '/unauth/registration/pages/register-3';
               }
             });
 

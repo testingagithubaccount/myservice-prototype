@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width" name="viewport">
   <title>Add claim: Permanent Impairment | MyService</title>
-  <link href="docs/css/main.css" rel="stylesheet">
+  <link href="/docs/css/main.css" rel="stylesheet">
 </head>
 
 <body class="uikit-body uikit-grid uikit-refactor">
@@ -110,8 +110,8 @@
                     </div> -->
 
                     <div class="pagination pagination--ss-reverse-order">
-                      <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/pi-lsq-pilot'">Previous</button>
-                      <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/claims'">Back to Claims</button>
+                      <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/claim/pages/pi-lsq-pilot'">Previous</button>
+                      <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/claim/pages/claims'">Back to Claims</button>
                       <div class="floated">
                         <button class="uikit-btn btnNext" id="btnNext">Save and next</button>
                       </div>
@@ -138,7 +138,7 @@
 
 
               $(Document).ready(function () {
-                $("#btnNext").click(function () { window.location.href = "/pi-lsq-claim1" });
+                $("#btnNext").click(function () { window.location.href = "/auth/claim/pages/pi-lsq-claim1" });
 
                 $("#getstarted-btn").click(function () {
                   $(".transition-content").toggleClass("transition-content--open");
@@ -158,7 +158,7 @@
                 $("#lsq-pathway-dvadoit").click(function () {
                   $("#lsq-pathway-tellstory--info").hide();
                   $("#save-and-next").show();
-                  $("#btnNext").click(function () { window.location.href = "/pi-lsq-claim6b" });
+                  $("#btnNext").click(function () { window.location.href = "/auth/claim/pages/pi-lsq-claim6b" });
                 });
               });
             </script>

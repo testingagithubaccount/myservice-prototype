@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width" name="viewport">
   <title>My profile | MyService</title>
-  <link href="docs/css/main.css" rel="stylesheet">
+  <link href="/docs/css/main.css" rel="stylesheet">
 </head>
 
 <body class="uikit-body uikit-grid uikit-refactor">
@@ -352,7 +352,7 @@
           </div>
 
           <div class="pagination">
-            <button class="uikit-btn btnNext" onclick="window.location.href = '/auth'">Save and next</button>
+            <button class="uikit-btn btnNext" onclick="window.location.href = '/auth/index'">Save and next</button>
           </div>
         </div>
       </section>
@@ -369,7 +369,7 @@
           $(".btnEditPostal").hide();
         });
         $(".btnCancelAddress").click(function () {
-          window.location.href = '/verify-details';
+          window.location.href = '/auth/verify-details';
         });
 
 

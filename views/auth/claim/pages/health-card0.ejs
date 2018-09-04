@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width" name="viewport">
 	<title>NLHC Eligibilty | MyService</title>
-	<link href="docs/css/main.css" rel="stylesheet">
+	<link href="/docs/css/main.css" rel="stylesheet">
 </head>
 
 <body class="uikit-body uikit-grid uikit-refactor">
@@ -166,7 +166,7 @@
 					</div>
 
 					<div class="pagination">
-						<button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth'">Previous</button>
+						<button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/index'">Previous</button>
 						<button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '#open-modal'">Cancel request</button>
 						<div class="floated">
 							<button class="uikit-btn" id="next">Next</button>
@@ -198,11 +198,11 @@
 									}
 								})
 								if (buttonon) {
-									window.location.href = "/health-card-blocker";
+									window.location.href = "/auth/claim/pages/health-card-blocker";
 									return
 								}
 							}
-							window.location.href = "/health-card1";
+							window.location.href = "/auth/claim/pages/health-card1";
 						});
 
 

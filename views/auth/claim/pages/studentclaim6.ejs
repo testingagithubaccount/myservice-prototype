@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width" name="viewport">
   <title>Add claim: Review and submit | MyService</title>
-  <link href="docs/css/main.css" rel="stylesheet">
+  <link href="/docs/css/main.css" rel="stylesheet">
   <style>
     .hide-fields>div {
       display: none;
@@ -42,7 +42,7 @@
 
                   <div class="uikit-page-alerts uikit-page-alerts--error">
                     <p>Due to a system error your documents did not submit. Please
-                      <a href="/updateClaimInProgress">upload and submit these documents again</a>. We apologise for the inconvenience.</p>
+                      <a href="/auth/claim/pages/updateClaimInProgress">upload and submit these documents again</a>. We apologise for the inconvenience.</p>
                   </div>
 
                   <div class="margin-below--extra">
@@ -70,9 +70,9 @@
                   </div>
 
                   <div class="pagination">
-                    <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/studentpreeligibility'">Start another claim</button>
-                    <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/claims'">See your claims</button>
-                    <button class="uikit-btn floated" onclick="window.location.href = '/updateClaimInProgress'">Upload documents again</button>
+                    <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/claim/pages/studentpreeligibility'">Start another claim</button>
+                    <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/claim/pages/claims'">See your claims</button>
+                    <button class="uikit-btn floated" onclick="window.location.href = '/auth/claim/pages/updateClaimInProgress'">Upload documents again</button>
 
                   </div>
                 </div>

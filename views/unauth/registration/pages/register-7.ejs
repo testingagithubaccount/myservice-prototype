@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width" name="viewport">
   <title>Register: Personal details | MyService</title>
-  <link href="docs/css/main.css" rel="stylesheet">
+  <link href="/docs/css/main.css" rel="stylesheet">
 </head>
 
 <body class="uikit-body uikit-grid uikit-refactor">
@@ -46,7 +46,7 @@
                     <% include ../../../global/partials/address-residential.ejs %>
                   </div>
                   <div class="pagination">
-                    <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = 'register-2'">Previous</button>
+                    <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = 'unauth/registration/pages/register-2'">Previous</button>
                     <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '#open-cancelrego-modal'">Cancel registration</button>
                     <button class="uikit-btn floated btnNext">Next</button>
                   </div>
@@ -69,7 +69,7 @@
 
             // Next button
             $('.btnNext').click(function () {
-              location.href = '/register-3';
+              location.href = '/unauth/registration/pages/register-3';
             });
           </script>
 </body>
