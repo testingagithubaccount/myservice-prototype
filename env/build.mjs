@@ -23,24 +23,24 @@ const CONFIGURATION = {
 	serverPort: 5000,
 	tasks: {
 		js: {
-			entryPoints: 'src/js/**/*.js',
-			ouptputDirectory: 'docs/js',
-			watch: 'src/js/**/*.js',
+			entryPoints: 'src/js/**/*.?(m)js',
+			ouptputDirectory: 'js',
+			watch: 'src/js/**/*.?(m)js',
 		},
 		sass: {
 			entryPoints: ['src/sass/main.scss', 'src/sass/myaccount.scss'],
-			ouptputDirectory: 'docs/css',
-			watch: 'src/sass/**/*',
+			ouptputDirectory: 'css',
+			watch: 'src/sass/**/*.?(s)css',
 		},
 		svgs: {
 			entryPoints: 'src/images/**/*.svg',
-			ouptputDirectory: 'docs/images',
+			ouptputDirectory: 'images',
 			watch: 'src/images/**/*.svg',
 		},
 		images: {
 			entryPoints: 'src/images/**/*.@(jpg|gif|png)',
-			ouptputDirectory: 'docs/images',
-			watch: 'src/images/**/*.@(jpg|gif|png)',
+			ouptputDirectory: 'images',
+			watch: 'src/images/**/*.@(jpg|jpeg|gif|png)',
 		},
 	},
 }
