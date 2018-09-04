@@ -25,22 +25,22 @@ const CONFIGURATION = {
 		js: {
 			entryPoints: 'src/js/**/*.?(m)js',
 			ouptputDirectory: 'js',
-			watch: 'src/js/**/*.?(m)js',
+			watch: 'js/**/*.?(m)js',
 		},
 		sass: {
 			entryPoints: ['src/sass/main.scss', 'src/sass/myaccount.scss'],
 			ouptputDirectory: 'css',
-			watch: 'src/sass/**/*.?(s)css',
+			watch: 'sass/**/*.?(s)css',
 		},
 		svgs: {
 			entryPoints: 'src/images/**/*.svg',
 			ouptputDirectory: 'images',
-			watch: 'src/images/**/*.svg',
+			watch: 'images/**/*.svg',
 		},
 		images: {
 			entryPoints: 'src/images/**/*.@(jpg|gif|png)',
 			ouptputDirectory: 'images',
-			watch: 'src/images/**/*.@(jpg|jpeg|gif|png)',
+			watch: 'images/**/*.@(jpg|jpeg|gif|png)',
 		},
 	},
 }
@@ -133,22 +133,22 @@ const tasks = {
 			.then(() => {
 				console.log('Watching', absolutePath)
 
-				fs.watch(absolutePath, { recursive: true }, (pEvent, pFileName) => {
-					console.log(pEvent, pFileName)
+				fs.watch(absolutePath, { recursive: true }, (pEvent, pFilePath) => {
+					console.log(pEvent, path.join(absolutePath, pFilePath))
 
-					const tasks = Object.keys(CONFIGURATION.tasks).reduce((pAccumulator, pKey) => {
+					const keys = Object.keys(CONFIGURATION.tasks).reduce((pAccumulator, pKey) => {
 						const tasks = pAccumulator.slice(0)
 						const task = CONFIGURATION.tasks[pKey]
 
-						if (minimatch(pFileName, task.watch)) {
+						if (minimatch(pFilePath, task.watch)) {
 							tasks.push(pKey)
 						}
 
 						return tasks
 					}, [])
 
-					tasks.forEach(pTask => {
-						tasks[pTask]()
+					keys.forEach(pKey => {
+						tasks[pKey]()
 					})
 				})
 			})
