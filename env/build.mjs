@@ -24,22 +24,22 @@ const CONFIGURATION = {
 	tasks: {
 		js: {
 			entryPoints: 'src/js/**/*.js',
-			ouptputDirectory: 'js',
+			ouptputDirectory: 'docs/js',
 			watch: 'src/js/**/*.js',
 		},
 		sass: {
 			entryPoints: ['src/sass/main.scss', 'src/sass/myaccount.scss'],
-			ouptputDirectory: 'sass',
+			ouptputDirectory: 'docs/css',
 			watch: 'src/sass/**/*',
 		},
 		svgs: {
 			entryPoints: 'src/images/**/*.svg',
-			ouptputDirectory: 'images',
+			ouptputDirectory: 'docs/images',
 			watch: 'src/images/**/*.svg',
 		},
 		images: {
 			entryPoints: 'src/images/**/*.@(jpg|gif|png)',
-			ouptputDirectory: 'images',
+			ouptputDirectory: 'docs/images',
 			watch: 'src/images/**/*.@(jpg|gif|png)',
 		},
 	},
