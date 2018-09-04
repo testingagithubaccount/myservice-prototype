@@ -182,16 +182,214 @@
               }
             });
           </script>
+<script>
+$(document).ready(function() {
+  initStudents();
+  initFlow();
+
+  window.Person = function() {
+    // how many times is the called
+    this.i = 0;
+
+    this.studentAge;
+    this.studentNameFirst;
+    this.docsRequired = [];
+
+    // privileged init method
+    this.init();
+  }
+
+  // defining init method
+  Person.prototype.init = function () {
+    // reassign this
+    var _this = this;
+    _this.checkDocs();
+    setInterval(function () {
+      _this.checkDocs();
+    }, 1500);
+  }
+
+  Person.prototype.checkDocs = function () {
+    this.i++;
+
+    // check type of person 
+    if (("studentFlow" in localStorage) || ("veteranFlow" in localStorage) || ("claimantFlow" in localStorage)) {
+
+      if ("studentFlow" in localStorage) {
+        this.type = 'student';
+      } else if ("veteranFlow" in localStorage) {
+        this.type = 'veteran';
+      } else if ("claimantFlow" in localStorage) {
+        this.type = 'claimant';
+      }
+    }
+
+    // Proof of relationship 
+    if ("veteranFlow" in localStorage) {
+      if ((localStorage.getItem('studentNameFirst') !== null) && (localStorage.getItem('studentNameLast') !== null)) {
+        initStudents();
+        this.docsRequired.indexOf("proofOfRelationshipClaimantStudent") === -1 ? this.docsRequired.push("proofOfRelationshipClaimantStudent") : console.log();
+      } else {
+        var i = this.docsRequired.indexOf("proofOfRelationshipClaimantStudent");
+        if (i != -1) {
+          this.docsRequired.splice(i, 1);
+          $('.pt-proofOfRelationshipClaimantStudent').addClass('display-none');
+        }
+      }
+    } else if ("studentFlow" in localStorage) {
+      if ((localStorage.getItem('veteranNameFirst') !== null) && (localStorage.getItem('veteranNameLast') !== null)) {
+        this.docsRequired.indexOf("proofOfRelationship") === -1 ? this.docsRequired.push("proofOfRelationship") : console.log();
+      } else {
+        var i = this.docsRequired.indexOf("proofOfRelationship");
+        if (i != -1) {
+          this.docsRequired.splice(i, 1);
+          $('.pt-proofOfRelationship').addClass('display-none');
+        }
+      }
+    } else if ("claimantFlow" in localStorage) {
+      if ((localStorage.getItem('veteranNameFirst') !== null) && (localStorage.getItem('veteranNameLast') !== null) && (localStorage.getItem('studentNameFirst') !== null) && (localStorage.getItem('studentNameLast') !== null)) {
+        initStudents();
+        if ((localStorage.getItem('veteranNameFirst') !== null) && (localStorage.getItem('veteranNameLast') !== null)) {
+          this.docsRequired.indexOf("proofOfRelationshipVeteranStudent") === -1 ? this.docsRequired.push("proofOfRelationshipVeteranStudent") : console.log();
+        } else {
+          var i = this.docsRequired.indexOf("proofOfRelationshipVeteranStudent");
+          if (i != -1) {
+            this.docsRequired.splice(i, 1);
+            $('.pt-proofOfRelationshipVeteranStudent').addClass('display-none');
+          }
+        }
+
+        if ((localStorage.getItem('studentNameFirst') !== null) && (localStorage.getItem('studentNameLast') !== null)) {
+          this.docsRequired.indexOf("proofOfRelationshipClaimantStudent") === -1 ? this.docsRequired.push("proofOfRelationshipClaimantStudent") : console.log();
+        } else {
+          var i = this.docsRequired.indexOf("proofOfRelationshipClaimantStudent");
+          if (i != -1) {
+            this.docsRequired.splice(i, 1);
+            $('.pt-proofOfRelationshipClaimantStudent').addClass('display-none');
+          }
+        }
+      }
+    }
 
 
+    // Proof of enrolment 
+    if ("enrolStatus" in localStorage) {
+      this.docsRequired.indexOf("proofOfEnrolment") === -1 ? this.docsRequired.push("proofOfEnrolment") : console.log();
+    } else {
 
-            // Progress percentage // document.getElementById("percentage ").style.width ="75% "; // document.getElementById("percentage").style.width = "80% ";
+      var i = this.docsRequired.indexOf("proofOfEnrolment");
+      if (i != -1) {
+        this.docsRequired.splice(i, 1);
+        $('.pt-proofOfEnrolment').addClass('display-none');
+      }
+    }
 
+    // Proof of residence 
+    if (localStorage.getItem('studentLivingLocation') === 'away-from-home') {
+      this.docsRequired.indexOf("proofOfResidence") === -1 ? this.docsRequired.push("proofOfResidence") : console.log();
+    } else {
+      var i = this.docsRequired.indexOf("proofOfResidence");
+      if (i != -1) {
+        this.docsRequired.splice(i, 1);
+        $('.pt-proofOfResidence').addClass('display-none');
+      }
+    }
 
+    // Part-time study reason 
+    if ((localStorage.getItem('studentLoadOfStudy') === 'part-time')) {
+      this.docsRequired.indexOf("partTimeStudyReason") === -1 ? this.docsRequired.push("partTimeStudyReason") : console.log();
+    } else {
+      var i = this.docsRequired.indexOf("partTimeStudyReason");
+      if (i != -1) {
+        this.docsRequired.splice(i, 1);
+        $('.pt-partTimeStudyReason').addClass('display-none');
+      }
+    }
 
+    // show all required docs 
+    if (this.docsRequired.length > 0) {
+      jQuery(".pt-showIfDocumentUploadShoppingCart").show();
+      $.each(this.docsRequired, function () {
+        $('.pt-' + this).removeClass('display-none');
+      });
+    }
+  };
 
-            </script>
+  // create a new person
+  var counter = new Person();
 
+  $('.pt-studentAge--mature').hide();
+  $('.pt-showIfEducationAllowanceTaxed').hide();
+  $('.pt-showIfEducationAllowanceNotTaxed').hide();
+  $('.pt-showIfCarePercentageLow').hide();
+  $('.pt-showIfCarePercentageHigh').hide();
+  $('.bank-details-container').hide();
+  $('.pt-showIfNoStudentTFN').hide();
+  $('.pt-showIfStudentTFN').hide();
+  $('.pt-studentFinancialPermission').hide();
+
+  // if student 16 or 17 ask for TFN
+  if (("claimantFlow" in localStorage) || ("veteranFlow" in localStorage)) {
+    if ((localStorage.getItem('studentAge') <= 18) && (localStorage.getItem('studentAge') > 15)) {
+      $(".pt-showIfStudentBetween16and18").show();
+
+    } else {
+      $(".pt-showIfStudentBetween16and18").hide();
+    }
+  }
+
+  if (("studentFlow" in localStorage)) {
+    if ((localStorage.getItem('studentAge') < 18) && (localStorage.getItem('studentAge') > 15)) {
+      $('.pt-studentFinancialPermission').show();
+    }
+  }
+
+  if (localStorage.getItem('studentAge') > 15) {
+    $('.pt-studentAge--mature').show();
+  }
+
+  $('input[name=educationAllowanceTaxed]').change(function () {
+    if ($('input[name=educationAllowanceTaxed]:checked').val() === 'yes') {
+      $(".pt-showIfEducationAllowanceTaxed").show();
+      $('.pt-showIfEducationAllowanceNotTaxed').hide();
+    } else {
+      $(".pt-showIfEducationAllowanceTaxed").hide();
+      $('.pt-showIfEducationAllowanceNotTaxed').show('fast');
+    }
+  });
+
+  // bank details button function
+  $("#btnAddBank").click(function () {
+    $(".bank-details-container").show("fast");
+    $("#btnAddBank-box").hide();
+    $("#bankoptional").hide();
+    $("#btnCancelBank").show();
+    $("#bank-name").focus();
+  });
+  $("#btnCancelBank").click(function () {
+    $(".bank-details-container").hide("fast");
+    $("#btnCancelBank").hide();
+    $("#bankoptional").show();
+    $("#btnAddBank-box").show();
+  });
+
+  $(".message-close").click(function () {
+    $(".bank-details-container").hide("fast");
+  });
+
+  $('input[name=doesStudentHaveTFN]').change(function () {
+    if ($('input[name=doesStudentHaveTFN]:checked').val() === 'yes') {
+      localStorage.setItem('studentTFN', true);
+      $(".pt-showIfNoStudentTFN").hide();
+      $(".pt-showIfStudentTFN").show();
+    } else {
+      localStorage.setItem('studentTFN', false);
+      localStorage.removeItem('tfn');
+      $(".pt-showIfNoStudentTFN").show('fast');
+      $(".pt-showIfStudentTFN").hide();
+    }
+  });
+});
+</script>
 </body>
-
 </html>

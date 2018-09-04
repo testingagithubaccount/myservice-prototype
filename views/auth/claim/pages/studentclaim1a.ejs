@@ -207,13 +207,147 @@
     <script src="/js/students.js"></script>
 
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-      <script>
+<script>
+$(document).ready(function () {
+  initStudents();
+  initFlow();
 
-    // Progress percentage
-    // document.getElementById("percentage").style.width = "20%";
+  $(".pt-showLivingLocation").hide();
+  $(".pt-showIfLivingAwayFromHome").hide();
+  $(".pt-livingWithPartner").hide();
+  if ("claimantFlow" in localStorage) {
+    $(".pt-partneredRelationship").hide();
+  }
 
-      </script>
+  $("#firstName").focusout(function () {
+    if ($(this).val()) {
+      localStorage.removeItem('studentNameFirst');
+      localStorage.setItem('studentNameFirst', $(this).val());
+    } else {
+      localStorage.removeItem('studentNameFirst');
+    }
+  });
 
+  $("#lastName").focusout(function () {
+    if ($(this).val()) {
+      localStorage.removeItem('studentNameLast');
+      localStorage.setItem('studentNameLast', $(this).val());
+    } else {
+      localStorage.removeItem('studentNameLast');
+    }
+  });
+
+  $('input[name=gender]').change(function () {
+    if (localStorage.getItem('studentAge') > 15) {
+      $(".pt-partneredRelationship").show();
+    }
+    else {
+      $(".pt-showLivingLocation").show();
+    }
+  });
+
+  $('input[name=studentPartneredRelationship]').change(function () {
+    $(".pt-showLivingLocation").show();
+  });
+
+  $('input[name=studentLivingLocation]').change(function () {
+    if ($('input[name=studentLivingLocation]:checked').val() === 'homeless') {
+      localStorage.removeItem('studentLivingLocation');
+      localStorage.setItem('studentLivingLocation', 'homeless');
+      $(".pt-final-toggle").hide();
+      $(".pt-livingWithPartner").hide();
+    } else if ($('input[name=studentLivingLocation]:checked').val() === 'at-home') {
+      localStorage.removeItem('studentLivingLocation');
+      localStorage.setItem('studentLivingLocation', 'at-home');
+      $(".pt-livingWithPartner").hide();
+      $(".pt-final-toggle").hide();
+    } else if ($('input[name=studentLivingLocation]:checked').val() === 'away-from-home') {
+      localStorage.removeItem('studentLivingLocation');
+      localStorage.setItem('studentLivingLocation', 'away-from-home');
+    } else {
+      localStorage.removeItem('studentLivingLocation');
+    }
+
+    if ($('input[name=studentLivingLocation]:checked').val() === 'away-from-home') {
+      $(".pt-showIfLivingAwayFromHome").show();
+    } else {
+      $(".pt-showIfLivingAwayFromHome").hide();
+    }
+
+    if ($('input[name=studentLivingLocation]:checked').val() === 'homeless') {
+      // skip the living arrangement details 
+      $('.btnNext').prop('onclick', null);
+      $('.btnNext').click(function () {
+        window.location.href = 'studentclaim3';
+      });
+    } else if (($('input[name=studentLivingLocation]:checked').val() === 'at-home')) {
+      if ("studentFlow" in localStorage) {
+        // skip the living arrangement details 
+        $('.btnNext').prop('onclick', null);
+        $('.btnNext').click(function () {
+          window.location.href = 'studentclaim3';
+        });
+      } else {
+        $('.btnNext').prop('onclick', null);
+        $('.btnNext').click(function () {
+          window.location.href = 'studentclaim2';
+        });
+      }
+    } else {
+      $('.btnNext').prop('onclick', null);
+      $('.btnNext').click(function () {
+        window.location.href = 'studentclaim2';
+      });
+    }
+  });
+
+  $('input[name=studentLivingAwayValidReason]').change(function () {
+    if ($('input[name=studentLivingAwayValidReason]:checked').val() === 'yes' &&
+      $('input[name=studentPartneredRelationship]:checked').val() === 'yes') {
+      $(".pt-livingWithPartner").show();
+      localStorage.removeItem('studentLivingAwayValidReason');
+      localStorage.removeItem('studentLivingLocation');
+      localStorage.setItem('studentLivingLocation', 'away-from-home');
+      localStorage.setItem('studentLivingAwayValidReason', true);
+    } else if ($('input[name=studentLivingAwayValidReason]:checked').val() === 'yes') {
+      localStorage.removeItem('studentLivingAwayValidReason');
+      localStorage.removeItem('studentLivingLocation');
+      localStorage.setItem('studentLivingLocation', 'away-from-home');
+      localStorage.setItem('studentLivingAwayValidReason', true);
+      $(".pt-final-toggle").show();
+    } else {
+      localStorage.removeItem('studentLivingAwayValidReason');
+      localStorage.removeItem('studentLivingLocation');
+      localStorage.setItem('studentLivingLocation', 'at-home');
+      $(".pt-livingWithPartner").hide();
+      $(".pt-final-toggle").show();
+    }
+  });
+
+  $('input[name=studentPartneredRelationship]').change(function () {
+    $(".pt-showLivingLocation").show();
+
+    if ($('input[name=studentPartneredRelationship]:checked').val() === 'yes') {
+      localStorage.removeItem('studentPartneredRelationship');
+      localStorage.setItem('studentPartneredRelationship', 'yes');
+    } else {
+      localStorage.removeItem('studentPartneredRelationship');
+      localStorage.setItem('studentPartneredRelationship', 'no');
+      $(".pt-studentLivingSameAddress").hide();
+    }
+  });
+
+  $('input[name=studentLivingWithPartner]').change(function () {
+    $(".pt-final-toggle").show();
+    if ($('input[name=studentLivingWithPartner]:checked').val() === 'yes') {
+      localStorage.removeItem('studentLivingWithPartner');
+      localStorage.setItem('studentLivingWithPartner', 'yes');
+    } else {
+      localStorage.removeItem('studentLivingWithPartner');
+      localStorage.setItem('studentLivingWithPartner', 'no');
+    }
+  });
+});
+</script>
 </body>
-
 </html>

@@ -81,22 +81,19 @@
           <script src="/js/students.js "></script>
 
 
-            <script>
+<script>
+$("#btnAddContact").click(function () {
+  $("#additionalContactOptional").hide();
+  $(".bank-details-container").show("fast");
+});
+$("#btnCancelContact").click(function () {
+  $(".bank-details-container").hide("fast");
+  $("#additionalContactOptional").show("fast");
+});
 
-              // Progress percentage
-              // document.getElementById("percentage ").style.width ="75% ";
-              // document.getElementById("percentage ").style.width = "80% ";
-
-
-              $("#btnAddContact").click(function () {
-                $("#additionalContactOptional").hide();
-                $(".bank-details-container").show("fast");
-              });
-              $("#btnCancelContact").click(function () {
-                $(".bank-details-container").hide("fast");
-                $("#additionalContactOptional").show("fast");
-              });
-            </script>
+initStudents();
+initFlow();
+</script>
 </body>
 
 </html>

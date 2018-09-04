@@ -295,12 +295,391 @@
 
 				<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-				<script>
-              // Progress percentage
-              // document.getElementById("percentage").style.width = "20%";
-				</script>
+<script>
+$(document).ready(function() {
+	localStorage.clear();
+
+	var flow = getUrlParameter('flow');
+	var age = getUrlParameter('studentAge');
+	var docUploads = getUrlParameter('docUploads');
+	var act = getUrlParameter('act');
+
+	if (flow) {
+		localStorage.setItem(flow, true);
+		localStorage.setItem('flow', flow);
+		if (age) {
+		localStorage.setItem('studentAge', age);
+		}
+		if (docUploads) {
+		localStorage.setItem('docUploads', docUploads);
+		} else { // setting all flows to shopping card uploads by default 
+		localStorage.setItem('docUploads', 'shopping');
+		}
+		if (act) {
+		localStorage.setItem('act', act);
+		} else { // setting everyone to mrca if not specified 
+		localStorage.setItem('act', 'mrca');
+		}
+	} else {
+		// alert('The prototype requires a flow and age in the url string e.g.  ' + location.protocol + '//' + location.host + location.pathname + '?flow=studentFlow&studentAge=10')
+	}
+
+	if (flow !== (localStorage.getItem('flow'))) {
+		window.location.reload(true);
+	}
+
+	initStudents();
+
+	if ("veteranFlow" in localStorage) {
+		$(".pt-flow--veteran").show();
+	}
+
+	if ("studentFlow" in localStorage) {
+		$(".pt-flow--student").show();
+	}
+
+	if ("claimantFlow" in localStorage) {
+		$(".pt-flow--claimant").show();
+	}
+
+	function init() {
+		$(".pt-showIfStudentShouldClaimThemselves").hide();
+		$(".pt-showIfStudentUnder18").hide();
+		$(".pt-showIfCentrelinkCustomer").hide();
+		$(".pt-showIfYourFTB").hide();
+		$(".pt-showIfSomeoneElseFTB").hide();
+		$(".pt-showIfNoFTB").hide();
+		$(".pt-showIfStudentBetween16and18").hide();
+		$(".pt-showIfStudentUnder0").hide();
+		$(".pt-showIfNoTFN").hide();
+		$(".pt-showFTBIsBest").hide();
+		$('.pt-showIfMRCA').hide();
+		$(".pt-showIfStudentFullTimeAndMRCA").hide();
+		$(".pt-vetShowIfStudentFullTimeAndMRCA").hide();
+		$(".pt-showIfStudentConfirmed").hide();
+		$('.pt-showIfEngagedInFullTimeEmployment').hide();
+		$(".pt-showIfStudentDependantOnVeteran").hide();
+		$('.pt-showIfRelationshipValid').hide();
+		$('.pt-studentFullTime').hide();
+		$('.pt-showIfStudentCantClaim').hide();
+		$('.pt-showIfStudentNotDependant').hide();
+		$('.pt-aboutYou').hide();
+		$('.pt-studentOver25').hide();
+		$('.pt-studentTooyoung').hide();
+		$('.pt-VeteranRelationshipToStudent').hide();
+		$(".pt-StudentRelationshipToVeteran").hide();
+		$(".pt-StudentRelationshipToClaimant").hide();
+	}
+
+	function resetForm($form) {
+		$('input[type=radio]:checked').not('input[type=radio][name=confirmStudentOrClaimant]').prop('checked', false);
+	}
+
+	init();
+
+	$('input[name=fTBYou]').change(function () {
+		if ($('input[name=fTBYou]:checked').val() === 'yes') {
+
+		$(".pt-showIfYourFTB").show();
+		$(".pt-showIfSomeoneElseFTB").hide();
+		$(".pt-showIfCentrelinkCustomer").show();
+		localStorage.removeItem('veteranReceivesFTB');
+		localStorage.setItem('veteranReceivesFTB', true);
+
+		if (("veteranFlow" in localStorage) || ("claimantFlow" in localStorage)) {
+			if ((localStorage.getItem('studentAge') <= 18) && (localStorage.getItem('studentAge') > 15)) {
+			$(".pt-showFTBIsBest").show();
 
 
+			}
+		}
+		if (("veteranFlow" in localStorage)) {
+			if ((localStorage.getItem('studentAge') <= 18) && (localStorage.getItem('studentAge') > 15)) {
+
+			$(".pt-vetStudentEngagedInFullTimeEmployment").show();
+
+			}
+		}
+		if (!("claimantFlow" in localStorage)) {
+			// if student 16 or 17 ask for TFN
+			if ((localStorage.getItem('studentAge') <= 18) && (localStorage.getItem('studentAge') > 15)) {
+			$(".pt-showIfStudentBetween16and18").show();
+
+			} else {
+			$(".pt-showIfStudentBetween16and18").hide();
+			}
+		}
+
+		} else {
+		$(".pt-showIfYourFTB").hide();
+		$(".pt-showIfSomeoneElseFTB").show();
+		$(".pt-showIfCentrelinkCustomer").hide();
+		localStorage.removeItem('veteranReceivesFTB');
+		localStorage.setItem('veteranReceivesFTB', false);
+		}
+	});
+
+	$('input[name=fTBSomeoneElse]').change(function () {
+		if ($('input[name=fTBSomeoneElse]:checked').val() === 'yes') {
+
+		$(".pt-showIfNoFTB").show();
+		} else {
+		$(".pt-showIfNoFTB").hide();
+		$(".pt-showIfCentrelinkCustomer").hide();
+
+		// if student 16 or 17 ask for TFN
+		if (!("claimantFlow" in localStorage)) {
+			if ((localStorage.getItem('studentAge') <= 18) && (localStorage.getItem('studentAge') > 15)) {
+			$(".pt-showIfStudentBetween16and18").show();
+			} else {
+			$(".pt-showIfStudentBetween16and18").hide();
+			}
+		}
+		if ("veteranFlow" in localStorage) {
+			if ((localStorage.getItem('studentAge') < 18) && (localStorage.getItem('studentAge') > 15)) {
+			$(".pt-vetStudentEngagedInFullTimeEmployment").show();
+			}
+		}
+		}
+	});
+
+	$('input[name=engagedInFullTimeEmployment]').change(function () {
+		if ($('input[name=engagedInFullTimeEmployment]:checked').val() === 'yes') {
+		if (("veteranFlow" in localStorage)) {
+			$(".pt-vetShowIfStudentFullTimeAndMRCA").show();
+
+		} else {
+			$(".pt-showIfStudentFullTimeAndMRCA").show();
+		}
+		} else {
+		$(".pt-vetShowIfStudentFullTimeAndMRCA").hide();
+		$(".pt-showIfStudentFullTimeAndMRCA").hide();
+		$(".pt-StudentRelationshipToVeteran").show();
+		}
+		if (("veteranFlow" in localStorage)) {
+		$(".pt-final-toggle").show();
+		}
+	});
+
+	// Calculate student age
+	$(".pt-student-dob > :input").keyup(function () {
+		var dobDay = $("#dd-date").val();
+		var dobMonth = $("#mm-date").val();
+		var dobYear = $("#yyyy-date").val();
+
+		// if a valid date
+		if (dobDay && dobMonth && (dobYear.length === 4)) {
+
+
+
+		if (dobDay.length === 1) {
+			dobDay = "0" + dobDay;
+		}
+		if (dobMonth.length === 1) {
+			dobMonth = "0" + dobMonth;
+		}
+		var dob = dobYear + '-' + dobMonth + '-' + dobDay;
+
+		dob = new Date(dob);
+		var today = new Date();
+		var age = Math.floor((today - dob) / (365.25 * 24 * 60 * 60 * 1000));
+
+		localStorage.removeItem('studentAge');
+		localStorage.setItem('studentAge', age);
+		console.debug('student age: ', age);
+
+		// validation:: older than 5
+		if (localStorage.getItem('studentAge') < 5) {
+			init();
+			resetForm($('#pt-form'));
+			$(".pt-showIfStudentUnder0").show();
+		} else {
+			console.log('student is older than 4');
+			$(".pt-showIfStudentUnder0").hide();
+
+			// veteran and claimant flow only
+			if (("veteranFlow" in localStorage)) {
+
+			// if over 18, suggest student claims on their own 
+			if (localStorage.getItem('studentAge') > 24) {
+				init();
+				$(".pt-showIfStudentCantClaim").show();
+			} else if (localStorage.getItem('studentAge') > 17) {
+
+				init();
+				resetForm($('#pt-form'));
+				$(".pt-showIfStudentShouldClaimThemselves").show();
+				// $(".pt-showIfStudentUnder18").hide();
+			} else {
+				init();
+				$(".pt-showIfStudentShouldClaimThemselves").hide();
+				$(".pt-VeteranRelationshipToStudent").show();
+				$(".pt-StudentRelationshipToVeteran").hide();
+				$(".pt-showIfStudentUnder18").show();
+				// $(".pt-claimantShowIfStudentOver16").show();
+
+			}
+
+			$('input[name=veteranSignificantlyInjured]').change(function () {
+				if ($('input[name=veteranSignificantlyInjured]:checked').val() === 'yes') {
+				$(".pt-showIfStudentNotDependant").show();
+				} else {
+				$(".pt-showIfStudentNotDependant").hide();
+				}
+			});
+			}
+
+			// claimant flow only
+			if ("claimantFlow" in localStorage) {
+			if (localStorage.getItem('studentAge') > 24) {
+				init();
+				$(".pt-showIfStudentCantClaim").show();
+			} else if (localStorage.getItem('studentAge') > 17) {
+				init();
+				$(".pt-showIfStudentShouldClaimThemselves").show();
+				// $(".pt-showIfStudentUnder18").hide();
+			} else if ((localStorage.getItem('studentAge') > 15) && (localStorage.getItem('studentAge') <= 18)) {
+				init();
+				$(".pt-showIfStudentShouldClaimThemselves").hide();
+				$(".pt-claimantShowIfStudentOver16").show();
+
+
+			} else { // under 16
+				init();
+				$(".pt-showIfEngagedInFullTimeEmployment").show();
+				$(".pt-StudentRelationshipToVeteran").show();
+			}
+
+
+			$('input[name=veteranSignificantlyInjured]').change(function () {
+				if ($('input[name=veteranSignificantlyInjured]:checked').val() === 'yes') {
+				$(".pt-showIfStudentUnder18").show();
+				$(".pt-StudentRelationshipToClaimant").show();
+				$(".pt-aboutYou").show();
+				$(".pt-showIfStudentNotDependant").hide();
+				} else {
+				$(".pt-showIfStudentUnder18").hide();
+				$(".pt-aboutYou").hide();
+				$(".pt-showIfStudentNotDependant").show();
+				}
+			});
+
+			}
+		}
+
+		}
+	});
+
+	$("#relationshipToStudent").change(function () {
+
+		var selected_option = $('#relationshipToStudent').val();
+
+		localStorage.removeItem('relationshipType');
+		localStorage.setItem('relationshipType', selected_option);
+
+		if ("claimantFlow" in localStorage) {
+
+		if ((selected_option === 'adoptive-parent') || (selected_option === 'parent')) {
+
+			$('.pt-showIfRelationshipValid').hide();
+			$('#relationshipToStudentOther').hide();
+			$('.pt-showIfStudentDependantOnVeteran').show();
+
+		} else if (selected_option === 'other') {
+			$('#relationshipToStudentOther').show();
+		} else {
+			$('.pt-showIfRelationshipValid').show();
+			$('#relationshipToStudentOther').hide();
+			$('.pt-showIfStudentDependantOnVeteran').hide();
+		}
+
+		} else {
+		if (selected_option === 'other') {
+			$('#relationshipToStudentOther').show();
+		} else {
+			$('#relationshipToStudentOther').hide();
+		}
+		}
+
+	});
+
+	// confirm student or claimant
+	$('input[name=confirmStudentOrClaimant]').change(function () {
+		// localStorage.clear();
+
+
+		if ($('input[name=confirmStudentOrClaimant]:checked').val() === 'guardian') {
+		localStorage.removeItem('studentFlow');
+		localStorage.removeItem('studentFlowConfirmed');
+		localStorage.setItem('claimantFlow', true);
+		localStorage.setItem('claimantFlowConfirmed', true);
+		init();
+
+		$(".pt-student-dob").show();
+
+		initStudents();
+
+		} else if ($('input[name=confirmStudentOrClaimant]:checked').val() === 'student') {
+		localStorage.removeItem('claimantFlowConfirmed');
+		localStorage.removeItem('claimantFlow');
+		localStorage.setItem('studentFlow', true);
+		localStorage.setItem('studentFlowConfirmed', true);
+		init();
+		$(".pt-student-dob").hide();
+		$('.pt-studentFullTime').show();
+		$(".pt-showIfStudentConfirmed").show();
+
+		console.log(localStorage.getItem('studentAge'));
+
+		// Show warning eligibility message if student is over 25.
+		if (localStorage.getItem('studentAge') > 24) {
+			console.log('over 25');
+			$(".pt-studentOver25").show();
+			$(".pt-studentTooyoung").hide();
+			$('.pt-studentFullTime').show();
+			$(".pt-showIfStudentConfirmed").show();
+		}
+
+		// Show error message if student is under 16
+		if (localStorage.getItem('studentAge') < 16) {
+			console.log('under 16');
+			$(".pt-studentTooyoung").show();
+			$('.pt-studentFullTime').hide();
+			$(".pt-showIfStudentConfirmed").hide();
+			$(".pagination").find('.btnNext').prop('disabled', true);
+		}
+
+		initStudents();
+		}
+
+		resetForm($('#pt-form'));
+	});
+
+	$('input[name=engagedInFullTimeEmployment]').change(function () {
+		if ($('input[name=engagedInFullTimeEmployment]:checked').val() === 'yes') {
+
+		} else {
+		if (!("veteranFlow" in localStorage)) {
+
+			$('.pt-showIfEngagedInFullTimeEmployment').show();
+			if (!("claimantFlow" in localStorage)) {
+			$('.pt-showIfRelationshipValid').show();
+			}
+		}
+		}
+	});
+
+	$('input[name=studentDependantOnVeteran]').change(function () {
+		if ($('input[name=studentDependantOnVeteran]:checked').val() === 'yes') {
+		$('.pt-showIfStudentNotDependant').hide();
+		$('.pt-showIfStudentDependantOnVeteran').show();
+		} else {
+
+		$('.pt-showIfStudentNotDependant').show();
+		$('.pt-showIfStudentDependantOnVeteran').hide();
+		}
+	});
+})
+</script>
 </body>
-
 </html>

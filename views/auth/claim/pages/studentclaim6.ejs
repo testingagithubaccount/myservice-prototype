@@ -85,12 +85,27 @@
           <script src="/js/students.js"></script>
 
 
-            <script>
+<script>
+  initStudents();
 
-              // Progress percentage
-              // document.getElementById("percentage").style.width = "100%";
-            </script>
+  $(".pt-showIfNoStudentTFN").hide();
 
+  if (!(localStorage.getItem('studentHasTFN')) && (localStorage.getItem('studentAge') > 15)) {
+    $(".pt-showIfNoStudentTFN").show();
+  }
+
+  var businessDays = 5, counter = 1; // set to 1 to count from next business day
+  while (businessDays > 0) {
+    var tmp = new Date();
+    tmp.setDate(tmp.getDate() + counter++);
+    switch (tmp.getDay()) {
+      case 0: case 6: break;// sunday & saturday
+      default:
+        businessDays--;
+    };
+  }
+
+  document.querySelector(".pt-bussnessDaysOutcome").innerHTML = tmp.toDateString();
+</script>
 </body>
-
 </html>

@@ -235,142 +235,246 @@
           <script src="/js/students.js"></script>
 
 
-            <script src="/js/jquery-ui.min.js"></script>
+<script src="/js/jquery-ui.min.js"></script>
 
-            <script>
-              $(document).ready(function () {
-                $("#studyingCourseSpinner").hide();
-              });
-              // Progress percentage
-              // document.getElementById("percentage").style.width = "40%";
-              $(function () {
+<script>
+  $(document).ready(function () {
+    $("#studyingCourseSpinner").hide();
+  });
+  // Progress percentage
+  // document.getElementById("percentage").style.width = "40%";
+  $(function () {
 
-                var availableInstitutions = [
-                  { label: "AUSTRALIAN CATHOLIC UNIVERSITY (ACU)", category: "" },
-                  { label: "BATCHELOR INSTITUTE OF INDIGENOUS TERTIARY EDUC", category: "" },
-                  { label: "BOND UNIVERSITY", category: "" },
-                  { label: "CARNEGIE MELLON UNIVERSITY AUSTRALIA - CMU", category: "" },
-                  { label: "CHARLES DARWIN UNI - CDU", category: "" },
-                  { label: "CHARLES STURT UNIVERSITY (CSU)", category: "" },
-                  { label: "CQUNIVERSITY (CQU)- HIGHER ED COURSES", category: "" },
-                  { label: "CURTIN UNIVERSITY", category: "" },
-                  { label: "DEAKIN UNIVERSITY", category: "" },
-                  { label: "EDITH COWAN UNIVERSITY (ECU)", category: "" },
-                  { label: "FEDERATION UNIVERSITY - HIGHER ED - FEDUNI", category: "" },
-                  { label: "FLINDERS UNIVERSITY", category: "" },
-                  { label: "GRIFFITH UNIVERSITY (GU)", category: "" },
-                  { label: "JAMES COOK UNIVERSITY (JCU)", category: "" },
-                  { label: "LA TROBE UNIVERSITY", category: "" },
-                  { label: "MACQUARIE UNIVERSITY", category: "" },
-                  { label: "MONASH UNIVERSITY", category: "" },
-                  { label: "MURDOCH UNIVERSITY", category: "" },
-                  { label: "OPEN UNIVERSITIES AUSTRALIA - OUA", category: "" },
-                  { label: "QUEENSLAND UNIVERSITY OF TECHNOLOGY (QUT)", category: "" },
-                  { label: "RMIT UNIVERSITY", category: "" },
-                  { label: "SOUTHERN CROSS UNIVERSITY (SCU)", category: "" },
-                  { label: "SWINBURNE UNIVERSITY OF TECHNOLOGY", category: "" },
-                  { label: "TORRENS UNIVERSITY AUSTRALIA", category: "" },
-                  { label: "UNIVERSITY OF ADELAIDE", category: "" },
-                  { label: "AUSTRALIAN NATIONAL UNIVERSITY (ANU)", category: "" },
-                  { label: "UNIVERSITY OF CANBERRA (UC)", category: "" },
-                  { label: "UNIVERSITY OF MELBOURNE (UNIMELB)", category: "" },
-                  { label: "UNIVERSITY OF NEW ENGLAND (UNE)", category: "" },
-                  { label: "UNIVERSITY OF NEWCASTLE - UON", category: "" },
-                  { label: "UNIVERSITY OF NOTRE DAME AUSTRALIA - UNDA", category: "" },
-                  { label: "UNIVERSITY OF NSW - UNSW", category: "" },
-                  { label: "UNIVERSITY OF QUEENSLAND (UQ)", category: "" },
-                  { label: "UNIVERSITY OF SOUTH AUSTRALIA (UNISA)", category: "" },
-                  { label: "UNIVERSITY OF SOUTHERN QUEENSLAND (USQ)", category: "" },
-                  { label: "UNIVERSITY OF SYDNEY", category: "" },
-                  { label: "UNIVERSITY OF TASMANIA (UTAS)", category: "" },
-                  { label: "UNIVERSITY OF TECHNOLOGY SYDNEY (UTS)", category: "" },
-                  { label: "UNIVERSITY OF THE SUNSHINE COAST (USC)", category: "" },
-                  { label: "UNIVERSITY OF WESTERN AUSTRALIA (UWA)", category: "" },
-                  { label: "UNIVERSITY OF WOLLONGONG (UOW)", category: "" },
-                  { label: "VICTORIA UNIVERSITY - HIGHER ED - VU", category: "" },
-                  { label: "WESTERN SYDNEY UNIVERSITY (WSU)", category: "" }
-                ];
+    var availableInstitutions = [
+      { label: "AUSTRALIAN CATHOLIC UNIVERSITY (ACU)", category: "" },
+      { label: "BATCHELOR INSTITUTE OF INDIGENOUS TERTIARY EDUC", category: "" },
+      { label: "BOND UNIVERSITY", category: "" },
+      { label: "CARNEGIE MELLON UNIVERSITY AUSTRALIA - CMU", category: "" },
+      { label: "CHARLES DARWIN UNI - CDU", category: "" },
+      { label: "CHARLES STURT UNIVERSITY (CSU)", category: "" },
+      { label: "CQUNIVERSITY (CQU)- HIGHER ED COURSES", category: "" },
+      { label: "CURTIN UNIVERSITY", category: "" },
+      { label: "DEAKIN UNIVERSITY", category: "" },
+      { label: "EDITH COWAN UNIVERSITY (ECU)", category: "" },
+      { label: "FEDERATION UNIVERSITY - HIGHER ED - FEDUNI", category: "" },
+      { label: "FLINDERS UNIVERSITY", category: "" },
+      { label: "GRIFFITH UNIVERSITY (GU)", category: "" },
+      { label: "JAMES COOK UNIVERSITY (JCU)", category: "" },
+      { label: "LA TROBE UNIVERSITY", category: "" },
+      { label: "MACQUARIE UNIVERSITY", category: "" },
+      { label: "MONASH UNIVERSITY", category: "" },
+      { label: "MURDOCH UNIVERSITY", category: "" },
+      { label: "OPEN UNIVERSITIES AUSTRALIA - OUA", category: "" },
+      { label: "QUEENSLAND UNIVERSITY OF TECHNOLOGY (QUT)", category: "" },
+      { label: "RMIT UNIVERSITY", category: "" },
+      { label: "SOUTHERN CROSS UNIVERSITY (SCU)", category: "" },
+      { label: "SWINBURNE UNIVERSITY OF TECHNOLOGY", category: "" },
+      { label: "TORRENS UNIVERSITY AUSTRALIA", category: "" },
+      { label: "UNIVERSITY OF ADELAIDE", category: "" },
+      { label: "AUSTRALIAN NATIONAL UNIVERSITY (ANU)", category: "" },
+      { label: "UNIVERSITY OF CANBERRA (UC)", category: "" },
+      { label: "UNIVERSITY OF MELBOURNE (UNIMELB)", category: "" },
+      { label: "UNIVERSITY OF NEW ENGLAND (UNE)", category: "" },
+      { label: "UNIVERSITY OF NEWCASTLE - UON", category: "" },
+      { label: "UNIVERSITY OF NOTRE DAME AUSTRALIA - UNDA", category: "" },
+      { label: "UNIVERSITY OF NSW - UNSW", category: "" },
+      { label: "UNIVERSITY OF QUEENSLAND (UQ)", category: "" },
+      { label: "UNIVERSITY OF SOUTH AUSTRALIA (UNISA)", category: "" },
+      { label: "UNIVERSITY OF SOUTHERN QUEENSLAND (USQ)", category: "" },
+      { label: "UNIVERSITY OF SYDNEY", category: "" },
+      { label: "UNIVERSITY OF TASMANIA (UTAS)", category: "" },
+      { label: "UNIVERSITY OF TECHNOLOGY SYDNEY (UTS)", category: "" },
+      { label: "UNIVERSITY OF THE SUNSHINE COAST (USC)", category: "" },
+      { label: "UNIVERSITY OF WESTERN AUSTRALIA (UWA)", category: "" },
+      { label: "UNIVERSITY OF WOLLONGONG (UOW)", category: "" },
+      { label: "VICTORIA UNIVERSITY - HIGHER ED - VU", category: "" },
+      { label: "WESTERN SYDNEY UNIVERSITY (WSU)", category: "" }
+    ];
 
-                $("#institutionName").autocomplete({
-                  source: availableInstitutions,
-                  select: function (event, ui) {
-                    // js.cookies dependancy 
-                    Cookies.remove('institution');
-                    // checking if it's a condition that is a candidate for a computer based decision 
-                    if (ui.item.category === 'cbd') {
-                      Cookies.set('institution', 'cbd', { expires: 1 });
-                    }
-                  }
-                });
+    $("#institutionName").autocomplete({
+      source: availableInstitutions,
+      select: function (event, ui) {
+        
+        localStorage.removeItem('institution');
+        // checking if it's a condition that is a candidate for a computer based decision 
+        if (ui.item.category === 'cbd') {
+          localStorage.setItem('institution', 'cbd');
+        }
+      }
+    });
 
-                $('input[name=institutionName]').change(function () {
-                  $("#studyingCourseSpinner").show();
+    $('input[name=institutionName]').change(function () {
+      $("#studyingCourseSpinner").show();
 
-                  setTimeout(function () {
-                    $("#studyingCourseSpinner").hide();
-                    $("#studyingCourse").val("");
-                  }, 2000);
-                });
+      setTimeout(function () {
+        $("#studyingCourseSpinner").hide();
+        $("#studyingCourse").val("");
+      }, 2000);
+    });
 
-                var availableCourses = [
-                  { label: "Bachelor of International Studies Bachelor of Media (PR & Ad)", category: "" },
-                  { label: "Int Studies / Media (S & SP)", category: "" },
-                  { label: "Int Studies/Media (Com & Jour)", category: "" },
-                  { label: "Int Studies/Media (PR & Adv)", category: "" },
-                  { label: "Higher Chemistry Medicinal A", category: "" },
-                  { label: "Advanced Underwater Field Ecology", category: "" },
-                  { label: "Biomolecular Science Laboratory Project (Advanced)", category: "" },
-                  { label: "Perspectives in Medical Science", category: "" },
-                  { label: "Social Research and Policy in the Workplace", category: "" },
-                  { label: "Information Systems", category: "" },
-                  { label: "Commerce / Information Systems", category: "" },
-                  { label: "BIS (Co-op) (Hons)", category: "" },
-                  { label: "Criminology & Criminal Justice", category: "" },
-                  { label: "Actuarial Studies / Economics", category: "" },
-                  { label: "Human Anatomy and Physiology 2", category: "" },
-                  { label: "Human Anatomy and Physiology 1", category: "" },
-                  { label: "Human Physiology B", category: "" },
-                  { label: "Human Physiology A", category: "" },
-                  { label: "Legal Experience 2", category: "" },
-                  { label: "Media Arts (Hons) / Ed (Sec)", category: "" },
-                  { label: "Arts / Education (Secondary)", category: "" },
-                  { label: "Fine Arts / Education (Sec)", category: "" },
-                  { label: "Arts / Education (Secondary)", category: "" },
-                  { label: "International Public Health", category: "" },
-                  { label: "Program Mechanical Engineering (Hons)", category: "" },
-                  { label: "Music (Hons)/Engineering(Hons)", category: "" },
-                  { label: "Engineering (Hons)/Biomed Eng", category: "" },
-                  { label: "Engineering (Hons)/Commerce", category: "" },
-                  { label: "Civil Engineering (Hons)", category: "" },
-                  { label: "Engineering Design 2", category: "" },
-                  { label: "Professional Engineering and Communication", category: "" },
-                  { label: "Introduction to Electrical Engineering", category: "" },
-                  { label: "Mineral Resources Engineering", category: "" },
-                  { label: "Security Engineering and Cyber Security", category: "" },
-                  { label: "Computer Engineering", category: "" },
-                  { label: "Fine Arts / Education (Sec)", category: "" },
-                  { label: "Arts / Education (Secondary)", category: "" },
-                  { label: "Arts and Business", category: "" },
-                  { label: "Commerce / Fine Arts", category: "" },
-                  { label: "Media Arts (Hons) / Ed (Sec)", category: "" },
-                  { label: "Medicine", category: "" },
-                  { label: "Medicinal Chemistry (Honours)", category: "" },
-                  { label: "Medicine / Arts", category: "" },
-                  { label: "Science (Medicine) Honours", category: "" },
-                  { label: "Medical Science", category: "" }];
+    var availableCourses = [
+      { label: "Bachelor of International Studies Bachelor of Media (PR & Ad)", category: "" },
+      { label: "Int Studies / Media (S & SP)", category: "" },
+      { label: "Int Studies/Media (Com & Jour)", category: "" },
+      { label: "Int Studies/Media (PR & Adv)", category: "" },
+      { label: "Higher Chemistry Medicinal A", category: "" },
+      { label: "Advanced Underwater Field Ecology", category: "" },
+      { label: "Biomolecular Science Laboratory Project (Advanced)", category: "" },
+      { label: "Perspectives in Medical Science", category: "" },
+      { label: "Social Research and Policy in the Workplace", category: "" },
+      { label: "Information Systems", category: "" },
+      { label: "Commerce / Information Systems", category: "" },
+      { label: "BIS (Co-op) (Hons)", category: "" },
+      { label: "Criminology & Criminal Justice", category: "" },
+      { label: "Actuarial Studies / Economics", category: "" },
+      { label: "Human Anatomy and Physiology 2", category: "" },
+      { label: "Human Anatomy and Physiology 1", category: "" },
+      { label: "Human Physiology B", category: "" },
+      { label: "Human Physiology A", category: "" },
+      { label: "Legal Experience 2", category: "" },
+      { label: "Media Arts (Hons) / Ed (Sec)", category: "" },
+      { label: "Arts / Education (Secondary)", category: "" },
+      { label: "Fine Arts / Education (Sec)", category: "" },
+      { label: "Arts / Education (Secondary)", category: "" },
+      { label: "International Public Health", category: "" },
+      { label: "Program Mechanical Engineering (Hons)", category: "" },
+      { label: "Music (Hons)/Engineering(Hons)", category: "" },
+      { label: "Engineering (Hons)/Biomed Eng", category: "" },
+      { label: "Engineering (Hons)/Commerce", category: "" },
+      { label: "Civil Engineering (Hons)", category: "" },
+      { label: "Engineering Design 2", category: "" },
+      { label: "Professional Engineering and Communication", category: "" },
+      { label: "Introduction to Electrical Engineering", category: "" },
+      { label: "Mineral Resources Engineering", category: "" },
+      { label: "Security Engineering and Cyber Security", category: "" },
+      { label: "Computer Engineering", category: "" },
+      { label: "Fine Arts / Education (Sec)", category: "" },
+      { label: "Arts / Education (Secondary)", category: "" },
+      { label: "Arts and Business", category: "" },
+      { label: "Commerce / Fine Arts", category: "" },
+      { label: "Media Arts (Hons) / Ed (Sec)", category: "" },
+      { label: "Medicine", category: "" },
+      { label: "Medicinal Chemistry (Honours)", category: "" },
+      { label: "Medicine / Arts", category: "" },
+      { label: "Science (Medicine) Honours", category: "" },
+      { label: "Medical Science", category: "" }];
 
-                $("#studyingCourse").autocomplete({
-                  source: availableCourses,
-                  select: function (event, ui) {
-                    Cookies.set('course', $("#studyingCourse").val());
-                  }
-                });
-              });
-            </script>
+    $("#studyingCourse").autocomplete({
+      source: availableCourses,
+      select: function (event, ui) {
+        localStorage.setItem('course', $("#studyingCourse").val());
+      }
+    });
+  });
+</script>
+<script>
+initStudents();
+initFlow();
+$(".pt-showIfNotPrimaryStudent").hide();
+$(".pt-showIfPrimary").hide();
+$(".pt-showIfSecondary").hide();
+$(".pt-showIfTertiary").hide();
+$(".pt-showIfPartTime").hide();
+$(".pt-noLongerEligible").hide();
+$(".pt-noLongerEligibleTwo").hide();
+$(".pt-showIfStudyLoadNotAnswered").hide();
+$(".pt-showIfEnrolled").hide();
+$(".pt-enrollStatusStudentOver25").hide();
+
+if (localStorage.getItem('studentLevelOfStudy') !== 'primary') {
+  $(".pt-showIfNotPrimaryStudent").show('fast');
+}
+
+$("#studentLevelOfStudy").change(function () {
+  var selected_option = $('#studentLevelOfStudy').val();
+
+  var grade_options;
+
+  if (selected_option === 'primary') {
+    $(".pt-noLongerEligible").hide();
+    $(".pt-showIfSecondary").hide();
+    $(".pt-showIfTertiary").hide();
+    $(".pt-showIfPrimary").show('fast');
+
+    localStorage.removeItem('studentLevelOfStudy');
+    localStorage.setItem('studentLevelOfStudy', 'primary');
+    $(".pagination").find('button').prop('disabled', false);
+
+  }
+  else if (selected_option.startsWith('secondary')) {
+
+    $(".pt-noLongerEligible").hide();
+    $(".pt-showIfTertiary").hide();
+    $(".pt-showIfPrimary").hide();
+
+    $(".pt-showIfSecondary").show();
+
+    localStorage.removeItem('studentLevelOfStudy');
+    localStorage.setItem('studentLevelOfStudy', 'secondary');
+
+    $(".pagination").find('button').prop('disabled', false);
+  }
+  else if ((selected_option.startsWith('tertiary')) || (selected_option === 'apprenticeship')) {
+    $(".pt-noLongerEligible").hide();
+    $(".pt-showIfPrimary").hide();
+    $(".pt-showIfSecondary").hide();
+    $(".pt-showIfTertiary").show('fast');
+    if (localStorage.getItem('studentLoadOfStudy') === null) {
+      $(".pt-showIfStudyLoadNotAnswered").show('fast');
+    }
+
+    if (localStorage.getItem('studentLoadOfStudy') === 'part-time') {
+      $(".pt-showIfPartTime").show('fast');
+    }
 
 
+    localStorage.removeItem('studentLevelOfStudy');
+    localStorage.setItem('studentLevelOfStudy', 'tertiary');
+    $(".pagination").find('button').prop('disabled', false);
+  }
 
 
+});
+
+$('input[name=studyLoad]').change(function () {
+  if ($('input[name=studyLoad]:checked').val() === 'part-time') {
+    $(".pt-showIfPartTime").show('fast');
+    localStorage.removeItem('studentLoadOfStudy');
+    localStorage.setItem('studentLoadOfStudy', 'part-time');
+  } else {
+    $(".pt-showIfPartTime").hide();
+    localStorage.removeItem('studentLoadOfStudy');
+    localStorage.setItem('studentLoadOfStudy', 'full-time');
+  }
+});
+
+$('input[name=enrolStatus]').change(function () {
+  if ($('input[name=enrolStatus]:checked').val() === 'no') {
+    localStorage.removeItem('enrolStatus');
+
+    $(".pt-noLongerEligibleTwo").show();
+    $(".pt-showIfEnrolled").hide();
+
+    // Show an error message if the student is 25 or older and hasn't enrolled
+    if (localStorage.getItem('studentAge') > 24) {
+      $(".pt-enrollStatusStudentOver25").show();
+      $(".pt-noLongerEligibleTwo").hide();
+      // $(".pt-enrollDatestudentOver25").hide();
+      $(".pagination").find('.btnNext').prop('disabled', true);
+    }
+  } else {
+    localStorage.removeItem('enrolStatus');
+    localStorage.setItem('enrolStatus', true);
+    $(".pt-noLongerEligibleTwo").hide();
+    $(".pt-enrollStatusStudentOver25").hide();
+    $(".pt-showIfEnrolled").show();
+    //show an error message if the student is 25 or older and enrolled after they turned 25. The smarts don't exist in prototype.
+    if (localStorage.getItem('studentAge') > 24) {
+      // $(".pt-enrollDatestudentOver25").show();
+      $(".pagination").find('.btnNext').prop('disabled', false);
+    }
+  }
+});
+</script>
 </body>
-
 </html>

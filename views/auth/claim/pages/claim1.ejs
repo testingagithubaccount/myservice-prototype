@@ -450,15 +450,18 @@
 								{ label: "Vascular dementia", category: "" },
 								{ label: "Wilsons disease", category: "" }
 							];
+							
+							
 
 							$("#tags").autocomplete({
 								source: availableTags,
 								select: function (event, ui) {
-									// js.cookies dependancy 
-									Cookies.remove('claimType');
+									 
+									localStorage.removeItem('claimType')
+									
 									// checking if it's a condition that is a candidate for a computer based decision 
 									if (ui.item.category === 'cbd') {
-										Cookies.set('claimType', 'cbd', { expires: 1 });
+										localStorage.setItem('claimType', 'cbd');
 									}
 								}
 							});
