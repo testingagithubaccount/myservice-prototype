@@ -1,6 +1,7 @@
 import path from 'path'
 import postcss from 'postcss'
 import sass from 'node-sass'
+import modules from 'postcss-modules'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 import promiseReadFile from './promiseReadFile'
@@ -27,7 +28,17 @@ export default function promiseProcessScss(pPath, pDestination, pProduction) {
 
 			const parsed = sass.renderSync(renderOptions)
 
-			const plugins = [autoprefixer()]
+			const plugins = [
+				autoprefixer(),
+				modules({
+					scopeBehaviour: 'global',
+					getJSON: (pCssFileName, pJson, pOutputFileName) => {
+						const basename = path.basename(pOutputFileName, '.css')
+						const outputPath = path.resolve(pDestination, `${basename}.json`)
+						return promiseWriteFile(outputPath, JSON.stringify(pJson))
+					}
+				}),
+			]
 
 			if (pProduction) {
 				plugins.push(cssnano())
