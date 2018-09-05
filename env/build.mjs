@@ -23,22 +23,22 @@ const CONFIGURATION = {
 	serverPort: 5000,
 	tasks: {
 		js: {
-			entryPoints: 'src/js/**/*.?(m)js',
+			entryPoints: 'js/**/*.?(m)js',
 			ouptputDirectory: 'js',
 			watch: 'js/**/*.?(m)js',
 		},
 		sass: {
-			entryPoints: ['src/sass/main.scss', 'src/sass/myaccount.scss'],
+			entryPoints: ['sass-global/main.scss', 'sass-global/myaccount.scss'],
 			ouptputDirectory: 'css',
 			watch: 'sass/**/*.?(s)css',
 		},
 		svgs: {
-			entryPoints: 'src/images/**/*.svg',
+			entryPoints: 'images/**/*.svg',
 			ouptputDirectory: 'images',
 			watch: 'images/**/*.svg',
 		},
 		images: {
-			entryPoints: 'src/images/**/*.@(jpg|gif|png)',
+			entryPoints: 'images/**/*.@(jpg|gif|png)',
 			ouptputDirectory: 'images',
 			watch: 'images/**/*.@(jpg|jpeg|gif|png)',
 		},
@@ -74,11 +74,11 @@ const tasks = {
 	},
 
 	js: function () {
-		const {buildDirectory} = CONFIGURATION
+		const {sourceDirectory, buildDirectory} = CONFIGURATION
 		const {ouptputDirectory, entryPoints} = CONFIGURATION.tasks.js
 		const outputPath = path.join(buildDirectory, ouptputDirectory)
 
-		return promisePaths(entryPoints)
+		return promisePaths(path.join(sourceDirectory, entryPoints))
 			.then(pPaths => {
 				return Promise.all(pPaths.map(pPath => promiseProcessJs(pPath, outputPath, production)))
 			})
@@ -86,11 +86,11 @@ const tasks = {
 	},
 
 	sass: function () {
-		const {buildDirectory} = CONFIGURATION
+		const {sourceDirectory, buildDirectory} = CONFIGURATION
 		const {ouptputDirectory, entryPoints} = CONFIGURATION.tasks.sass
 		const outputPath = path.join(buildDirectory, ouptputDirectory)
 
-		return promisePaths(entryPoints)
+		return promisePaths(path.join(sourceDirectory, entryPoints))
 			.then(pPaths => {
 				return Promise.all(pPaths.map(pPath => promiseProcessSass(pPath, outputPath, production)))
 			})
@@ -98,11 +98,11 @@ const tasks = {
 	},
 
 	images: function () {
-		const {buildDirectory} = CONFIGURATION
+		const {sourceDirectory, buildDirectory} = CONFIGURATION
 		const {ouptputDirectory, entryPoints} = CONFIGURATION.tasks.images
 		const outputPath = path.join(buildDirectory, ouptputDirectory)
 
-		return promisePaths(entryPoints)
+		return promisePaths(path.join(sourceDirectory, entryPoints))
 			.then(pPaths => {
 				return Promise.all(pPaths.map(pPath => promiseProcessImage(pPath, outputPath, production)))
 			})
@@ -110,11 +110,11 @@ const tasks = {
 	},
 
 	svgs: function () {
-		const {buildDirectory} = CONFIGURATION
+		const {sourceDirectory, buildDirectory} = CONFIGURATION
 		const {ouptputDirectory, entryPoints} = CONFIGURATION.tasks.svgs
 		const outputPath = path.join(buildDirectory, ouptputDirectory)
 
-		return promisePaths(entryPoints)
+		return promisePaths(path.join(sourceDirectory, entryPoints))
 			.then(pPaths => {
 				return Promise.all(pPaths.map(pPath => promiseProcessSvg(pPath, outputPath, production)))
 			})
