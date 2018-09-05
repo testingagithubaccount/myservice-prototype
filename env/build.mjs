@@ -17,179 +17,197 @@ import promiseProcessSvg from './modules/promiseProcessSvg'
 import promiseProcessImage from './modules/promiseProcessImage'
 import promiesLogResults from './modules/promiseLogResults'
 
-const CONFIGURATION = {
-	sourceDirectory: 'src',
-	buildDirectory: 'build',
-	serverPort: 5000,
-	tasks: {
-		js: {
-			entryPoints: 'js/**/*.?(m)js',
-			ouptputDirectory: 'js',
-			watch: 'js/**/*.?(m)js',
-		},
-		sass: {
-			entryPoints: ['sass-global/main.scss', 'sass-global/myaccount.scss'],
-			ouptputDirectory: 'css',
-			watch: 'sass/**/*.?(s)css',
-		},
-		svgs: {
-			entryPoints: 'images/**/*.svg',
-			ouptputDirectory: 'images',
-			watch: 'images/**/*.svg',
-		},
-		images: {
-			entryPoints: 'images/**/*.@(jpg|gif|png)',
-			ouptputDirectory: 'images',
-			watch: 'images/**/*.@(jpg|jpeg|gif|png)',
-		},
-	},
-}
+const SOURCE_DIRECTORY = 'src'
+const BUILD_DIRECTORY = 'build'
+const SERVER_PORT = 5000
+
+const JS_ENTRY_POINTS = 'js/**/*.?(m)js'
+const JS_OUTPUT_DIRECTORY = 'js'
+
+const SASS_ENTRY_POINTS = ['sass/main.scss', 'sass/myaccount.scss']
+const SASS_OUTPUT_DIRECTORY ='css'
+
+const COMPONENT_ENTRY_POINTS = 'components/components.scss'
+const COMPONENT_OUTPUT_DIRECTORY ='css'
+
+const SVG_ENTRY_POINTS = 'images/**/*.svg'
+const SVG_OUTPUT_DIRECTORY = 'images'
+
+const IMAGES_ENTRY_POINTS = 'images/**/*.@(jpg|gif|png)'
+const IMAGES_OUTPUT_DIRECTORY = 'images'
+
+const tasks = {}
 
 const argv = minimist(process.argv.slice(2))
 const task = argv.task || 'default'
 
 const production = process.env.NODE_ENV ? true : false
 
-const tasks = {
-	default: function () {
-		return tasks.del()
-			.then(() => {
-				return Promise.all([
-					tasks.js(),
-					tasks.sass(),
-					tasks.svgs(),
-					tasks.images(),
-				])
-			})
-	},
+tasks.default = function () {
+	return tasks.del()
+		.then(() => {
+			return Promise.all([
+				tasks.js(),
+				tasks.sass(),
+				tasks.components(),
+				tasks.svgs(),
+				tasks.images(),
+			])
+		})
+}
 
-	del: function () {
-		const directory = CONFIGURATION.buildDirectory
-		return del([path.join(directory, '**'), `!${directory}`])
-			.then(pFiles => {
-				console.log('Deleted:', pFiles)
+tasks.del = function () {
+	const directory = BUILD_DIRECTORY
 
-				return Promise.resolve(pFiles)
-			})
-	},
+	return del([path.join(directory, '**'), `!${directory}`])
+		.then(pFiles => {
+			console.log('Deleted:', pFiles)
 
-	js: function () {
-		const {sourceDirectory, buildDirectory} = CONFIGURATION
-		const {ouptputDirectory, entryPoints} = CONFIGURATION.tasks.js
-		const outputPath = path.join(buildDirectory, ouptputDirectory)
+			return Promise.resolve(pFiles)
+		})
+}
 
-		return promisePaths(path.join(sourceDirectory, entryPoints))
-			.then(pPaths => {
-				return Promise.all(pPaths.map(pPath => promiseProcessJs(pPath, outputPath, production)))
-			})
-			.then(promiesLogResults)
-	},
+tasks.js = function () {
+	const outputPath = path.join(BUILD_DIRECTORY, JS_OUTPUT_DIRECTORY)
 
-	sass: function () {
-		const {sourceDirectory, buildDirectory} = CONFIGURATION
-		const {ouptputDirectory, entryPoints} = CONFIGURATION.tasks.sass
-		const outputPath = path.join(buildDirectory, ouptputDirectory)
+	return promisePaths(path.join(SOURCE_DIRECTORY, JS_ENTRY_POINTS))
+		.then(pPaths => {
+			return Promise.all(pPaths.map(pPath => promiseProcessJs(pPath, outputPath, production)))
+		})
+		.then(promiesLogResults)
+}
 
-		return promisePaths(path.join(sourceDirectory, entryPoints))
-			.then(pPaths => {
-				return Promise.all(pPaths.map(pPath => promiseProcessSass(pPath, outputPath, production)))
-			})
-			.then(promiesLogResults)
-	},
+tasks.sass = function () {
+	const entryPoints = SASS_ENTRY_POINTS.map(pEntryPoint => path.join(SOURCE_DIRECTORY, pEntryPoint))
 
-	images: function () {
-		const {sourceDirectory, buildDirectory} = CONFIGURATION
-		const {ouptputDirectory, entryPoints} = CONFIGURATION.tasks.images
-		const outputPath = path.join(buildDirectory, ouptputDirectory)
+	return promisePaths(entryPoints)
+		.then(pPaths => {
+			const outputPath = path.join(BUILD_DIRECTORY, SASS_OUTPUT_DIRECTORY)
+			const options = {
+				minify: production,
+			}
 
-		return promisePaths(path.join(sourceDirectory, entryPoints))
-			.then(pPaths => {
-				return Promise.all(pPaths.map(pPath => promiseProcessImage(pPath, outputPath, production)))
-			})
-			.then(promiesLogResults)
-	},
+			return Promise.all(pPaths.map(pPath => promiseProcessSass(pPath, outputPath, options)))
+		})
+		.then(promiesLogResults)
+}
 
-	svgs: function () {
-		const {sourceDirectory, buildDirectory} = CONFIGURATION
-		const {ouptputDirectory, entryPoints} = CONFIGURATION.tasks.svgs
-		const outputPath = path.join(buildDirectory, ouptputDirectory)
+tasks.components = function () {
+	const entryPoints = path.join(SOURCE_DIRECTORY, COMPONENT_ENTRY_POINTS)
 
-		return promisePaths(path.join(sourceDirectory, entryPoints))
-			.then(pPaths => {
-				return Promise.all(pPaths.map(pPath => promiseProcessSvg(pPath, outputPath, production)))
-			})
-			.then(promiesLogResults)
-	},
+	return promisePaths(entryPoints)
+		.then(pPaths => {
+			const outputPath = path.join(BUILD_DIRECTORY, COMPONENT_OUTPUT_DIRECTORY)
+			const options = {
+				modules: true,
+			}
 
-	dev: function () {
-		return tasks.watch()
-			.then(tasks.serve)
-	},
+			return Promise.all(pPaths.map(pPath => promiseProcessSass(pPath, outputPath, options)))
+		})
+		.then(promiesLogResults)
+}
 
-	watch: function () {
-		const absolutePath = path.resolve(CONFIGURATION.sourceDirectory)
+tasks.images = function () {
+	const outputPath = path.join(BUILD_DIRECTORY, IMAGES_OUTPUT_DIRECTORY)
 
-		return tasks.default()
-			.then(() => {
-				console.log('Watching', absolutePath)
+	return promisePaths(path.join(SOURCE_DIRECTORY, IMAGES_ENTRY_POINTS))
+		.then(pPaths => {
+			return Promise.all(pPaths.map(pPath => promiseProcessImage(pPath, outputPath, production)))
+		})
+		.then(promiesLogResults)
+}
 
-				fs.watch(absolutePath, { recursive: true }, (pEvent, pFilePath) => {
-					console.log(pEvent, path.join(absolutePath, pFilePath))
+tasks.svgs = function () {
+	const outputPath = path.join(BUILD_DIRECTORY, SVG_OUTPUT_DIRECTORY)
 
-					const keys = Object.keys(CONFIGURATION.tasks).reduce((pAccumulator, pKey) => {
-						const tasks = pAccumulator.slice(0)
-						const task = CONFIGURATION.tasks[pKey]
+	return promisePaths(path.join(SOURCE_DIRECTORY, SVG_ENTRY_POINTS))
+		.then(pPaths => {
+			return Promise.all(pPaths.map(pPath => promiseProcessSvg(pPath, outputPath, production)))
+		})
+		.then(promiesLogResults)
+}
 
-						if (minimatch(pFilePath, task.watch)) {
-							tasks.push(pKey)
-						}
+tasks.dev = function () {
+	return tasks.watch()
+		.then(tasks.serve)
+}
 
-						return tasks
-					}, [])
+tasks.watch = function () {
+	const absolutePath = path.resolve(SOURCE_DIRECTORY)
 
-					keys.forEach(pKey => {
-						tasks[pKey]()
-					})
+	return tasks.default()
+		.then(() => {
+			console.log('Watching', absolutePath)
+
+			fs.watch(absolutePath, { recursive: true }, (pEvent, pFilePath) => {
+				console.log(pEvent, path.join(absolutePath, pFilePath))
+
+				WATCH.forEach(pItem => {
+					if (minimatch(pFilePath, pItem.glob)) {
+						pItem.fn()
+					}
 				})
 			})
-	},
-
-	serve: function () {
-		const server = express()
-
-		server.set('views')
-		server.set('view engine', 'ejs')
-
-		server.use(logger('dev'))
-		server.use(express.json())
-		server.use(express.urlencoded({ extended: false }))
-		server.use(cookieParser())
-		server.use(express.static(path.resolve(CONFIGURATION.buildDirectory)))
-
-		server.use('/', router)
-
-		// catch 404 and forward to error handler
-		server.use((pRequest, pResponse, pNext) => {
-			pNext(createError(404))
 		})
-
-		// error handler
-		server.use(function (pError, pRequest, pResponse) {
-			// set locals, only providing error in development
-			pResponse.locals.message = pError.message
-			pResponse.locals.error = production ? {} : pError
-
-			// render the error page
-			pResponse.status(pError.status || 500)
-			pResponse.render('error')
-		})
-
-		const port = CONFIGURATION.serverPort
-		server.listen(port, () => console.log(`HTTP server running on port ${port}`))
-
-		return Promise.resolve(server)
-	},
 }
+
+tasks.serve = function () {
+	const server = express()
+
+	server.set('views')
+	server.set('view engine', 'ejs')
+
+	server.use(logger('dev'))
+	server.use(express.json())
+	server.use(express.urlencoded({ extended: false }))
+	server.use(cookieParser())
+	server.use(express.static(path.resolve(BUILD_DIRECTORY)))
+
+	server.use('/', router)
+
+	// catch 404 and forward to error handler
+	server.use((pRequest, pResponse, pNext) => {
+		pNext(createError(404))
+	})
+
+	// error handler
+	server.use(function (pError, pRequest, pResponse) {
+		// set locals, only providing error in development
+		pResponse.locals.message = pError.message
+		pResponse.locals.error = production ? {} : pError
+
+		// render the error page
+		pResponse.status(pError.status || 500)
+		pResponse.render('error')
+	})
+
+	const port = SERVER_PORT
+	server.listen(port, () => console.log(`HTTP server running on port ${port}`))
+
+	return Promise.resolve(server)
+}
+
+const WATCH = [
+	{
+		glob: '**/*.?(m)js',
+		fn: tasks.js,
+	},
+	{
+		glob: '**/*.?(s)css',
+		fn: () => {
+			tasks.sass()
+			tasks.components()
+		},
+	},
+	{
+		glob: '**/*.svg',
+		fn: tasks.svg,
+	},
+	{
+		glob: '**/*.@(jpg|jpeg|gif|png)',
+		fn: tasks.images,
+	},
+]
 
 if (tasks[task]) {
 	tasks[task]()

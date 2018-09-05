@@ -1,5 +1,6 @@
 import express from 'express'
 import path from 'path'
+import promiseReadFile from './promiseReadFile'
 
 const router = express.Router()
 
@@ -13,6 +14,10 @@ router.get('*', (pRequest, pResponse) => {
 	if (path.extname(file)) {
 		pResponse.send(urlPath)
 	} else {
-		pResponse.render(urlPath)
+		const myPath = path.resolve('build/css/components.json') // YUCK!!!
+		promiseReadFile(myPath)
+			.then(pContent => {
+				pResponse.render(urlPath, JSON.parse(pContent))
+			})
 	}
 })
