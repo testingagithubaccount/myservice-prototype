@@ -20,7 +20,8 @@
 	"dependencies": {
 		"express": "^4.15.2",
 		"cookie-parser": "^1.4.3",
-		"serve-index": "^1.9.1",
+		"serve-index": "^1.9.1",		
+		"jshint": "^2.9.4",
 		"gulp": "^3.9.1",
 		"gulp-nodemon": "^2.2.1",
 		"gulp-sourcemaps": "^2.6.4",
@@ -38,8 +39,7 @@
 		"browser-sync": "^2.23.6",
 		"ejs": "^2.5.6",
 		
-		"gulp-livereload": "^3.8.1",		
-		"jshint": "^2.9.4",
+		"gulp-livereload": "^3.8.1",
 		"node-sass": "^4.9.2",
 		"npm-run-all": "^4.0.2",
 		"onchange": "^3.2.1",
