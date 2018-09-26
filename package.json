@@ -17,7 +17,11 @@
 		"> 1%",
 		"ie >= 9"
 	],
-	"dependencies": {},
+	"dependencies": {
+		"express": "^4.15.2",
+		"gulp": "^3.9.1",
+		"gulp-sass": "^3.1.0"
+	},
 	"devDependencies": {
 		"babel-core": "^6.26.3",
 		"babel-polyfill": "^6.26.0",
@@ -25,14 +29,11 @@
 		"browser-sync": "^2.23.6",
 		"cookie-parser": "^1.4.3",
 		"ejs": "^2.5.6",
-		"express": "^4.15.2",
-		"gulp": "^3.9.1",
 		"gulp-autoprefixer": "^4.0.0",
 		"gulp-babel": "^7.0.1",
 		"gulp-jshint": "^2.0.4",
 		"gulp-livereload": "^3.8.1",
 		"gulp-nodemon": "^2.2.1",
-		"gulp-sass": "^3.1.0",
 		"gulp-sourcemaps": "^2.6.4",
 		"gulp-uglifycss": "^1.1.0",
 		"gulp-util": "^3.0.8",
