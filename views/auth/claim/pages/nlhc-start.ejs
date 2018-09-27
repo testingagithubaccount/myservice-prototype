@@ -49,31 +49,34 @@
                       <li id="step1" class="instructions__contents ss-align--center">
                         <img src="../../../docs/images/ico-send.svg" height="100" alt="image of paper plane flying through the air">
                         <h2 class="instructions__heading">Step 1 - Submit this claim</h2>
-                        <p class="instructions__txt">Mental health treatment is available for free under our Non-Liability Health Care arrangements. You do not need to show a link to service to qualify for free
-                          mental&nbsp;health&nbsp;treatment.
+                        <p class="instructions__txt">Mental health treatment is available for free under our Non-Liability Health Care arrangements. You do not need to show a link to
+                          service to qualify for free mental&nbsp;health&nbsp;treatment.
                         </p>
                         <p class="instructions__txt">All you need to do is submit this claim.</p>
                       </li>
                       <li id="step2" class="instructions__contents ss-align--center" style="display:none;">
                         <img src="../../../docs/images/ico-healthcard.svg" height="100" alt="image of a digital health card">
                         <h2 class="instructions__heading">Step 2 - Receive a DVA Health Card</h2>
-                        <p class="instructions__txt">After your claim is processed, we will send you a DVA Health Card (White&nbsp;Card). The accepted condition 'Mental Health Treatment (NLHC)' will be listed on
-                          your&nbsp;card.</p>
+                        <p class="instructions__txt">After your claim is processed, we will send you a DVA Health Card (White&nbsp;Card). The accepted condition 'Mental Health Treatment
+                          (NLHC)' will be listed on your&nbsp;card.
+                        </p>
                         <p class="instructions__txt">You can access a digital version of your card in&nbsp;MyService.</p>
                       </li>
                       <li id="step3" class="instructions__contents ss-align--center" style="display:none;">
                         <img src="../../../docs/images/ico-handshake.svg" height="100" alt="image of shaking hands">
                         <h2 class="instructions__heading">Step 3 - Get treatment</h2>
                         <p class="instructions__txt">Your DVA Health Card works like a Medicare card. Show your card to your treatment provider and they will bill DVA for the cost of&nbsp;the&nbsp;treatment.</p>
-                        <p class="instructions__txt">The digital Health Card is still quite new, so check with your health care provider before your appointment to make sure they can accept&nbsp;it.</p>
+                        <p class="instructions__txt">The digital Health Card is still quite new, so check with your health care provider before your appointment to make sure they can
+                          accept&nbsp;it.
+                        </p>
                         <p class="instructions__txt">If you end up paying for the cost of your mental health treatment, keep your receipts. You can claim for reimbursement using&nbsp;MyAccount.</p>
                       </li>
                       <li id="step4" class="instructions__contents ss-align--center" style="display:none;">
                         <img src="../../../docs/images/ico-umbrella.svg" height="100" alt="image of an umbrella">
                         <h2 class="instructions__heading">Step 4 - Know what you're covered for</h2>
                         <p class="instructions__txt">Treatment for all mental health conditions are covered.</p>
-                        <p class="instructions__txt">This includes treatment from a general practitioner, medical specialist, psychologist, social worker, occupational therapist, psychiatrist, hospital services,
-                          specialist PTSD programs, pharmaceuticals, or oncologist services&nbsp;as&nbsp;required.</p>
+                        <p class="instructions__txt">This includes treatment from a general practitioner, medical specialist, psychologist, social worker, occupational therapist, psychiatrist,
+                          hospital services, specialist PTSD programs, pharmaceuticals, or oncologist services&nbsp;as&nbsp;required.</p>
                       </li>
                     </ul>
                     <div id="help-pagination" class="instructions__contents instructions__contents--pagination ss-align--center margin-below">
@@ -81,7 +84,6 @@
                       <button id="arrow-next" class="uikit-btn">&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;</button>
                     </div>
                   </div>
-
                 </div>
 
               </div>
@@ -89,10 +91,9 @@
             <div class="row">
               <div class="col-md-offset-2 col-md-8">
                 <div class="pagination pagination--ss-reverse-order margin-above--extra">
-
                   <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href='/claims'">Cancel</button>
                   <div class="floated">
-                    <!-- <button class="uikit-btn uikit-btn--borderless ">Skip</button> -->
+                    <button class="uikit-btn uikit-btn--borderless" onclick="window.location.href='/claims'">Okay, I’ve got it</button>
                     <button class="uikit-btn uikit-btn--tertiary btnNext" id="btnNext">Continue with request</button>
                   </div>
                 </div>
@@ -132,9 +133,7 @@
                 $("#arrow-back").hide();
 
                 $("#arrow-next").click(function () {
-
                   $('ul.instructions__inner li:visible').fadeOut(function () { //select only the visible element
-
                     var $next = $(this).next(); //get the next element
                     var $target = $next.length ? $next : $('ul.instructions__inner li:first'); //if there is no next then switch the pointer to point to the first one.
                     $target.stop(true, true).fadeIn('slow'); //now fadeIn the target element.
