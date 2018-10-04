@@ -394,6 +394,11 @@ app.get('/incap-start', function (request, response) {
     main_nav_active: 'claims'
   });
 });
+app.get('/incap-checklist', function (request, response) {
+  response.render('auth/claim/pages/incap-checklist', {
+    main_nav_active: 'claims'
+  });
+});
 app.get('/incap-1', function (request, response) {
   response.render('auth/claim/pages/incap-1', {
     main_nav_active: 'claims'

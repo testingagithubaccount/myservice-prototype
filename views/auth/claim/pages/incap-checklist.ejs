@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html class="js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width" name="viewport">
+  <title>Add claim: Incapacity Payments | MyService</title>
+  <link href="docs/css/main.css" rel="stylesheet">
+</head>
+
+<body class="uikit-body uikit-grid uikit-refactor">
+  <noscript>
+    <p role="alert">This website needs JavaScript to work properly.</p>
+  </noscript>
+  <nav class="uikit-skip-link">
+    <a class="uikit-skip-link__link" href="#main-content">Skip to main content</a>
+  </nav>
+  <div class="page-header--beta-banner__wrapper col-lg-12">
+    <div class="wrapper">
+      <div class="page-header__beta-banner">
+        <p>Some text here for the Beta content message</p>
+      </div>
+    </div>
+  </div>
+  <% include ../../../global/partials/header-topbar-new.ejs %>
+  <% include ../partials/cancel-modal.ejs %>
+    <!-- horizontal top nav -->
+    <div class="pn-ProductNav_Wrapper">
+      <nav id="pnProductNav" class="pn-ProductNav">
+        <div id="pnProductNavContents" class="pn-ProductNav_Contents">
+          <a href="#" class="pn-ProductNav_Link" aria-selected="true">How Incapacity Payments works</a>
+          <a href="#" class="pn-ProductNav_Link">Nominated Representative</a>
+          <a href="#" class="pn-ProductNav_Link">Service History</a>
+          <a href="#" class="pn-ProductNav_Link">Lost income</a>
+          <a href="#" class="pn-ProductNav_Link">Employment details</a>
+          <a href="#" class="pn-ProductNav_Link">Medical practitioner details</a>
+          <a href="#" class="pn-ProductNav_Link">Compensation damages action</a>
+          <a href="#" class="pn-ProductNav_Link">Bank details</a>
+          <a href="#" class="pn-ProductNav_Link">Required documents</a>
+          <a href="#" class="pn-ProductNav_Link">Review and submit</a>
+          <span id="pnIndicator" class="pn-ProductNav_Indicator"></span>
+        </div>
+      </nav>
+      <button id="pnAdvancerLeft" class="pn-Advancer pn-Advancer_Left" type="button">
+        <svg class="pn-Advancer_Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 551 1024">
+          <path d="M445.44 38.183L-2.53 512l447.97 473.817 85.857-81.173-409.6-433.23v81.172l409.6-433.23L445.44 38.18z" /></svg>
+      </button>
+      <button id="pnAdvancerRight" class="pn-Advancer pn-Advancer_Right" type="button">
+        <svg class="pn-Advancer_Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 551 1024">
+          <path d="M105.56 985.817L553.53 512 105.56 38.183l-85.857 81.173 409.6 433.23v-81.172l-409.6 433.23 85.856 81.174z" /></svg>
+      </button>
+    </div>
+
+    <main>
+      <div id="main-content" class="section-feature border-bottom--mild margin-above--none margin-below--none padding-below">
+        <div class="container margin-above--none">
+          <h1 class="margin-above--none ss-align--center">
+            <span class="heading">Checklist</span>
+          </h1>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-2 col-md-8">
+            <div class="margin-above--extra margin-below--extra">
+              <!--div class="uikit-page-alerts uikit-page-alerts--info margin-below--extra">
+                <p>You can still submit this claim without providing the documents but we will need them eventually. You will have 28 days from the day you submit this claim to provide
+                  them.</p-->
+            </div>
+            <div class="wrapper">
+
+              <div class="half">
+                <div class="tab">
+                  <input id="tab-one" type="checkbox" name="tabs" checked>
+                  <!-- [checked] open accordian by default-->
+                  <label for="tab-one">Nominated Representative</label>
+                  <div class="tab-content">
+                    <!--start of question 1-->
+                    <div class="mys-file-uploads__items">
+                      <div class="mys-file-uploads__item-border">
+                        <div class="mys-file-uploads__item mys-file-uploads__item--required">
+                          <div class="mys-file-uploads__l-status">
+                            <div class="mys-file-uploads__status mys-file-uploads__status--pending">
+                              <div class="mys-file-uploads__status-icon"></div>
+                              <div class="mys-file-uploads__status-sr">Success</div>
+                            </div>
+                          </div>
+                          <div class="mys-file-uploads__info">
+                            <div class="mys-file-uploads__info-item">
+                              <div class="mys-file-uploads__value">
+                                <div><strong>Question 1</strong></div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>&nbsp;
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mys-file-uploads__item-actions">
+                            <button class="uikit-btn small">Upload</button>
+                          </div>
+                        </div>
+                      </div>
+                      <!--start of question 2-->
+                      <div class="mys-file-uploads__items">
+                        <div class="mys-file-uploads__item-border">
+                          <div class="mys-file-uploads__item mys-file-uploads__item--required">
+                            <div class="mys-file-uploads__l-status">
+                              <div class="mys-file-uploads__status mys-file-uploads__status--pending">
+                                <div class="mys-file-uploads__status-icon"></div>
+                                <div class="mys-file-uploads__status-sr">Success</div>
+                              </div>
+                            </div>
+                            <div class="mys-file-uploads__info">
+                              <div class="mys-file-uploads__info-item">
+                                <div class="mys-file-uploads__value">
+                                  <div><strong>Question 2</strong></div>
+                                  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>&nbsp;
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="mys-file-uploads__item-actions">
+                              <button class="uikit-btn small">Upload</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab">
+                    <input id="tab-two" type="checkbox" name="tabs" checked>
+                    <!-- [checked] open accordian by default-->
+                    <label for="tab-two">Service History</label>
+                    <div class="tab-content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati
+                        soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+                    </div>
+                  </div>
+                  <div class="tab">
+                    <input id="tab-three" type="checkbox" name="tabs" checked>
+                    <!-- [checked] open accordian by default-->
+                    <label for="tab-three">Lost income</label>
+                    <div class="tab-content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati
+                        soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mys-file-uploads__items">
+
+                  <!-- Tax file number declaration -->
+                  <div class="mys-file-uploads__item-border">
+                    <div class="mys-file-uploads__item mys-file-uploads__item--required">
+                      <div class="mys-file-uploads__l-status">
+                        <div class="mys-file-uploads__status mys-file-uploads__status--pending">
+                          <div class="mys-file-uploads__status-icon"></div>
+                          <div class="mys-file-uploads__status-sr">Success</div>
+                        </div>
+                      </div>
+                      <div class="mys-file-uploads__info">
+                        <div class="mys-file-uploads__info-item">
+                          <div class="mys-file-uploads__value">
+                            <div><b>Tax file number declaration</b></div>
+                            <div>You can get this form from the <a href="https://www.ato.gov.au/forms/tfn-declaration/" rel="external" target="_blank">ATO website</a>&nbsp;
+                              <div class="tooltip">
+                                <div id="gender-tt-label" class="tooltip__control" tabindex="0" role="button" aria-controls="gender-tt-message" aria-expanded="false">
+                                  <div class="tooltip__label tooltip__label--icon-only">
+                                    <a>Why do I need to provide this?</a>
+                                  </div>
+                                  <div class="tooltip__tab"></div>
+                                </div>
+                                <div id="gender-tt-message" class="tooltip__content" aria-labelledby="gender-tt-label" role="region" tabindex="-1" aria-hidden="true">
+                                  <div class="tooltip__message">The Tax file number declaration form allows us to work out how much tax to withhold from payments we&nbsp;make&nbsp;to&nbsp;you.
+                                  </div>
+                                  <div class="tooltip__close" role="button" tabindex="0">Close</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mys-file-uploads__item-actions">
+                        <button class="mys-file-uploads__item-button uikit-btn small">Upload</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Medical Evidence -->
+                  <div class="mys-file-uploads__item-border">
+                    <div class="mys-file-uploads__item mys-file-uploads__item--required">
+                      <div class="mys-file-uploads__l-status">
+                        <div class="mys-file-uploads__status mys-file-uploads__status--pending">
+                          <div class="mys-file-uploads__status-icon"></div>
+                          <div class="mys-file-uploads__status-sr">Success</div>
+                        </div>
+                      </div>
+                      <div class="mys-file-uploads__info">
+                        <div class="mys-file-uploads__info-item">
+                          <div class="mys-file-uploads__value">
+                            <div><b>Medical evidence</b></div>
+                            <div>Get this from your treating practitioner.
+                              <div class="tooltip">
+                                <div id="gender-tt-label" class="tooltip__control" tabindex="0" role="button" aria-controls="gender-tt-message" aria-expanded="false">
+                                  <div class="tooltip__label tooltip__label--icon-only">
+                                    <a>Why do I need to provide this?</a>
+                                  </div>
+                                  <div class="tooltip__tab"></div>
+                                </div>
+                                <div id="gender-tt-message" class="tooltip__content" aria-labelledby="gender-tt-label" role="region" tabindex="-1" aria-hidden="true">
+                                  <div class="tooltip__message">Medical evidence lets us know the details around how your conditions are affecting your&nbsp;ability to work.
+                                  </div>
+                                  <div class="tooltip__close" role="button" tabindex="0">Close</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mys-file-uploads__item-actions">
+                        <button class="mys-file-uploads__item-button uikit-btn small">Upload</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Proof of employment -->
+                  <div class="mys-file-uploads__item-border mys-file-uploads__item-uploaded">
+                    <div class="mys-file-uploads__item">
+                      <div class="mys-file-uploads__l-status">
+                        <div class="mys-file-uploads__status mys-file-uploads__status--success">
+                          <div class="mys-file-uploads__status-icon"></div>
+                          <div class="mys-file-uploads__status-sr">Success</div>
+                        </div>
+                      </div>
+                      <div class="mys-file-uploads__info">
+                        <div class="mys-file-uploads__info-item">
+                          <label class="mys-file-uploads__label">File name</label>
+                          <div class="mys-file-uploads__value">
+                            <a href="#" class="">My document 222 AAA .png</a>
+                          </div>
+                        </div>
+                        <div class="mys-file-uploads__info-item">
+                          <div class="mys-file-uploads__label">Document type</div>
+                          <div class="mys-file-uploads__value">
+                            <div><b>Proof of civilian earnings</b></div>
+                            <!-- <div>For example payslips or a copy of your current/last work contract.</div> -->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mys-file-uploads__item-actions">
+                        <button class="mys-file-uploads__item-button uikit-btn uikit-btn--tertiary small">Remove</button>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <!-- Proof of medical discharge -->
+                  <div class="mys-file-uploads__item-border">
+                    <div class="mys-file-uploads__item mys-file-uploads__item--required">
+                      <div class="mys-file-uploads__l-status">
+                        <div class="mys-file-uploads__status mys-file-uploads__status--pending">
+                          <div class="mys-file-uploads__status-icon"></div>
+                          <div class="mys-file-uploads__status-sr">Success</div>
+                        </div>
+                      </div>
+                      <div class="mys-file-uploads__info">
+                        <div class="mys-file-uploads__info-item">
+                          <div class="mys-file-uploads__value">
+                            <div><b>Proof of military earnings</b></div>
+                            <div>Provide your SVA (Military Pay Advice) with allowances
+                              <div class="tooltip">
+                                <div id="gender-tt-label" class="tooltip__control" tabindex="0" role="button" aria-controls="gender-tt-message" aria-expanded="false">
+                                  <div class="tooltip__label tooltip__label--icon-only">
+                                    <a>Why do I need to provide this?</a>
+                                  </div>
+                                  <div class="tooltip__tab"></div>
+                                </div>
+                                <div id="gender-tt-message" class="tooltip__content" aria-labelledby="gender-tt-label" role="region" tabindex="-1" aria-hidden="true">
+                                  <div class="tooltip__message">This allows us to determine your normal earnings.
+                                  </div>
+                                  <div class="tooltip__close" role="button" tabindex="0">Close</div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mys-file-uploads__item-actions">
+                        <button class="mys-file-uploads__item-button uikit-btn small">Upload</button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="pagination pagination--ss-reverse-order">
+                <button class="uikit-btn uikit-btn--tertiary btnPrev" id="btnPrev">Previous</button>
+                <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/claims'">Back to Claims</button>
+                <div class="floated">
+                  <button class="uikit-btn btnNext" id="btnNext">Save and next</button>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <% include ../../../global/partials/footer.ejs %>
+</body>
+
+<!-- Horizontal nav -->
+<script>
+  var SETTINGS = {
+    navBarTravelling: false,
+    navBarTravelDirection: "",
+    navBarTravelDistance: 150
+  }
+
+  var colours = {
+    0: "#867100",
+    1: "#7F4200",
+    2: "#99813D",
+    3: "#40FEFF",
+    4: "#14CC99",
+    5: "#00BAFF",
+    6: "#0082B2",
+    7: "#B25D7A",
+    8: "#00FF17",
+    9: "#006B49",
+    10: "#00B27A",
+    11: "#996B3D",
+    12: "#CC7014",
+    13: "#40FF8C",
+    14: "#FF3400",
+    15: "#ECBB5E",
+    16: "#ECBB0C",
+    17: "#B9D912",
+    18: "#253A93",
+    19: "#125FB9",
+  }
+
+  document.documentElement.classList.remove("no-js");
+  document.documentElement.classList.add("js");
+
+  // Out advancer buttons
+  var pnAdvancerLeft = document.getElementById("pnAdvancerLeft");
+  var pnAdvancerRight = document.getElementById("pnAdvancerRight");
+  // the indicator
+  var pnIndicator = document.getElementById("pnIndicator");
+
+  var pnProductNav = document.getElementById("pnProductNav");
+  var pnProductNavContents = document.getElementById("pnProductNavContents");
+
+  pnProductNav.setAttribute("data-overflowing", determineOverflow(pnProductNavContents, pnProductNav));
+
+  // Set the indicator
+  moveIndicator(pnProductNav.querySelector("[aria-selected=\"true\"]"), colours[0]);
+
+  // Handle the scroll of the horizontal container
+  var last_known_scroll_position = 0;
+  var ticking = false;
+
+  function doSomething(scroll_pos) {
+    pnProductNav.setAttribute("data-overflowing", determineOverflow(pnProductNavContents, pnProductNav));
+  }
+
+  pnProductNav.addEventListener("scroll", function () {
+    last_known_scroll_position = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        doSomething(last_known_scroll_position);
+        ticking = false;
+      });
+    }
+    ticking = true;
+  });
+
+
+  pnAdvancerLeft.addEventListener("click", function () {
+    // If in the middle of a move return
+    if (SETTINGS.navBarTravelling === true) {
+      return;
+    }
+    // If we have content overflowing both sides or on the left
+    if (determineOverflow(pnProductNavContents, pnProductNav) === "left" || determineOverflow(pnProductNavContents, pnProductNav) === "both") {
+      // Find how far this panel has been scrolled
+      var availableScrollLeft = pnProductNav.scrollLeft;
+      // If the space available is less than two lots of our desired distance, just move the whole amount
+      // otherwise, move by the amount in the settings
+      if (availableScrollLeft < SETTINGS.navBarTravelDistance * 2) {
+        pnProductNavContents.style.transform = "translateX(" + availableScrollLeft + "px)";
+      } else {
+        pnProductNavContents.style.transform = "translateX(" + SETTINGS.navBarTravelDistance + "px)";
+      }
+      // We do want a transition (this is set in CSS) when moving so remove the class that would prevent that
+      pnProductNavContents.classList.remove("pn-ProductNav_Contents-no-transition");
+      // Update our settings
+      SETTINGS.navBarTravelDirection = "left";
+      SETTINGS.navBarTravelling = true;
+    }
+    // Now update the attribute in the DOM
+    pnProductNav.setAttribute("data-overflowing", determineOverflow(pnProductNavContents, pnProductNav));
+  });
+
+  pnAdvancerRight.addEventListener("click", function () {
+    // If in the middle of a move return
+    if (SETTINGS.navBarTravelling === true) {
+      return;
+    }
+    // If we have content overflowing both sides or on the right
+    if (determineOverflow(pnProductNavContents, pnProductNav) === "right" || determineOverflow(pnProductNavContents, pnProductNav) === "both") {
+      // Get the right edge of the container and content
+      var navBarRightEdge = pnProductNavContents.getBoundingClientRect().right;
+      var navBarScrollerRightEdge = pnProductNav.getBoundingClientRect().right;
+      // Now we know how much space we have available to scroll
+      var availableScrollRight = Math.floor(navBarRightEdge - navBarScrollerRightEdge);
+      // If the space available is less than two lots of our desired distance, just move the whole amount
+      // otherwise, move by the amount in the settings
+      if (availableScrollRight < SETTINGS.navBarTravelDistance * 2) {
+        pnProductNavContents.style.transform = "translateX(-" + availableScrollRight + "px)";
+      } else {
+        pnProductNavContents.style.transform = "translateX(-" + SETTINGS.navBarTravelDistance + "px)";
+      }
+      // We do want a transition (this is set in CSS) when moving so remove the class that would prevent that
+      pnProductNavContents.classList.remove("pn-ProductNav_Contents-no-transition");
+      // Update our settings
+      SETTINGS.navBarTravelDirection = "right";
+      SETTINGS.navBarTravelling = true;
+    }
+    // Now update the attribute in the DOM
+    pnProductNav.setAttribute("data-overflowing", determineOverflow(pnProductNavContents, pnProductNav));
+  });
+
+  pnProductNavContents.addEventListener(
+    "transitionend",
+    function () {
+      // get the value of the transform, apply that to the current scroll position (so get the scroll pos first) and then remove the transform
+      var styleOfTransform = window.getComputedStyle(pnProductNavContents, null);
+      var tr = styleOfTransform.getPropertyValue("-webkit-transform") || styleOfTransform.getPropertyValue("transform");
+      // If there is no transition we want to default to 0 and not null
+      var amount = Math.abs(parseInt(tr.split(",")[4]) || 0);
+      pnProductNavContents.style.transform = "none";
+      pnProductNavContents.classList.add("pn-ProductNav_Contents-no-transition");
+      // Now lets set the scroll position
+      if (SETTINGS.navBarTravelDirection === "left") {
+        pnProductNav.scrollLeft = pnProductNav.scrollLeft - amount;
+      } else {
+        pnProductNav.scrollLeft = pnProductNav.scrollLeft + amount;
+      }
+      SETTINGS.navBarTravelling = false;
+    },
+    false
+  );
+
+  // Handle setting the currently active link
+  pnProductNavContents.addEventListener("click", function (e) {
+    var links = [].slice.call(document.querySelectorAll(".pn-ProductNav_Link"));
+    links.forEach(function (item) {
+      item.setAttribute("aria-selected", "false");
+    })
+    e.target.setAttribute("aria-selected", "true");
+    // Pass the clicked item and it's colour to the move indicator function
+    moveIndicator(e.target, colours[links.indexOf(e.target)]);
+    console.log(colours[links.indexOf(e.target)]);
+  });
+
+  function moveIndicator(item, color) {
+    var textPosition = item.getBoundingClientRect();
+    var container = pnProductNavContents.getBoundingClientRect().left;
+    var distance = textPosition.left - container;
+    pnIndicator.style.transform = "translateX(" + (distance + pnProductNavContents.scrollLeft) + "px) scaleX(" + textPosition.width * 0.01 + ")";
+    if (color) {
+      pnIndicator.style.backgroundColor = color;
+    }
+  }
+
+  function determineOverflow(content, container) {
+    var containerMetrics = container.getBoundingClientRect();
+    var containerMetricsRight = Math.floor(containerMetrics.right);
+    var containerMetricsLeft = Math.floor(containerMetrics.left);
+    var contentMetrics = content.getBoundingClientRect();
+    var contentMetricsRight = Math.floor(contentMetrics.right);
+    var contentMetricsLeft = Math.floor(contentMetrics.left);
+    if (containerMetricsLeft > contentMetricsLeft && containerMetricsRight < contentMetricsRight) {
+      return "both";
+    } else if (contentMetricsLeft < containerMetricsLeft) {
+      return "left";
+    } else if (contentMetricsRight > containerMetricsRight) {
+      return "right";
+    } else {
+      return "none";
+    }
+  }
+</script>
+
+</html>
