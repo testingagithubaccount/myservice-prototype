@@ -22,6 +22,10 @@
 	box-sizing: inherit;
 }
 
+.pn-Advancer_Icon {
+  margin: 0 5px;
+}
+
 .pn-ProductNav_Wrapper {
 	position: relative;
 	padding: 0 11px;
@@ -65,16 +69,17 @@
 	text-decoration: none;
 	color: #888;
 	// Reset the font size
-	font-size: 1.2rem;
+	font-size: .8rem;
 	font-family: -apple-system, sans-serif;
 	display: inline-flex;
 	align-items: center;
 	min-height: 44px;
 	border: 1px solid transparent;
-	padding: 0 11px;
+	padding: 0 4px;
 	& + & {
-		border-left-color: #eee;
-	}
+    border-left-color:transparent;
+    border: transparent;
+  }
 	&[aria-selected="true"] {
 		color: #111;
 	}
@@ -182,6 +187,16 @@ h1 {
 /* :checked */
 .tab input:checked ~ .tab-content {
   max-height: 100vh;
+}
+
+.topnav-icon {
+  font-size: 3em;
+  padding-left:10px;
+  border: transparent;
+  margin:-4px -5px 0px -5px;
+  background: linear-gradient(to right, red , yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 /* Icon */
 .tab label::after {

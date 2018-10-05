@@ -23,84 +23,61 @@
     </div>
   </div>
   <% include ../../../global/partials/header-topbar-new.ejs %>
-  <% include ../partials/cancel-modal.ejs %>
-    <!-- horizontal top nav -->
-    <div class="pn-ProductNav_Wrapper">
-      <nav id="pnProductNav" class="pn-ProductNav">
-        <div id="pnProductNavContents" class="pn-ProductNav_Contents">
-          <a href="#" class="pn-ProductNav_Link" aria-selected="true">How Incapacity Payments works</a>
-          <a href="#" class="pn-ProductNav_Link">Nominated Representative</a>
-          <a href="#" class="pn-ProductNav_Link">Service History</a>
-          <a href="#" class="pn-ProductNav_Link">Lost income</a>
-          <a href="#" class="pn-ProductNav_Link">Employment details</a>
-          <a href="#" class="pn-ProductNav_Link">Medical practitioner details</a>
-          <a href="#" class="pn-ProductNav_Link">Compensation damages action</a>
-          <a href="#" class="pn-ProductNav_Link">Bank details</a>
-          <a href="#" class="pn-ProductNav_Link">Required documents</a>
-          <a href="#" class="pn-ProductNav_Link">Review and submit</a>
-          <span id="pnIndicator" class="pn-ProductNav_Indicator"></span>
-        </div>
-      </nav>
-      <button id="pnAdvancerLeft" class="pn-Advancer pn-Advancer_Left" type="button">
-        <svg class="pn-Advancer_Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 551 1024">
-          <path d="M445.44 38.183L-2.53 512l447.97 473.817 85.857-81.173-409.6-433.23v81.172l409.6-433.23L445.44 38.18z" /></svg>
-      </button>
-      <button id="pnAdvancerRight" class="pn-Advancer pn-Advancer_Right" type="button">
-        <svg class="pn-Advancer_Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 551 1024">
-          <path d="M105.56 985.817L553.53 512 105.56 38.183l-85.857 81.173 409.6 433.23v-81.172l-409.6 433.23 85.856 81.174z" /></svg>
-      </button>
-    </div>
+    <% include ../partials/cancel-modal.ejs %>
 
-    <main>
-      <div id="main-content" class="section-feature border-bottom--mild margin-above--none margin-below--none padding-below">
-        <div class="container margin-above--none">
-          <h1 class="margin-above--none ss-align--center">
-            <span class="heading">Checklist</span>
-          </h1>
-        </div>
-      </div>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-md-offset-2 col-md-8">
-            <div class="margin-above--extra margin-below--extra">
-              <!--div class="uikit-page-alerts uikit-page-alerts--info margin-below--extra">
+      <main>
+        <div id="main-content" class="section-feature border-bottom--mild margin-above--none margin-below--none padding-below">
+          <div class="container margin-above--none">
+            <h1 class="margin-above--none ss-align--center">
+              <span class="heading">Checklist</span>
+            </h1>
+          </div>
+        </div>
+        <!-- horizontal top nav -->
+        <div class="pn-ProductNav_Wrapper">
+          <nav id="pnProductNav" class="pn-ProductNav">
+            <div id="pnProductNavContents" class="pn-ProductNav_Contents">
+              <a href="#" class="pn-ProductNav_Link" aria-selected="true">How Incapacity Payments works <span class="topnav-icon">&#187;</span></a>
+              <a href="#" class="pn-ProductNav_Link">Nominated Representative <span class="topnav-icon">&#187;</span></a></a>
+              <a href="#" class="pn-ProductNav_Link">Service History <span class="topnav-icon">&#187;</span></a></a>
+              <a href="#" class="pn-ProductNav_Link">Lost income <span class="topnav-icon">&#187;</span></a></a>
+              <a href="#" class="pn-ProductNav_Link">Employment details <span class="topnav-icon">&#187;</span></a></a>
+              <a href="#" class="pn-ProductNav_Link">Medical practitioner details <span class="topnav-icon">&#187;</span></a></a>
+              <a href="#" class="pn-ProductNav_Link">Compensation damages action <span class="topnav-icon">&#187;</span></a></a>
+              <a href="#" class="pn-ProductNav_Link">Bank details <span class="topnav-icon">&#187;</span></a></a>
+              <a href="#" class="pn-ProductNav_Link">Required documents <span class="topnav-icon">&#187;</span></a></a>
+              <a href="#" class="pn-ProductNav_Link">Review and submit <span class="topnav-icon">&#187;</span></a></a>
+              <span id="pnIndicator" class="pn-ProductNav_Indicator"></span>
+            </div>
+          </nav>
+          <button id="pnAdvancerLeft" class="pn-Advancer pn-Advancer_Left" type="button">
+            <svg class="pn-Advancer_Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 551 1024">
+              <path d="M445.44 38.183L-2.53 512l447.97 473.817 85.857-81.173-409.6-433.23v81.172l409.6-433.23L445.44 38.18z" /></svg>
+          </button>
+          <button id="pnAdvancerRight" class="pn-Advancer pn-Advancer_Right" type="button">
+            <svg class="pn-Advancer_Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 551 1024">
+              <path d="M105.56 985.817L553.53 512 105.56 38.183l-85.857 81.173 409.6 433.23v-81.172l-409.6 433.23 85.856 81.174z" /></svg>
+          </button>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+              <div class="margin-above--extra margin-below--extra">
+                <!--div class="uikit-page-alerts uikit-page-alerts--info margin-below--extra">
                 <p>You can still submit this claim without providing the documents but we will need them eventually. You will have 28 days from the day you submit this claim to provide
                   them.</p-->
-            </div>
-            <div class="wrapper">
+              </div>
+              <div class="wrapper">
 
-              <div class="half">
-                <div class="tab">
-                  <input id="tab-one" type="checkbox" name="tabs" checked>
-                  <!-- [checked] open accordian by default-->
-                  <label for="tab-one">Nominated Representative</label>
-                  <div class="tab-content">
-                    <!--start of question 1-->
-                    <div class="mys-file-uploads__items">
-                      <div class="mys-file-uploads__item-border">
-                        <div class="mys-file-uploads__item mys-file-uploads__item--required">
-                          <div class="mys-file-uploads__l-status">
-                            <div class="mys-file-uploads__status mys-file-uploads__status--pending">
-                              <div class="mys-file-uploads__status-icon"></div>
-                              <div class="mys-file-uploads__status-sr">Success</div>
-                            </div>
-                          </div>
-                          <div class="mys-file-uploads__info">
-                            <div class="mys-file-uploads__info-item">
-                              <div class="mys-file-uploads__value">
-                                <div><strong>Question 1</strong></div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>&nbsp;
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="mys-file-uploads__item-actions">
-                            <button class="uikit-btn small">Upload</button>
-                          </div>
-                        </div>
-                      </div>
-                      <!--start of question 2-->
+                <div class="half">
+                  <div class="tab">
+                    <input id="tab-one" type="checkbox" name="tabs" checked>
+                    <!-- [checked] open accordian by default-->
+                    <label for="tab-one">Nominated Representative</label>
+                    <div class="tab-content">
+                      <!--start of question 1-->
                       <div class="mys-file-uploads__items">
                         <div class="mys-file-uploads__item-border">
                           <div class="mys-file-uploads__item mys-file-uploads__item--required">
@@ -113,7 +90,7 @@
                             <div class="mys-file-uploads__info">
                               <div class="mys-file-uploads__info-item">
                                 <div class="mys-file-uploads__value">
-                                  <div><strong>Question 2</strong></div>
+                                  <div><strong>Question 1</strong></div>
                                   <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>&nbsp;
                                   </div>
                                 </div>
@@ -124,197 +101,221 @@
                             </div>
                           </div>
                         </div>
+                        <!--start of question 2-->
+                        <div class="mys-file-uploads__items">
+                          <div class="mys-file-uploads__item-border">
+                            <div class="mys-file-uploads__item mys-file-uploads__item--required">
+                              <div class="mys-file-uploads__l-status">
+                                <div class="mys-file-uploads__status mys-file-uploads__status--pending">
+                                  <div class="mys-file-uploads__status-icon"></div>
+                                  <div class="mys-file-uploads__status-sr">Success</div>
+                                </div>
+                              </div>
+                              <div class="mys-file-uploads__info">
+                                <div class="mys-file-uploads__info-item">
+                                  <div class="mys-file-uploads__value">
+                                    <div><strong>Question 2</strong></div>
+                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>&nbsp;
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="mys-file-uploads__item-actions">
+                                <button class="uikit-btn small">Upload</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab">
+                      <input id="tab-two" type="checkbox" name="tabs" checked>
+                      <!-- [checked] open accordian by default-->
+                      <label for="tab-two">Service History</label>
+                      <div class="tab-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo
+                          obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+                      </div>
+                    </div>
+                    <div class="tab">
+                      <input id="tab-three" type="checkbox" name="tabs" checked>
+                      <!-- [checked] open accordian by default-->
+                      <label for="tab-three">Lost income</label>
+                      <div class="tab-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo
+                          obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
                       </div>
                     </div>
                   </div>
-                  <div class="tab">
-                    <input id="tab-two" type="checkbox" name="tabs" checked>
-                    <!-- [checked] open accordian by default-->
-                    <label for="tab-two">Service History</label>
-                    <div class="tab-content">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati
-                        soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+
+                  <div class="mys-file-uploads__items">
+
+                    <!-- Tax file number declaration -->
+                    <div class="mys-file-uploads__item-border">
+                      <div class="mys-file-uploads__item mys-file-uploads__item--required">
+                        <div class="mys-file-uploads__l-status">
+                          <div class="mys-file-uploads__status mys-file-uploads__status--pending">
+                            <div class="mys-file-uploads__status-icon"></div>
+                            <div class="mys-file-uploads__status-sr">Success</div>
+                          </div>
+                        </div>
+                        <div class="mys-file-uploads__info">
+                          <div class="mys-file-uploads__info-item">
+                            <div class="mys-file-uploads__value">
+                              <div><b>Tax file number declaration</b></div>
+                              <div>You can get this form from the <a href="https://www.ato.gov.au/forms/tfn-declaration/" rel="external" target="_blank">ATO website</a>&nbsp;
+                                <div class="tooltip">
+                                  <div id="gender-tt-label" class="tooltip__control" tabindex="0" role="button" aria-controls="gender-tt-message" aria-expanded="false">
+                                    <div class="tooltip__label tooltip__label--icon-only">
+                                      <a>Why do I need to provide this?</a>
+                                    </div>
+                                    <div class="tooltip__tab"></div>
+                                  </div>
+                                  <div id="gender-tt-message" class="tooltip__content" aria-labelledby="gender-tt-label" role="region" tabindex="-1" aria-hidden="true">
+                                    <div class="tooltip__message">The Tax file number declaration form allows us to work out how much tax to withhold from payments we&nbsp;make&nbsp;to&nbsp;you.
+                                    </div>
+                                    <div class="tooltip__close" role="button" tabindex="0">Close</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mys-file-uploads__item-actions">
+                          <button class="mys-file-uploads__item-button uikit-btn small">Upload</button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="tab">
-                    <input id="tab-three" type="checkbox" name="tabs" checked>
-                    <!-- [checked] open accordian by default-->
-                    <label for="tab-three">Lost income</label>
-                    <div class="tab-content">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati
-                        soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+
+                    <!-- Medical Evidence -->
+                    <div class="mys-file-uploads__item-border">
+                      <div class="mys-file-uploads__item mys-file-uploads__item--required">
+                        <div class="mys-file-uploads__l-status">
+                          <div class="mys-file-uploads__status mys-file-uploads__status--pending">
+                            <div class="mys-file-uploads__status-icon"></div>
+                            <div class="mys-file-uploads__status-sr">Success</div>
+                          </div>
+                        </div>
+                        <div class="mys-file-uploads__info">
+                          <div class="mys-file-uploads__info-item">
+                            <div class="mys-file-uploads__value">
+                              <div><b>Medical evidence</b></div>
+                              <div>Get this from your treating practitioner.
+                                <div class="tooltip">
+                                  <div id="gender-tt-label" class="tooltip__control" tabindex="0" role="button" aria-controls="gender-tt-message" aria-expanded="false">
+                                    <div class="tooltip__label tooltip__label--icon-only">
+                                      <a>Why do I need to provide this?</a>
+                                    </div>
+                                    <div class="tooltip__tab"></div>
+                                  </div>
+                                  <div id="gender-tt-message" class="tooltip__content" aria-labelledby="gender-tt-label" role="region" tabindex="-1" aria-hidden="true">
+                                    <div class="tooltip__message">Medical evidence lets us know the details around how your conditions are affecting your&nbsp;ability to work.
+                                    </div>
+                                    <div class="tooltip__close" role="button" tabindex="0">Close</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mys-file-uploads__item-actions">
+                          <button class="mys-file-uploads__item-button uikit-btn small">Upload</button>
+                        </div>
+                      </div>
                     </div>
+
+                    <!-- Proof of employment -->
+                    <div class="mys-file-uploads__item-border mys-file-uploads__item-uploaded">
+                      <div class="mys-file-uploads__item">
+                        <div class="mys-file-uploads__l-status">
+                          <div class="mys-file-uploads__status mys-file-uploads__status--success">
+                            <div class="mys-file-uploads__status-icon"></div>
+                            <div class="mys-file-uploads__status-sr">Success</div>
+                          </div>
+                        </div>
+                        <div class="mys-file-uploads__info">
+                          <div class="mys-file-uploads__info-item">
+                            <label class="mys-file-uploads__label">File name</label>
+                            <div class="mys-file-uploads__value">
+                              <a href="#" class="">My document 222 AAA .png</a>
+                            </div>
+                          </div>
+                          <div class="mys-file-uploads__info-item">
+                            <div class="mys-file-uploads__label">Document type</div>
+                            <div class="mys-file-uploads__value">
+                              <div><b>Proof of civilian earnings</b></div>
+                              <!-- <div>For example payslips or a copy of your current/last work contract.</div> -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mys-file-uploads__item-actions">
+                          <button class="mys-file-uploads__item-button uikit-btn uikit-btn--tertiary small">Remove</button>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    <!-- Proof of medical discharge -->
+                    <div class="mys-file-uploads__item-border">
+                      <div class="mys-file-uploads__item mys-file-uploads__item--required">
+                        <div class="mys-file-uploads__l-status">
+                          <div class="mys-file-uploads__status mys-file-uploads__status--pending">
+                            <div class="mys-file-uploads__status-icon"></div>
+                            <div class="mys-file-uploads__status-sr">Success</div>
+                          </div>
+                        </div>
+                        <div class="mys-file-uploads__info">
+                          <div class="mys-file-uploads__info-item">
+                            <div class="mys-file-uploads__value">
+                              <div><b>Proof of military earnings</b></div>
+                              <div>Provide your SVA (Military Pay Advice) with allowances
+                                <div class="tooltip">
+                                  <div id="gender-tt-label" class="tooltip__control" tabindex="0" role="button" aria-controls="gender-tt-message" aria-expanded="false">
+                                    <div class="tooltip__label tooltip__label--icon-only">
+                                      <a>Why do I need to provide this?</a>
+                                    </div>
+                                    <div class="tooltip__tab"></div>
+                                  </div>
+                                  <div id="gender-tt-message" class="tooltip__content" aria-labelledby="gender-tt-label" role="region" tabindex="-1" aria-hidden="true">
+                                    <div class="tooltip__message">This allows us to determine your normal earnings.
+                                    </div>
+                                    <div class="tooltip__close" role="button" tabindex="0">Close</div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mys-file-uploads__item-actions">
+                          <button class="mys-file-uploads__item-button uikit-btn small">Upload</button>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
+
                 </div>
 
-                <div class="mys-file-uploads__items">
-
-                  <!-- Tax file number declaration -->
-                  <div class="mys-file-uploads__item-border">
-                    <div class="mys-file-uploads__item mys-file-uploads__item--required">
-                      <div class="mys-file-uploads__l-status">
-                        <div class="mys-file-uploads__status mys-file-uploads__status--pending">
-                          <div class="mys-file-uploads__status-icon"></div>
-                          <div class="mys-file-uploads__status-sr">Success</div>
-                        </div>
-                      </div>
-                      <div class="mys-file-uploads__info">
-                        <div class="mys-file-uploads__info-item">
-                          <div class="mys-file-uploads__value">
-                            <div><b>Tax file number declaration</b></div>
-                            <div>You can get this form from the <a href="https://www.ato.gov.au/forms/tfn-declaration/" rel="external" target="_blank">ATO website</a>&nbsp;
-                              <div class="tooltip">
-                                <div id="gender-tt-label" class="tooltip__control" tabindex="0" role="button" aria-controls="gender-tt-message" aria-expanded="false">
-                                  <div class="tooltip__label tooltip__label--icon-only">
-                                    <a>Why do I need to provide this?</a>
-                                  </div>
-                                  <div class="tooltip__tab"></div>
-                                </div>
-                                <div id="gender-tt-message" class="tooltip__content" aria-labelledby="gender-tt-label" role="region" tabindex="-1" aria-hidden="true">
-                                  <div class="tooltip__message">The Tax file number declaration form allows us to work out how much tax to withhold from payments we&nbsp;make&nbsp;to&nbsp;you.
-                                  </div>
-                                  <div class="tooltip__close" role="button" tabindex="0">Close</div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mys-file-uploads__item-actions">
-                        <button class="mys-file-uploads__item-button uikit-btn small">Upload</button>
-                      </div>
-                    </div>
+                <div class="pagination pagination--ss-reverse-order">
+                  <button class="uikit-btn uikit-btn--tertiary btnPrev" id="btnPrev">Previous</button>
+                  <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/claims'">Back to Claims</button>
+                  <div class="floated">
+                    <button class="uikit-btn btnNext" id="btnNext">Save and next</button>
                   </div>
-
-                  <!-- Medical Evidence -->
-                  <div class="mys-file-uploads__item-border">
-                    <div class="mys-file-uploads__item mys-file-uploads__item--required">
-                      <div class="mys-file-uploads__l-status">
-                        <div class="mys-file-uploads__status mys-file-uploads__status--pending">
-                          <div class="mys-file-uploads__status-icon"></div>
-                          <div class="mys-file-uploads__status-sr">Success</div>
-                        </div>
-                      </div>
-                      <div class="mys-file-uploads__info">
-                        <div class="mys-file-uploads__info-item">
-                          <div class="mys-file-uploads__value">
-                            <div><b>Medical evidence</b></div>
-                            <div>Get this from your treating practitioner.
-                              <div class="tooltip">
-                                <div id="gender-tt-label" class="tooltip__control" tabindex="0" role="button" aria-controls="gender-tt-message" aria-expanded="false">
-                                  <div class="tooltip__label tooltip__label--icon-only">
-                                    <a>Why do I need to provide this?</a>
-                                  </div>
-                                  <div class="tooltip__tab"></div>
-                                </div>
-                                <div id="gender-tt-message" class="tooltip__content" aria-labelledby="gender-tt-label" role="region" tabindex="-1" aria-hidden="true">
-                                  <div class="tooltip__message">Medical evidence lets us know the details around how your conditions are affecting your&nbsp;ability to work.
-                                  </div>
-                                  <div class="tooltip__close" role="button" tabindex="0">Close</div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mys-file-uploads__item-actions">
-                        <button class="mys-file-uploads__item-button uikit-btn small">Upload</button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Proof of employment -->
-                  <div class="mys-file-uploads__item-border mys-file-uploads__item-uploaded">
-                    <div class="mys-file-uploads__item">
-                      <div class="mys-file-uploads__l-status">
-                        <div class="mys-file-uploads__status mys-file-uploads__status--success">
-                          <div class="mys-file-uploads__status-icon"></div>
-                          <div class="mys-file-uploads__status-sr">Success</div>
-                        </div>
-                      </div>
-                      <div class="mys-file-uploads__info">
-                        <div class="mys-file-uploads__info-item">
-                          <label class="mys-file-uploads__label">File name</label>
-                          <div class="mys-file-uploads__value">
-                            <a href="#" class="">My document 222 AAA .png</a>
-                          </div>
-                        </div>
-                        <div class="mys-file-uploads__info-item">
-                          <div class="mys-file-uploads__label">Document type</div>
-                          <div class="mys-file-uploads__value">
-                            <div><b>Proof of civilian earnings</b></div>
-                            <!-- <div>For example payslips or a copy of your current/last work contract.</div> -->
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mys-file-uploads__item-actions">
-                        <button class="mys-file-uploads__item-button uikit-btn uikit-btn--tertiary small">Remove</button>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-                  <!-- Proof of medical discharge -->
-                  <div class="mys-file-uploads__item-border">
-                    <div class="mys-file-uploads__item mys-file-uploads__item--required">
-                      <div class="mys-file-uploads__l-status">
-                        <div class="mys-file-uploads__status mys-file-uploads__status--pending">
-                          <div class="mys-file-uploads__status-icon"></div>
-                          <div class="mys-file-uploads__status-sr">Success</div>
-                        </div>
-                      </div>
-                      <div class="mys-file-uploads__info">
-                        <div class="mys-file-uploads__info-item">
-                          <div class="mys-file-uploads__value">
-                            <div><b>Proof of military earnings</b></div>
-                            <div>Provide your SVA (Military Pay Advice) with allowances
-                              <div class="tooltip">
-                                <div id="gender-tt-label" class="tooltip__control" tabindex="0" role="button" aria-controls="gender-tt-message" aria-expanded="false">
-                                  <div class="tooltip__label tooltip__label--icon-only">
-                                    <a>Why do I need to provide this?</a>
-                                  </div>
-                                  <div class="tooltip__tab"></div>
-                                </div>
-                                <div id="gender-tt-message" class="tooltip__content" aria-labelledby="gender-tt-label" role="region" tabindex="-1" aria-hidden="true">
-                                  <div class="tooltip__message">This allows us to determine your normal earnings.
-                                  </div>
-                                  <div class="tooltip__close" role="button" tabindex="0">Close</div>
-                                </div>
-                              </div>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mys-file-uploads__item-actions">
-                        <button class="mys-file-uploads__item-button uikit-btn small">Upload</button>
-                      </div>
-                    </div>
-                  </div>
-
                 </div>
 
               </div>
 
-              <div class="pagination pagination--ss-reverse-order">
-                <button class="uikit-btn uikit-btn--tertiary btnPrev" id="btnPrev">Previous</button>
-                <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/claims'">Back to Claims</button>
-                <div class="floated">
-                  <button class="uikit-btn btnNext" id="btnNext">Save and next</button>
-                </div>
-              </div>
 
             </div>
-
-
           </div>
         </div>
-      </div>
 
-    </main>
+      </main>
 
-    <% include ../../../global/partials/footer.ejs %>
+      <% include ../../../global/partials/footer.ejs %>
 </body>
 
 <!-- Horizontal nav -->
