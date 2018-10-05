@@ -28,8 +28,9 @@
 
 .pn-ProductNav_Wrapper {
 	position: relative;
-	padding: 0 11px;
-	box-sizing: border-box;
+	padding: 0 30px;
+  box-sizing: border-box;
+  border-bottom: 1px #eee solid;
 }
 
 .pn-ProductNav {
@@ -66,10 +67,12 @@
 }
 
 .pn-ProductNav_Link {
-	text-decoration: none;
 	color: #888;
 	// Reset the font size
-	font-size: .8rem;
+  font-size: 1rem;
+  @media only screen and (max-width: 600px) {
+    font-size: 0.8rem;
+    }
 	font-family: -apple-system, sans-serif;
 	display: inline-flex;
 	align-items: center;
@@ -125,7 +128,37 @@
 .pn-Advancer_Icon {
 	width: 20px;
 	height: 44px;
-	fill: #bbb;
+  fill: #093d77;
+  -moz-animation: pulse 2s 5 linear;
+	-o-animation: pulse 2s 5 linear;
+	-webkit-animation: pulse 2s 5 linear;
+	animation: pulse 2s 5 linear;
+}
+
+@-webkit-keyframes pulse {
+	0% { opacity: 1; }
+	50% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@-moz-keyframes pulse {
+	0% { opacity: 1; }
+	50% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@-o-keyframes pulse {
+	0% { opacity: 1; }
+	50% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@-ms-keyframes pulse {
+	0% { opacity: 1; }
+	50% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@keyframes pulse {
+	0% { opacity: 1; }
+	50% { opacity: 0; }
+	100% { opacity: 1; }
 }
 
 .pn-ProductNav_Indicator {
@@ -170,6 +203,7 @@ h1 {
   font-weight: bold;
   line-height: 3;
   cursor: pointer;
+  margin-bottom: 2px;
 }
 
 .tab-content {
@@ -197,6 +231,10 @@ h1 {
   background: linear-gradient(to right, red , yellow);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.mys-file-uploads__info {
+  padding-left: 20px;
 }
 /* Icon */
 .tab label::after {
