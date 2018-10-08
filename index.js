@@ -752,6 +752,13 @@ app.get('/healthcard-none', function (request, response) {
   });
 });
 
+app.get('/healthcard-provisional', function (request, response) {
+  response.render('auth/healthcard/healthcard-provisional', {
+    main_nav_active: 'healthcard'
+  });
+});
+
+
 app.get('/healthcard-replacement', function (request, response) {
   response.render('auth/claim/pages/healthcard-replacement', {
     main_nav_active: 'healthcard'
