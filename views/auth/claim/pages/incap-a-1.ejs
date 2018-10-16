@@ -78,7 +78,7 @@
                     <input class="uikit-control-input__input" type="checkbox" name="cfts" id="cfts">
                     <span class="uikit-control-input__text">I lost earnings whilst on a continuous full-time service (CFTS) contract</span>
                   </label>
-                </div>
+                </div>-->
                 <div class="margin-below--mid lostincome transitioning">
                   <label class="uikit-control-input">
                     <input class="uikit-control-input__input" type="checkbox" name="likelyearnless" id="likelyearnless">
@@ -91,12 +91,12 @@
                     <span class="uikit-control-input__text">I will likely be unemployed after I discharge</span>
                   </label>
                 </div>
-                <div class="margin-below--mid lostincome dischargedreserves">
+                <!--<div class="margin-below--mid lostincome dischargedreserves">
                   <label class="uikit-control-input">
                     <input class="uikit-control-input__input" type="checkbox" name="incapongoing1" id="incapongoing1">
                     <span class="uikit-control-input__text">After discharging from the Reserves, I was unemployed</span>
                   </label>
-                </div> -->
+                </div>
                 <div class="margin-below--mid lostincome formerserving-now">
                   <label class="uikit-control-input">
                     <input class="uikit-control-input__input employment-required" type="checkbox" name="earningless-now" id="earningless-now">
@@ -115,6 +115,7 @@
                     <span class="uikit-control-input__text">I am currently unemployed</span>
                   </label>
                 </div>
+                -->
                 <!-- <div class="margin-below--mid lostincome dischargedreserves">
                   <label class="uikit-control-input">
                     <input class="uikit-control-input__input" type="checkbox" name="incaplumpsum" id="incaplumpsum">
@@ -150,16 +151,20 @@
 
       $("#btnNext").click(function () {
 
+        // add a flag if loss of allowance / career progression is checked
         if ($("#lossofallowance1").is(':checked') || $("#lossofallowance2").is(':checked')) {
           localStorage.setItem('flow1', true);
         }
-        if ($("#earningless-now").is(':checked') || $("#unemployed-past").is(':checked') || $("#unemployed-now").is(':checked')) {
+        // remove the flag for loss of allowance / career progression if any other option is checked
+        if ($("#likelyearnless").is(':checked') || $("#likelyunemployed").is(':checked')) {
           localStorage.removeItem('flow1');
         }
-        if ($("#unemployed-past").is(':checked') || $("#unemployed-now").is(':checked')) {
+        // add a flag if umemployment is likely. This flag will be used to hide employment related questions from Part B
+        if ($("#likelyunemployed").is(':checked')) {
           localStorage.setItem('flow2', true);
         }
-        if ($("#earningless-now").is(':checked')) {
+        // remove the flag for unemployment if user indicates they're likely to be earning less in civilian employment. This will ensure the user is asked employment questions.
+        if ($("#likelyearnless").is(':checked')) {
           localStorage.removeItem('flow2');
         }
 

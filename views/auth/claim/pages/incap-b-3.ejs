@@ -74,7 +74,7 @@
 
           <div class="margin-above--extra margin-below--extra">
 
-            <h3>Tell us about the employment you were in when you suffered a loss of earnings <span class="hint display-block">This will help us determine your claim</span></h3>
+            <h3>Tell us about the employment you will be in after leaving the ADF <span class="hint display-block">This will help us determine your claim</span></h3>
 
 
             <div id="set1">
@@ -102,19 +102,19 @@
                   <input class="uikit-text-input input-half" name="employer-phone" id="employer-phone" type="text" value="" required="" aria-required="true">
                 </div>
                 <div class="form-group margin-above">
-                  <label class="uikit-text-input__label" for="employment-hours-worked">How many hours do you work per week?
+                  <label class="uikit-text-input__label" for="employment-hours-worked">How many hours do you plan to work per week?
                   </label>
                   <input class="uikit-text-input yyyy" type="text" name="hours-worked" id="hours-worked" maxlength="3" required aria-required="true" aria-label="2 digit hours">
                   &nbsp;hours&nbsp;per&nbsp;week
                 </div>
-                <div class="form-group margin-above">
-                  <label class="uikit-text-input__label" for="employment-earnings">What is your gross weekly earnings? <span class="hint">(before tax)</span>
+                <!-- <div class="form-group margin-above">
+                  <label class="uikit-text-input__label" for="employment-earnings">What will be your gross weekly earnings? <span class="hint">(before tax)</span>
                   </label>
                   $&nbsp;<input class="uikit-text-input input-half" name="employment-earnings" id="employment-earnings" type="text" value="" required="" aria-required="true">
-                </div>
+                </div> -->
 
 
-                <div class="form-group current-job">
+                <!-- <div class="form-group current-job">
                   <legend class="legend-label">Is this your current job?</legend>
                   <div class="radio-toggle">
                     <label class="on label-left" for="currentjob-yes">
@@ -126,12 +126,12 @@
                       <span>No</span>
                     </label>
                   </div>
-                </div>
+                </div> -->
 
 
-                <div class="form-group date-started" style="display:none;">
-                  <label class="uikit-text-input__label" for="dd-employmentstart">When did you start working here?
-                    <span class="hint">(dd / mm / yyyy)</span>
+                <div class="form-group date-started">
+                  <label class="uikit-text-input__label" for="dd-employmentstart">When will you start working here? <span class="hint">(if known)</span>
+                    <span class="hint display-block">(dd / mm / yyyy)</span>
                   </label>
                   <input class="uikit-text-input dd" type="text" name="dd-employmentstart" id="dd-employmentstart" maxlength="2" required aria-required="true" aria-label="2 digit day">
                   /
@@ -140,7 +140,7 @@
                   <input class="uikit-text-input yyyy" type="text" name="yyyy-employmentstart" id="yyyy-employmentstart" maxlength="4" required aria-required="true" aria-label="4 digit year">
                 </div>
 
-                <div class="form-group date-started-ended" style="display:none;">
+                <!-- <div class="form-group date-started-ended" style="display:none;">
                   <label class="uikit-text-input__label" for="dd-employmentstart">What dates did you work here?
                     <span class="hint">(dd / mm / yyyy)</span>
                   </label>
@@ -155,14 +155,14 @@
                   <input class="uikit-text-input mm" type="text" name="mm-employmentend" maxlength="2" required aria-required="true" aria-label="2 digit month">
                   /
                   <input class="uikit-text-input yyyy" type="text" name="yyyy-employmentend" maxlength="4" required aria-required="true" aria-label="4 digit year">
-                </div>
+                </div> -->
 
 
               </div>
 
               <fieldset>
-                <div class="form-group margin-above more-employment" style="display:none;">
-                  <legend class="legend-label">Do you have any other employment details that relate to this claim?</legend>
+                <div class="form-group more-employment">
+                  <legend class="legend-label">Will you have any other employment after leaving the ADF?</legend>
                   <div class="radio-toggle">
                     <label class="on label-left" for="moredetails-yes">
                       <input id="moredetails-yes" type="radio" name="moredetails">
@@ -202,17 +202,17 @@
                   <input class="uikit-text-input input-half" name="employer-phone" type="text" value="" required="" aria-required="true">
                 </div>
                 <div class="form-group margin-above">
-                  <label class="uikit-text-input__label" for="employment-hours-worked">How many hours did you work per week?
+                  <label class="uikit-text-input__label" for="employment-hours-worked">How many hours will you work per week?
                   </label>
                   <input class="uikit-text-input yyyy" type="text" name="hours-worked" maxlength="3" required aria-required="true" aria-label="2 digit hours">
                   &nbsp;hours&nbsp;per&nbsp;week
                 </div>
-                <div class="form-group margin-above">
+                <!-- <div class="form-group margin-above">
                   <label class="uikit-text-input__label" for="employment-earnings">What was your gross weekly earnings? <span class="hint">(before tax)</span>
                   </label>
                   $&nbsp;<input class="uikit-text-input input-half" name="employment-earnings" type="text" value="" required="" aria-required="true">
-                </div>
-                <div class="form-group current-job2">
+                </div> -->
+                <!-- <div class="form-group current-job2">
                   <legend class="legend-label">Is this your current job?</legend>
                   <div class="radio-toggle">
                     <label class="on label-left" for="currentjob2-yes">
@@ -224,10 +224,10 @@
                       <span>No</span>
                     </label>
                   </div>
-                </div>
-                <div class="form-group date-started2" style="display:none;">
-                  <label class="uikit-text-input__label" for="dd-employmentstart">When did you start working here?
-                    <span class="hint">(dd / mm / yyyy)</span>
+                </div> -->
+                <div class="form-group date-started2">
+                  <label class="uikit-text-input__label" for="dd-employmentstart">When will you start working here? <span class="hint">(if known)</span>
+                    <span class="hint display-block">(dd / mm / yyyy)</span>
                   </label>
                   <input class="uikit-text-input dd" type="text" name="dd-employmentstart" id="dd-employmentstart" maxlength="2" required aria-required="true" aria-label="2 digit day">
                   /
