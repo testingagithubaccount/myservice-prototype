@@ -379,6 +379,13 @@ app.get('/claims-make', function (request, response) {
   });
 });
 
+
+app.get('/travel-home', function (request, response) {
+  response.render('auth/claim/pages/claims-make', {
+    main_nav_active: 'claims'
+  });
+});
+
 app.get('/claims-neverserved', function (request, response) {
   response.render('auth/claim/pages/claims-neverserved', {
     main_nav_active: 'claims'
