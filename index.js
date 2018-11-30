@@ -1162,3 +1162,8 @@ app.get('/styleguide-animations', function (request, response) {
 app.get('/myaccount', function (request, response) {
   response.render('myaccount/index');
 });
+
+/* Testing Benny */
+app.get('/bennyc-test-circle', function (request, response) {
+  response.render('auth/claim/pages/bennyc-test-circle');
+});
