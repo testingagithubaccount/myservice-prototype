@@ -53,6 +53,12 @@ app.get('/email-lsq-pilot', function (request, response) {
 app.get('/email-lsq-pilot-thanks', function (request, response) {
   response.render('email/pages/email-lsq-pilot-thanks');
 });
+app.get('/email-veteran-card-approved', function (request, response) {
+  response.render('email/pages/email-veteran-card-approved');
+});
+app.get('/email-mental-health-approved', function (request, response) {
+  response.render('email/pages/email-mental-health-approved');
+});
 app.get('/email-incap-submitted', function (request, response) {
   response.render('email/pages/email-incap-submitted');
 });
@@ -529,6 +535,11 @@ app.get('/incap-ineligible', function (request, response) {
 });
 
 /* Service pension claim */
+app.get('/sp-before-start', function (request, response) {
+  response.render('auth/claim/pages/sp-before-start', {
+    main_nav_active: 'claims'
+  });
+});
 app.get('/sp-progress', function (request, response) {
   response.render('auth/claim/pages/sp-progress', {
     main_nav_active: 'claims'
@@ -952,28 +963,61 @@ app.get('/viewNLHCClaimDetail', function (request, response) {
 /* Veteran card */
 app.get('/veteran-card-eligibility', function (request, response) {
   response.render('auth/claim/pages/veteran-card-eligibility', {
-    main_nav_active: 'healthcard'
+    main_nav_active: 'claims'
   });
 });
 app.get('/veteran-card-1', function (request, response) {
   response.render('auth/claim/pages/veteran-card-1', {
-    main_nav_active: 'healthcard'
+    main_nav_active: 'claims'
   });
 });
 app.get('/veteran-card-2', function (request, response) {
   response.render('auth/claim/pages/veteran-card-2', {
-    main_nav_active: 'healthcard'
+    main_nav_active: 'claims'
   });
 });
 app.get('/veteran-card-review', function (request, response) {
   response.render('auth/claim/pages/veteran-card-review', {
-    main_nav_active: 'healthcard'
+    main_nav_active: 'claims'
   });
 });
 app.get('/veteran-card-submitted', function (request, response) {
   response.render('auth/claim/pages/veteran-card-submitted', {
-    main_nav_active: 'healthcard'
+    main_nav_active: 'claims'
   });
+});
+app.get('/veteran-card-summary', function (request, response) {
+  response.render('auth/claim/pages/veteran-card-summary');
+});
+
+/* New NLHC */
+app.get('/mental-health-eligibility', function (request, response) {
+  response.render('auth/claim/pages/mental-health-eligibility', {
+    main_nav_active: 'claims'
+  });
+});
+app.get('/mental-health-1', function (request, response) {
+  response.render('auth/claim/pages/mental-health-1', {
+    main_nav_active: 'claims'
+  });
+});
+app.get('/mental-health-2', function (request, response) {
+  response.render('auth/claim/pages/mental-health-2', {
+    main_nav_active: 'claims'
+  });
+});
+app.get('/mental-health-review', function (request, response) {
+  response.render('auth/claim/pages/mental-health-review', {
+    main_nav_active: 'claims'
+  });
+});
+app.get('/mental-health-submitted', function (request, response) {
+  response.render('auth/claim/pages/mental-health-submitted', {
+    main_nav_active: 'claims'
+  });
+});
+app.get('/mental-health-summary', function (request, response) {
+  response.render('auth/claim/pages/mental-health-summary');
 });
 
 /* Health card */

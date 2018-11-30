@@ -36,6 +36,10 @@
 
 
           <div class="container margin-above margin-below--extra" id="claim-activity">
+            <div class="form-group">
+              <!-- <a href="/panel-feedbacksubmitting"><button id="submit" class="uikit-btn btnNext">Submit feedback</button></a> -->
+              <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/lump-sum-advance-request'">Request lump sum advance</button>
+            </div>
 
             <!-- <div class="ss-align--center">
               <h2>
@@ -69,19 +73,7 @@
                         <!-- <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '#open-deleteclaimmodal'">Withdraw</button> -->
                       </td>
                     </tr>
-                    <tr>
-                      <td>
-                        <p class="status-icon status-incomplete">
-                          <legend class="legend-label" for="radio-buttons">Lump sum advance request</legend>
-                          <legend class="legend-label" for="radio-buttons">Incomplete<span class="hint"> - 18 days remaining</span></legend>
-                        </p>
-                      </td>
-                      <td class="widget-actions">
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'afi-claim1'">Resume</button>
-                        <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '#open-deleteclaimmodal'">Delete</button>
-                        <!-- <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '#open-deleteclaimmodal'">Withdraw</button> -->
-                      </td>
-                    </tr>
+                    
                     <tr>
                       <td>
                         <p class="status-icon status-submitted">
@@ -123,11 +115,7 @@
                 </div>
               </div>
             </section>
-            <hr>
-            <div class="form-group">
-              <!-- <a href="/panel-feedbacksubmitting"><button id="submit" class="uikit-btn btnNext">Submit feedback</button></a> -->
-              <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/lump-sum-advance-request'">Request lump sum advance</button>
-            </div>
+
 
             <% include ../partials/dhoas-start-modal.ejs %>
 
