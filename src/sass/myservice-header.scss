@@ -226,9 +226,9 @@ ul.menu li {
       background-size: 16px 16px;
     }
 
-    &.header-transport {
-      background: transparent url(../images/ico-transport-white.svg) no-repeat 1em 50%;
-      background-size: auto 16px;
+    &.header-travel {
+      background: transparent url(../images/ico-transport-white.png) no-repeat 0 -1em;
+      background-size: 100%;
     }
 
     &.header-profile {
