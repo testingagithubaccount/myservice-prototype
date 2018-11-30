@@ -1167,6 +1167,9 @@ app.get('/styleguide-tooltip', function (request, response) {
 app.get('/styleguide-animations', function (request, response) {
   response.render('styleguide/pages/animations');
 });
+app.get('/benny-cool-animation', function (request, response) {
+  response.render('auth/claim/pages/benny-cool-animation');
+});
 
 
 /* MyAccount */
