@@ -2,7 +2,7 @@
   list-style: none;
   }
 
-.info-timeline ul li span.timeline-circle {
+.info-timeline ul li span.timeline-circle{
   position: relative;
   border: 4px solid #999;
   border-radius: 100%;
@@ -18,7 +18,7 @@
   font-weight: bold;
 }
 
-.info-timeline ul li:not(:first-of-type) span.timeline-circle::before {
+ul li:not(:first-of-type) span.timeline-circle::before, ul li:not(:first-of-type) circle.progress-circle:before{
   position: absolute;
   border: 1px solid #999;
   width: 0;
@@ -36,9 +36,10 @@
 }
 span.timeline-text-box {
     position: absolute;
-    margin-top: 45px;
+    margin-top: 10px;
+    display:inline-flex;
 }
-#nav .active {
-   background-color: red !important;
-   color: #fff;
-}
+// #nav .active {
+//    background-color: red !important;
+//    color: #fff;
+// }

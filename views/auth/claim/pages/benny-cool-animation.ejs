@@ -8,6 +8,22 @@
   <link href="docs/css/main.css" rel="stylesheet">
 
   <style>
+  @keyframes dash {
+  from {
+    stroke-dashoffset: 816;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.progress-circle circle {
+  stroke-dasharray: 816;
+  stroke-dashoffset: 0;
+  animation: dash 5s linear;
+}
+
+
 
   </style>
 </head>
@@ -40,20 +56,36 @@
           <div class="container">
             <aside id="nav">
             <nav>
-    <div class="info-timeline">
+    <div class="process info-timeline other-links">
       <ul>
-        <li><span class="timeline-circle active">1</span><span class="timeline-text-box" id="1">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
-        <li><span class="timeline-circle">2</span><span class="timeline-text-box" id="2">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
-        <li><span class="timeline-circle">3</span><span class="timeline-text-box" id="3">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
-        <li><span class="timeline-circle">4</span><span class="timeline-text-box" id="4">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
-        <li><span class="timeline-circle">1</span><span class="timeline-text-box" id="5">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
-        <li><span class="timeline-circle">2</span><span class="timeline-text-box" id="6">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
-        <li><span class="timeline-circle">3</span><span class="timeline-text-box" id="7">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
-        <li><span class="timeline-circle">4</span><span class="timeline-text-box" id="8">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
-        <li><span class="timeline-circle">1</span><span class="timeline-text-box" id="9">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
-        <li><span class="timeline-circle">2</span><span class="timeline-text-box" id="10">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
-        <li><span class="timeline-circle">3</span><span class="timeline-text-box" id="11">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
-        <li><span class="timeline-circle">4</span><span class="timeline-text-box" id="12">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
+        <li class="dashdiv">
+          <svg class="progress-circle" width="50" height="50">
+            <circle class="timeline-circle" cx="25" cy="25" r="23" fill="none" stroke="#999" stroke-width="4px"/>
+            <text x="50%" y="50%" text-anchor="middle" fill="black" font-size="inherit" font-family="inherit" dy=".3em" stroke="#FF9600">1</text>
+            <span class="timeline-text-box" id="1">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span>
+          </svg>
+        </li>
+        <li class="dashdiv">
+          <svg class="timeline-circle progress-circle" width="50" height="50">
+            <circle cx="25" cy="25" r="23" fill="none" stroke="#999" stroke-width="4px"/>
+            <text x="50%" y="50%" text-anchor="middle" fill="black" font-size="inherit" font-family="inherit" dy=".3em" stroke="#FF9600">1</text>
+            <span class="timeline-text-box" id="1">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span>
+          </svg>
+        </li>
+
+        <li class="dashdiv"><span class="timeline-circle active">1</span>
+          <span class="timeline-text-box" id="1">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
+        <!-- <li class="dashdiv"><span class="timeline-circle">2</span><span class="timeline-text-box" id="2">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
+        <li class="dashdiv"><span class="timeline-circle">3</span><span class="timeline-text-box" id="3">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
+        <li class="dashdiv"><span class="timeline-circle">4</span><span class="timeline-text-box" id="4">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
+        <li class="dashdiv"><span class="timeline-circle">1</span><span class="timeline-text-box" id="5">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
+        <li class="dashdiv"><span class="timeline-circle">2</span><span class="timeline-text-box" id="6">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
+        <li class="dashdiv"><span class="timeline-circle">3</span><span class="timeline-text-box" id="7">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
+        <li class="dashdiv"><span class="timeline-circle">4</span><span class="timeline-text-box" id="8">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
+        <li class="dashdiv"><span class="timeline-circle">1</span><span class="timeline-text-box" id="9">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
+        <li class="dashdiv"><span class="timeline-circle">2</span><span class="timeline-text-box" id="10">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
+        <li class="dashdiv"><span class="timeline-circle">3</span><span class="timeline-text-box" id="11">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li>
+        <li class="dashdiv"><span class="timeline-circle">4</span><span class="timeline-text-box" id="12">You will receive your Veteran Card in the mail. This can take up to 3 weeks</span></li> -->
       </ul>
     </div>
   </nav>
@@ -70,15 +102,11 @@
 
 
 <script>
-$(window).on('scroll', function() {
-  $('.timeline-circle').each(function() {
-      if($(window).scrollTop() >= $(this).position().top) {
-          var id = $(this).attr('id');
-          $('li span.timeline-circle').removeClass('active');
-          $(this).addClass('active');
-      }
-  });
+
+$('.dashdiv').each(function(i) {
+  $(this).fadeOut(0).delay(1000*i).fadeIn(1850);
 });
+
   </script>
 </body>
 
