@@ -24,6 +24,31 @@ app.get('/', function (request, response) {
 });
 
 
+
+/** TEMP ************************************ */
+
+
+
+app.get('/dbc1', function (request, response) {
+  response.render('auth/dashboard/dashboard-concept1.ejs', {
+    main_nav_active: 'home'
+  });
+});
+
+
+app.get('/dbc2', function (request, response) {
+  response.render('auth/dashboard/dashboard-concept2.ejs', {
+    main_nav_active: 'home'
+  });
+});
+
+
+
+/* END TEMP ************************/
+
+
+
+
 /* MyGov linking and login pages */
 
 app.get('/mygov-login', function (request, response) {
@@ -156,6 +181,13 @@ app.get('/service-period-3', function (request, response) {
 });
 
 
+/* Temp travel page */
+app.get('/travel-home', function (request, response) {
+  response.render('auth/travel/travel-home', {
+    main_nav_active: 'travel'
+  });
+});
+
 /* Claims Page */
 
 app.get('/claims-make', function (request, response) {
@@ -173,6 +205,8 @@ app.get('/claims', function (request, response) {
     main_nav_active: 'claims'
   });
 });
+
+
 
 /* Claims - AFI */
 

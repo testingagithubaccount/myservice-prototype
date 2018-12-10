@@ -221,6 +221,13 @@ ul.menu li {
       background-size: 16px 16px;
     }
 
+    &.header-travel {
+      // background: transparent url(../images/ico-travel.svg) no-repeat 50% 0;
+      // background-size: 70px auto;
+      background: transparent url(../images/ico-travel.svg) no-repeat 1em 50%;
+      background-size: 16px 16px;
+    }
+
     &.header-profile {
       background: transparent url(../images/ico-profile.svg) no-repeat 1em 50%;
       background-size: 16px 16px;
@@ -283,14 +290,14 @@ ul.menu li {
         background-size: 30px 30px;
       }
 
-      &.header-profile {
-        background: transparent url(../images/ico-profile.svg) no-repeat 50% 18px;
-        background-size: 30px 30px;
-      }
-
       &.header-healthcard {
         background: transparent url(../images/ico-card-white.svg) no-repeat 50% 18px;
         background-size: auto 30px;
+      }
+
+      &.header-travel {
+        background: transparent url(../images/ico-travel.svg) no-repeat 50% 0;
+        background-size: 70px auto;
       }
 
       &.header-profile {
