@@ -353,12 +353,7 @@ table.agreements-concept.table-responsive.clean {
   span.fa-stack:hover {
       background-color: transparent;
   }
-  .box-on-click{
-    border:solid 1px #eee;
-    padding:20px;
-    margin-top: -1.3em;
-    // background-color: #eee;
-  }
+
   .addBorderBack{
     border-left:solid 1px #eee;
   }
@@ -376,7 +371,13 @@ table.agreements-concept.table-responsive.clean {
     border:solid 1px #eee;
     padding:20px;
     margin-top: -1.3em;
-    // background-color: #eee;
+      &:hover{
+        background: #eee;
+         & ~ .fa-circle:hover{
+           -webkit-text-stroke: 1px #eee;
+           color: #fff;
+         }
+      }
   }
   .addBorderBack{
     border-left:solid 1px #eee;
