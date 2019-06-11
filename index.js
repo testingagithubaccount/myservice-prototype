@@ -166,33 +166,39 @@ app.get('/link-checker', (req, res) => {
      file = file.replace(/\\/g, "/");
      var page_links = fs.readFileSync('./views/'+file, "utf8");
      page_links = page_links.match(/href=(?:'|")(.*)(?:'|")/g);
+     console.log("-----------------------\n" + file + "\n")
+     console.log("Array\n"+page_links);
      page_links = [...new Set(page_links)];
-     if (port === 80 || port === "80") {
-       pre_url = "http://localhost/";
-     } else {
-       pre_url = `http://localhost:${port}`;
-     }
-     page_links.forEach((page, p_index) => {
-       axios.get(pre_url+page)
-       .then(resp => {
-         b_links.push({
-           link: page,
-           statusCode: resp.status,
-           statusText: resp.statusText
-         });
-       })
-       .catch(err => console.log(err));
-     });
-     broken_links.push({
-       file,
-       links: b_links
-     });
-   });
+     console.log("Set\n"+page_links);
+     if ()
+  //    if (port === 80 || port === "80") {
+  //      pre_url = "http://localhost/";
+  //    } else {
+  //      pre_url = `http://localhost:${port}`;
+  //    }
+  //    page_links.forEach((page, p_index) => {
+  //      page = page.replace("")
+  //      axios.get(pre_url+page)
+  //      .then(resp => {
+  //        b_links.push({
+  //          link: page,
+  //          statusCode: resp.status,
+  //          statusText: resp.statusText
+  //        });
+  //      })
+  //      .catch(err => console.log(err));
+  //    });
+  //    broken_links.push({
+  //      file,
+  //      links: b_links
+  //    });
+  //  });
+  // })
+  // .then(() => {
+  //  res.render('link-checker', {pages: broken_links});
   })
-  .then(() => {
-   res.render('link-checker', {pages: broken_links});
-  })
-  .catch(e => console.error(e));
+  // .catch(err => console.error(err));
+});
 });
 
 // folder level renders 
