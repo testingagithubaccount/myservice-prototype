@@ -9,6 +9,7 @@ let express = require('express'),
   } = require('path'),
   fs = require('fs'),
   path = require('path'),
+  axios = require('axios'),
   // featuretoggleapi = require('feature-toggle-api'),
 
   // not so secret secret
@@ -42,6 +43,20 @@ app.use(function (req, res, next) {
   res.locals.partials = __dirname + '/partials/';
   next();
 });
+
+// used for giant sitemap and link checking
+async function getFiles(dir) {
+  const subdirs = await readdir(dir);
+  const files = await Promise.all(subdirs.map(async (subdir) => {
+    const res = resolve(dir, subdir);
+    return (await stat(res)).isDirectory() ? getFiles(res) : res;
+  }));
+  return files.reduce((a, f) => a.concat(f), []);
+}
+
+
+
+
 
 
 // create sitemap 
@@ -112,14 +127,6 @@ console.log('List of features that are unhidden:');
 console.log(liveFeatureList);
 
 app.get('/sitemap', (req, res) => {
-  async function getFiles(dir) {
-    const subdirs = await readdir(dir);
-    const files = await Promise.all(subdirs.map(async (subdir) => {
-      const res = resolve(dir, subdir);
-      return (await stat(res)).isDirectory() ? getFiles(res) : res;
-    }));
-    return files.reduce((a, f) => a.concat(f), []);
-  }
   var pages = []
   getFiles("./views")
     .then(files => {
@@ -147,6 +154,45 @@ app.get('/sitemap', (req, res) => {
     .catch(e => console.error(e));
 
 
+});
+
+app.get('/link-checker', (req, res) => {
+  var links = {};
+  var broken_links = [];
+  getFiles("./views").then(files => {
+   files.forEach((file, index) => {
+     b_links = [];
+     file = file.replace(__dirname+"\\views", "");
+     file = file.replace(/\\/g, "/");
+     var page_links = fs.readFileSync('./views/'+file, "utf8");
+     page_links = page_links.match(/href=(?:'|")(.*)(?:'|")/g);
+     page_links = [...new Set(page_links)];
+     if (port === 80 || port === "80") {
+       pre_url = "http://localhost/";
+     } else {
+       pre_url = `http://localhost:${port}`;
+     }
+     page_links.forEach((page, p_index) => {
+       axios.get(pre_url+page)
+       .then(resp => {
+         b_links.push({
+           link: page,
+           statusCode: resp.status,
+           statusText: resp.statusText
+         });
+       })
+       .catch(err => console.log(err));
+     });
+     broken_links.push({
+       file,
+       links: b_links
+     });
+   });
+  })
+  .then(() => {
+   res.render('link-checker', {pages: broken_links});
+  })
+  .catch(e => console.error(e));
 });
 
 // folder level renders 

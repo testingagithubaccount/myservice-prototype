@@ -21,10 +21,10 @@
     "ie >= 9"
   ],
   "dependencies": {
+    "axios": "^0.19.0",
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "broken-link-checker-local": "^0.2.0",
     "browser-sync": "^2.26.5",
     "cookie-parser": "^1.4.4",
     "ejs": "^2.6.1",

@@ -9,7 +9,7 @@ var livereload = require('gulp-livereload');
 var util = require('gulp-util');
 var babel = require("gulp-babel");
 var header = require('gulp-header');
-var backstop = require('backstopjs');
+// var backstop = require('backstopjs');
 var fs = require("fs");
 
 
