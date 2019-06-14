@@ -185,10 +185,10 @@
 
       <div class="pagination pagination--ss-reverse-order">
         <button class="uikit-btn uikit-btn--tertiary" onclick="javascript:history.back()">Previous</button>
-        <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href='#open-modal'">Cancel claim</button>
+        <a href="#open-modal"><button class="uikit-btn uikit-btn--tertiary"  >Cancel claim</button></a>
         <div class="floated">
-          <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href='/auth'">Save and exit</button>
-          <button class="uikit-btn btnNext" onclick="window.location.href= '/auth/claim/studentclaim2'">Save and next</button>
+          <a href="/auth"><button class="uikit-btn uikit-btn--tertiary"  >Save and exit</button></a>
+          <a href="/auth/claim/studentclaim2"><button class="uikit-btn btnNext"  >Save and next</button></a>
         </div>
       </div>
       <%- include(partials+"content/modals/claims-cancel-modal") %>

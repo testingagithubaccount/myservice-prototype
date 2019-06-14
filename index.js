@@ -170,7 +170,7 @@ app.get('/link-checker', (req, res) => {
      console.log("Array\n"+page_links);
      page_links = [...new Set(page_links)];
      console.log("Set\n"+page_links);
-     if ()
+     // if ()
   //    if (port === 80 || port === "80") {
   //      pre_url = "http://localhost/";
   //    } else {

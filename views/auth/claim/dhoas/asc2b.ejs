@@ -322,11 +322,11 @@
             </div>
 
             <div class="pagination margin-above--large">
-              <button class="uikit-btn uikit-btn--tertiary " onclick="window.location.href='/auth/claim/dhoas/asc1' ">Previous</button>
-              <button class="uikit-btn uikit-btn--tertiary " onclick="window.location.href='#open-modal ' ">Cancel application</button>
+              <a href="/auth/claim/dhoas/asc1"><button class="uikit-btn uikit-btn--tertiary">Previous</button></a>
+              <a href="#open-modal"><button class="uikit-btn uikit-btn--tertiary">Cancel application</button></a>
               <div class="floated ">
-                <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href='/auth/claims ' ">Save and exit</button>
-                <button class="uikit-btn btnNext" id="btnNext">Save and next</button>
+                <a href="/auth/claim"><button class="uikit-btn uikit-btn--tertiary">Save and exit</button></a>
+                <a href="#" id="btnNext"><button class="uikit-btn">Save and next</button></a>
               </div>
             </div>
 
@@ -344,10 +344,10 @@
     document.getElementById("percentage_value").innerText = "40%";
 
     $("#anotherCoOwner-yes").on("click", () => {
-      $("#btnNext").attr("onclick", "window.location.href='/auth/claim/dhoas/asc2b'");
+      $("#btnNext").attr("href", "/auth/claim/dhoas/asc2b");
     });
     $("#anotherCoOwner-no").on("click", () => {
-      $("#btnNext").attr("onclick", "window.location.href='/auth/claim/dhoas/asc3'");
+      $("#btnNext").attr("href", "/auth/claim/dhoas/asc3");
     });
 
     // Javascript Rules
@@ -410,24 +410,6 @@
         document.getElementById('InterestInProperty').style.display = 'none'
       }
     }
-
-
-
-    var buttonon = true;
-    $("#btnNext").click(function () {
-      if ($("#anotherCoOwner-yes")[0].checked) {
-        $(".on > input").each(function () {
-          if (!$(this)[0].checked) {
-            buttonon = false;
-          }
-        })
-        if (buttonon) {
-          window.location.href = "/auth/claim/dhoas/asc2b";
-          return
-        }
-      }
-      window.location.href = "/auth/claim/dhoas/asc3";
-    });
 
     $.ajax({
       url: '/docs/data/rank.json',

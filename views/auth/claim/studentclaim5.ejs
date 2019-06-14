@@ -30,7 +30,7 @@
       <h1>Review and submit</h1>
       <table class="cover-detail">
         <caption>Student details
-          <button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/auth/claim/il/claim1'">Change</button>
+          <a href="/auth/claim/il/claim1"><button class="uikit-btn uikit-btn--tertiary floated small"  >Change</button></a>
         </caption>
 
         <thead>
@@ -69,7 +69,7 @@
 
       <table class="cover-detail">
         <caption>Study details
-          <button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/auth/claim/il/claim3'">Change</button>
+          <a href="/auth/claim/il/claim3"><button class="uikit-btn uikit-btn--tertiary floated small"  >Change</button></a>
         </caption>
         <tr>
           <th>What type of education will you undertake this year?</th>
@@ -87,7 +87,7 @@
 
       <table class="cover-detail">
         <caption>Living arrangements
-          <button class="uikit-btn uikit-btn--tertiary floated small floated--always" onclick="window.location.href = '/auth/claim/il/claim4'">Change</button>
+          <a href="/auth/claim/il/claim4"><button class="uikit-btn uikit-btn--tertiary floated small floated--always"  >Change</button></a>
         </caption>
         <thead>
           <tr>
@@ -100,7 +100,7 @@
 
       <table class="cover-detail">
         <caption>Financial details
-          <button class="uikit-btn uikit-btn--tertiary floated small" onclick="window.location.href = '/auth/claim/il/claim5-5'">Change</button>
+          <a href="/auth/claim/il/claim5-5"><button class="uikit-btn uikit-btn--tertiary floated small"  >Change</button></a>
         </caption>
         <tr>
           <th>Are you currently receiving any payment from Centrelink?</th>
@@ -138,10 +138,10 @@
       <div class="pagination pagination--ss-reverse-order">
 
         <button class="uikit-btn uikit-btn--tertiary" onclick="javascript:history.back()">Previous</button>
-        <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '#open-modal'">Cancel claim</button>
+        <a href="#open-modal"><button class="uikit-btn uikit-btn--tertiary"  >Cancel claim</button></a>
         <div class="floated">
-          <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/claim'">Save and exit</button>
-          <button class="uikit-btn btnNext" onclick="window.location.href = '/auth/claim/studentclaim6'">Submit claim</button>
+          <a href="/auth/claim"><button class="uikit-btn uikit-btn--tertiary"  >Save and exit</button></a>
+          <a href="/auth/claim/studentclaim6"><button class="uikit-btn btnNext"  >Submit claim</button></a>
         </div>
       </div>
       <%- include(partials+"content/modals/claims-cancel-modal") %>

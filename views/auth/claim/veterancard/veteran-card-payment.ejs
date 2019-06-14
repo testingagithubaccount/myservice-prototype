@@ -38,10 +38,10 @@
               locals.el.optionalScenario = 'optional'; %>
             <%- include(partials+"content/veteran_supplement", locals) %>
             <div class="pagination">
-              <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/claim/veterancard/veteran-card-content/service-history'">Previous</button>
-              <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '#open-modal'">Cancel</button>
+              <a href="/auth/claim/veterancard/veteran-card-content/service-history"><button class="uikit-btn uikit-btn--tertiary"  >Previous</button></a>
+              <a href="#open-modal"><button class="uikit-btn uikit-btn--tertiary"  >Cancel</button></a>
               <div class="floated">
-                <button class="uikit-btn btnNext" id="btnNext" onclick="window.location.href = '/auth/claim/veterancard/veteran-card-review-submit'">Next</button>
+                <a href="/auth/claim/veterancard/veteran-card-review-submit"><button class="uikit-btn btnNext" id="btnNext"  >Next</button></a>
               </div>
             </div>
           </div>

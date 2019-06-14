@@ -38,7 +38,7 @@
         <% if (locals.liveFeature.includes('featureLsa')) { %>
 
         <div class="form-group">
-          <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/claim/lsa/request'">Request lump sum advance</button>
+          <a href="/auth/claim/lsa/request"><button class="uikit-btn uikit-btn--tertiary"  >Request lump sum advance</button></a>
         </div>
 
         <% } %>
@@ -61,8 +61,8 @@
                     </p>
                   </td>
                   <td class="widget-actions">
-                    <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '/auth/claim/afi/claimdetail'">View</button>
-                    <!-- <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '#open-deleteclaimmodal'">Withdraw</button> -->
+                    <a href="/auth/claim/afi/claimdetail"><button class="uikit-btn small uikit-btn--tertiary"  >View</button></a>
+                    <!-- <a href="#open-deleteclaimmodal"><button class="uikit-btn small uikit-btn--tertiary"  >Withdraw</button></a> -->
                   </td>
                 </tr>
 
@@ -74,7 +74,7 @@
                     </p>
                   </td>
                   <td class="widget-actions">
-                    <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'viewDhoasDetail'">View</button>
+                    <a href="viewDhoasDetail"><button class="uikit-btn small uikit-btn--tertiary"  >View</button></a>
                   </td>
                 </tr>
                 <tr>
@@ -85,8 +85,8 @@
                     </p>
                   </td>
                   <td class="widget-actions">
-                    <!-- so i have the href location later <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'viewNLHCClaimDetail'">View</button> -->
-                    <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '/auth/claim/lsa/view'">View</button>
+                    <!-- so i have the href location later <a href="viewNLHCClaimDetail"><button class="uikit-btn small uikit-btn--tertiary"  >View</button></a> -->
+                    <a href="/auth/claim/lsa/view"><button class="uikit-btn small uikit-btn--tertiary"  >View</button></a>
                   </td>
                 </tr>
 
@@ -98,7 +98,7 @@
                     </p>
                   </td>
                   <td class="widget-actions">
-                    <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = 'viewDhoasDetail'">View</button>
+                    <a href="viewDhoasDetail"><button class="uikit-btn small uikit-btn--tertiary"  >View</button></a>
                   </td>
                 </tr>
               </table>

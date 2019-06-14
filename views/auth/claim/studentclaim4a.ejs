@@ -68,7 +68,7 @@
         <button class="uikit-btn uikit-btn--tertiary " onclick="window.location.href='#open-modal' ">Cancel claim</button>
         <div class="floated ">
           <button class="uikit-btn uikit-btn--tertiary " onclick="window.location.href='/auth' ">Save and exit</button>
-          <button class="uikit-btn btnNext btn--docUploads" onclick="window.location.href = '/auth/claim/studentclaimupload'">Save and next</button>
+          <a href="/auth/claim/studentclaimupload"><button class="uikit-btn btnNext btn--docUploads"  >Save and next</button></a>
         </div>
       </div>
       <%- include(partials+"content/modals/claims-cancel-modal") %>

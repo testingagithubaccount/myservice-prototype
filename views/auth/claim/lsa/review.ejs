@@ -78,7 +78,7 @@
               <legend class="legend-label">29 December 2018</legend>
             </div>
           </div>
-          <button class="uikit-btn small uikit-btn--tertiary" onclick="window.location.href = '/auth/claim/lsa/request'">Edit lump sum </button>
+          <a href="/auth/claim/lsa/request"><button class="uikit-btn small uikit-btn--tertiary"  >Edit lump sum </button></a>
           <div class="uikit-page-alerts margin-above" role="alert">
 
             <h4>Important things to know</h4>
@@ -95,8 +95,8 @@
 
         <div class="pagination pagination--ss-reverse-order">
           <button class="uikit-btn uikit-btn--tertiary" onclick="history.back(-1)">Previous</button>
-          <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/claim'">Cancel</button>
-          <button class="uikit-btn btnNext floated" onclick="window.location.href = '/auth/claim/lsa/submitted'">Submit lump sum request</button>
+          <a href="/auth/claim"><button class="uikit-btn uikit-btn--tertiary"  >Cancel</button></a>
+          <a href="/auth/claim/lsa/submitted"><button class="uikit-btn btnNext floated"  >Submit lump sum request</button></a>
         </div>
 
         <%- include(partials+"content/modals/claims-dhoas-start-modal") %>

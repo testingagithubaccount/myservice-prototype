@@ -38,11 +38,11 @@
 
       <!-- bottom page navigation -->
       <div class="pagination">
-        <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/claim/sp-claim-contact'">Previous</button>
-        <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '#open-modal'">Cancel claim</button>
+        <a href="/auth/claim/sp-claim-contact"><button class="uikit-btn uikit-btn--tertiary"  >Previous</button></a>
+        <a href="#open-modal"><button class="uikit-btn uikit-btn--tertiary"  >Cancel claim</button></a>
         <div class="floated">
-          <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/claim'">Save and exit</button>
-          <button class="uikit-btn btnNext" onclick="window.location.href = '/auth/claim/sp-financial-details'">Save and next</button>
+          <a href="/auth/claim"><button class="uikit-btn uikit-btn--tertiary"  >Save and exit</button></a>
+          <a href="/auth/claim/sp-financial-details"><button class="uikit-btn btnNext"  >Save and next</button></a>
         </div>
       </div>
       <%- include(partials+"content/modals/claims-cancel-modal") %>

@@ -123,7 +123,7 @@
                           still in edit mode.</font>
                       </p>
                       <button class="uikit-btn uikit-btn--tertiary small cancel-relationship-button">Cancel</button>
-                      <button class="uikit-btn small save-relationship-button" onclick="window.location.href = '#open-modal-myaccount-unsaved-changes'">Save</button>
+                      <a href="#open-modal-myaccount-unsaved-changes"><button class="uikit-btn small save-relationship-button"  >Save</button></a>
                       <div class="waiting-animation ico-waiting-inline" style="display:none;"></div>
                     </div>
                   </div>
@@ -145,7 +145,7 @@
           </div>
           <br>
           <br>
-          <!-- <button class="uikit-btn" onclick="window.location.href = '#open-modal-unsaved-changes'">Test modal</button> -->
+          <!-- <a href="#open-modal-unsaved-changes"><button class="uikit-btn"  >Test modal</button></a> -->
           <%- include(partials+"content/modals/auth-modal-unsaved-changes") %>
           <%- include(partials+"content/modals/auth-modal-myaccount-unsaved-changes") %>
         </div>
