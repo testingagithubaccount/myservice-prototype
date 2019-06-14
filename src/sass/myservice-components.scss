@@ -24,12 +24,6 @@
   }
 }
 
-@media only screen and (max-width: 420px) {
-  .uikit-body {
-    display: inline-block;
-  }
-}
-
 // Float right for mobile displays
 .floated {
   &.floated--always {

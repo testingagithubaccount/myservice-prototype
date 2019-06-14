@@ -208,6 +208,9 @@ header {
     }
 
     .fa-2x {
+      @include uikit-media(md) {
+        margin-right: 0;
+      }
       font-size: 1.3em;
       margin-right: 8px;
       &::before {
