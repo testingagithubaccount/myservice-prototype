@@ -133,10 +133,10 @@
         <!-- bottom page navigation -->
         <div class="pagination" style="position: relative;">
           <a href="/auth/claim/qualifying_service/qs-2"><button class="uikit-btn uikit-btn--tertiary"  > Previous </button></a>
-          <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '#open-modal'">
+          <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href='#open-modal'">
             Cancel claim </button>
           <div class="floated">
-            <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/claim'">
+            <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href='/auth/claim'">
               Save and exit </button>
             <button class="uikit-btn btnNext" onclick="checkSaveAndNext()">
               Save and next </button>
@@ -206,7 +206,7 @@
         return;
       }
       myNav = "/auth/claim/qualifying_service/qs-3";
-      window.location.href = myNav;
+      window.location.href=myNav;
     }
 
   });

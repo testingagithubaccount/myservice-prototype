@@ -239,13 +239,13 @@
       writeRep(data);
 
       if ($('#addNewOrg').is(':checked')) {
-        window.location.href = '/auth/profile/nomrep/form-rep-3?repState=new';
+        window.location.href='/auth/profile/nomrep/form-rep-3?repState=new';
       }
 
       if ($.trim($('#fileNumber').val()) == '') {
-        window.location.href = '/auth/profile/nomrep/form-rep-2';
+        window.location.href='/auth/profile/nomrep/form-rep-2';
       } else {
-        window.location.href = '/auth/profile/nomrep/form-rep-3?repState=new';
+        window.location.href='/auth/profile/nomrep/form-rep-3?repState=new';
       }
 
     });

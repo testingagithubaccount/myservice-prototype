@@ -168,8 +168,8 @@
       </div>
 
       <div class="pagination">
-        <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '/auth/claim'">Previous</button>
-        <button class="uikit-btn uikit-btn--tertiary" onclick="window.location.href = '#open-modal'">Cancel request</button>
+        <a href="/auth/claim"><button class="uikit-btn uikit-btn--tertiary">Previous</button></a>
+        <a href="#open-modal"><button class="uikit-btn uikit-btn--tertiary">Cancel request</button></a>
         <div class="floated">
           <button class="uikit-btn" id="next">Next</button>
         </div>
@@ -199,11 +199,11 @@
           }
         })
         if (buttonon) {
-          window.location.href = "/auth/claim/health-card-blocker";
+          window.location.href="/auth/claim/health-card-blocker";
           return
         }
       }
-      window.location.href = "/auth/claim/health-card1";
+      window.location.href="/auth/claim/health-card1";
     });
 
 

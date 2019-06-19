@@ -349,12 +349,13 @@ forms.forEach(function(elem, index) {
         <div class="pagination margin-above--extra">
         <% if(elem.config.normal.length > 0) { 
            elem.config.normal.forEach(function(button, b_index) { %>
-            <button <%- button.disabled != undefined && button.disabled ? "disabled " : "" %>class="uikit-btn<%- button.primary != undefined && button.primary ? " uikit-btn--primary" : " uikit-btn--tertiary" %>" onclick="window.location.href = '<%= button.link %>'"><%= button.text %></button>
+
+           <a <%- button.disabled != undefined && button.disabled ? "disabled " : "" %> href="<%- button.link %>"><button class="uikit-btn<%- button.primary != undefined && button.primary ? " uikit-btn--primary" : " uikit-btn--tertiary" %>"><%- button.text %></button></a>
           <% }); 
         } if(elem.config.normal.length > 0) { %>
           <div class="floated">  
           <% elem.config.floated.forEach(function(button, b_index) { %>
-            <button <%- button.disabled != undefined && button.disabled ? "disabled " : "" %>class="uikit-btn<%- button.primary != undefined && button.primary ? " uikit-btn--primary" : " uikit-btn--tertiary" %>" onclick="window.location.href = '<%= button.link %>'"><%= button.text %></button>
+           <a <%- button.disabled != undefined && button.disabled ? "disabled " : "" %> href="<%- button.link %>"><button class="uikit-btn<%- button.primary != undefined && button.primary ? " uikit-btn--primary" : " uikit-btn--tertiary" %>"><%- button.text %></button></a>
           <% }); %>
           </div>
          <% } %>
