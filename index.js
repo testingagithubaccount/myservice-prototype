@@ -9,7 +9,8 @@ let express = require('express'),
   } = require('path'),
   fs = require('fs'),
   path = require('path'),
-  axios = require('axios'),
+  Axios = require('axios'),
+  Proms = require('bluebird'),
   // featuretoggleapi = require('feature-toggle-api'),
 
   // not so secret secret
@@ -53,11 +54,6 @@ async function getFiles(dir) {
   }));
   return files.reduce((a, f) => a.concat(f), []);
 }
-
-
-
-
-
 
 // create sitemap 
 app.use('/files', serveIndex('views', {
@@ -156,50 +152,148 @@ app.get('/sitemap', (req, res) => {
 
 });
 
-app.get('/link-checker', (req, res) => {
-  var links = {};
-  var broken_links = [];
-  getFiles("./views").then(files => {
-   files.forEach((file, index) => {
-     b_links = [];
-     file = file.replace(__dirname+"\\views", "");
-     file = file.replace(/\\/g, "/");
-     var page_links = fs.readFileSync('./views/'+file, "utf8");
-     page_links = page_links.match(/href=(?:'|")(.*)(?:'|")/g);
-     console.log("-----------------------\n" + file + "\n")
-     console.log("Array\n"+page_links);
-     page_links = [...new Set(page_links)];
-     console.log("Set\n"+page_links);
-     // if ()
-  //    if (port === 80 || port === "80") {
-  //      pre_url = "http://localhost/";
-  //    } else {
-  //      pre_url = `http://localhost:${port}`;
-  //    }
-  //    page_links.forEach((page, p_index) => {
-  //      page = page.replace("")
-  //      axios.get(pre_url+page)
-  //      .then(resp => {
-  //        b_links.push({
-  //          link: page,
-  //          statusCode: resp.status,
-  //          statusText: resp.statusText
-  //        });
-  //      })
-  //      .catch(err => console.log(err));
-  //    });
-  //    broken_links.push({
-  //      file,
-  //      links: b_links
-  //    });
-  //  });
-  // })
-  // .then(() => {
-  //  res.render('link-checker', {pages: broken_links});
-  })
-  // .catch(err => console.error(err));
-});
-});
+app.get('/link-checker2', (req, res) => {
+  getFiles("./views")
+    .then(fileTree => {
+      async function listLinks() {
+        console.log(__dirname);
+        const files = fileTree.map(async file => {
+          file = path.normalize(file);
+          file = file.replace(/\\/g, "/");
+          file = file.replace(__dirname+"/views", "");
+          fs.readFile("./views/" + file, "utf8", (err, links) => {
+            links = links.match(/href=\"(.*)\"/g);
+            links = [...new Set(links)];
+
+            return {
+              file,
+              links
+            }
+          })
+        })
+
+        const results = await Promise.all(fileTree);
+
+        res.send(results);
+      }
+
+      listLinks()
+        .then(links => {
+
+        });
+      // async function listLinks() {
+      //   const files = fileTree.map(async file => {
+      //     file = file.replace(__dirname+"\\views", "");
+      //     file = file.replace(/\\/g, "/");
+      //     var links = fs.readFileSync("./views/" + file, "utf8");
+      //     links = links.match(/href=\"(.*)\"/g);
+      //     links = [...new Set(links)];;
+      //     // await fs.readFile('./views/' + file, "utf8", (err, data) => {
+      //     //   if (err) throw err;
+
+      //     //   var pageLinks = data.match(/href=\"(.*)\"/g);
+      //     //   pageLinks = [...new Set(pageLinks)];
+      //     // })
+
+
+      //     console.log(file);
+      //     console.log(links);
+          
+      //     return {
+      //       file,
+      //       links
+      //     }
+      //   });
+
+      //   const results = await Promise.all(files)
+      // }
+
+       // listLinks()
+       //   .then(data => {
+       //     console.log(data); // undefined
+       //     res.send(data);
+       //   }).catch(err => console.log(err));
+    //   listLinks()
+    //     .then((file, links) => {
+    //       checkLinks = async () => {
+    //         const links = pageLinks.map(async link => {
+    //           const response = await Axios({
+    //             method: 'GET',
+    //             url: "http://localhost:5000/"+link
+    //           });
+
+    //           return {
+    //             link,
+    //             statusCode: resp.status,
+    //             statusText: resp.statusCode
+    //           }
+    //         });
+
+    //         const results = await Promsise.all(links);
+    //       }
+
+    //       checkLinks()
+    //         .then()
+    //     })
+    })
+})
+
+// get files
+//   get hrefs
+//     test hrefs
+//       render
+
+
+
+
+// app.get('/link-checker', (req, res) => {
+//   var links = {};
+//   var broken_links = [];
+//   getFiles("./views")
+//     .then(files => {
+//       files.forEach((file, index) => {
+//         b_links = [];
+//         file = file.replace(__dirname+"\\views", "");
+//         file = file.replace(/\\/g, "/");
+//         var page_links = fs.readFileSync('./views/'+file, "utf8");
+//         page_links = page_links.match(/href=\"(.*)\"/g);
+//         console.log("-----------------------\n" + file + "\n")
+//         console.log("Array\n"+page_links);
+//         page_links = [...new Set(page_links)];
+//         // if (port === 80 || port === "80") {
+//         pre_url = "http://localhost:5000"
+//         // } else {
+//         //   pre_url = `http://localhost:${port}`
+//         // }
+
+//         checkLinks = async () => {
+//           const links = page_links.map(async link => {
+//             const response = await Axios({
+//               method: 'GET',
+//               url: pre_url+link
+//             });
+
+//             return {
+//               link,
+//               statusCode: resp.status,
+//               statusText: resp.statusCode
+//             }
+//           });
+
+//           const results = await Promsise.all(links);
+//         }
+
+//         checkLinks()
+//           .then(links => {
+//             broken_links.push({
+//               file,
+//               links
+//             });
+//           });
+
+//       });
+//     });
+// });
 
 // folder level renders 
 app.get('/:id0', function (request, response) {
