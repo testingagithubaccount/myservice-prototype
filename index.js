@@ -9,6 +9,9 @@ let express = require('express'),
   } = require('path'),
   fs = require('fs'),
   path = require('path'),
+  // Axios = require('axios'),
+  Proms = require('bluebird'),
+  http = require('http'),
   // featuretoggleapi = require('feature-toggle-api'),
 
   // not so secret secret
@@ -43,6 +46,15 @@ app.use(function (req, res, next) {
   next();
 });
 
+// used for giant sitemap and link checking
+async function getFiles(dir) {
+  const subdirs = await readdir(dir);
+  const files = await Promise.all(subdirs.map(async (subdir) => {
+    const res = resolve(dir, subdir);
+    return (await stat(res)).isDirectory() ? getFiles(res) : res;
+  }));
+  return files.reduce((a, f) => a.concat(f), []);
+}
 
 // create sitemap 
 app.use('/files', serveIndex('views', {
@@ -112,14 +124,6 @@ console.log('List of features that are unhidden:');
 console.log(liveFeatureList);
 
 app.get('/sitemap', (req, res) => {
-  async function getFiles(dir) {
-    const subdirs = await readdir(dir);
-    const files = await Promise.all(subdirs.map(async (subdir) => {
-      const res = resolve(dir, subdir);
-      return (await stat(res)).isDirectory() ? getFiles(res) : res;
-    }));
-    return files.reduce((a, f) => a.concat(f), []);
-  }
   var pages = []
   getFiles("./views")
     .then(files => {
@@ -145,8 +149,69 @@ app.get('/sitemap', (req, res) => {
       })
     })
     .catch(e => console.error(e));
+});
+
+app.get('/link-checker', (req, res) => {
+  getFiles("./views")
+  .then((fileTree) => {
+    const fixedFiles = fileTree.map(file => {
+      file = file.replace(__dirname, "");
+      file = file.replace(/\\/g, "/");
+      file = file.replace("/views/", "");
+
+      return file
+    });
+
+    const listLinks = fixedFiles.map(file => {
+      links = fs.readFileSync("./views/" + file, "utf8");
+      links = links.match(/href=\"(.*)\"/g);
+      links = [...new Set(links)];
+      const fixedLinks = links.map(link => {
+        link = link.replace(/'/g, "");
+        link = link.replace(/"/g, "");
+        link = link.replace("href", "");
+        link = link.replace(/=/g, "");
+        link = link.replace(/ target_blacnk/g, "");
+        link = link.replace(/ target_blank/g, "");
+        link = link.replace(/ relexternal/g, "");
+        if (link.includes("#") || link.includes("tel") || link.includes("mailto") || link.includes("javascript") ) {
+        } else {
+          console.log(link);
+          return link
+        }
+      });
+      return {
+        file,
+        links: fixedLinks
+      }
+    })
+
+    const allLinks = listLinks.map(linkArray => {
+
+      const localLinks = linkArray.links.map(link => {
+        // http.get("http://localhost:5000/"+link, (resp)  => {
+        //   resp.setEncoding('utf8');
+        //   resp.on('data', (body) => {
+        //     console.log('data recieved?');
+        //     return {
+        //       link,
+        //       status: body.statusCode
+        //     }
+        //   });
+        //   resp.on('error', (err) => {console.log(err)});
+        // })
+      });
+
+      return {
+        file: linkArray.file,
+        links: localLinks
+      }
+    });
 
 
+    res.send(allLinks);
+
+  });
 });
 
 // folder level renders 
