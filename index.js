@@ -174,17 +174,22 @@ app.get('/link-checker', (req, res) => {
         link = link.replace(/ target_blacnk/g, "");
         link = link.replace(/ target_blank/g, "");
         link = link.replace(/ relexternal/g, "");
-        if (link.includes("#") || link.includes("tel") || link.includes("mailto") || link.includes("javascript") ) {
+        if (typeof link !== "undefined" || link.includes("#") || link.includes("tel") || link.includes("mailto") || link.includes("javascript") || link.includes("<%") || link.includes("uikit-btn")) {
         } else {
           console.log(link);
           return link
         }
       });
+      console.log({
+        file, links: fixedLinks
+      })
       return {
         file,
         links: fixedLinks
       }
     })
+
+    res.send(listLinks);
 
     const allLinks = listLinks.map(linkArray => {
 
@@ -204,12 +209,12 @@ app.get('/link-checker', (req, res) => {
 
       return {
         file: linkArray.file,
-        links: localLinks
+        links: linkArray.links
       }
     });
 
 
-    res.send(allLinks);
+    // res.send(allLinks);
 
   });
 });
