@@ -172,36 +172,36 @@ app.get('/link-checker', (req, res) => {
       }
     })
 
-    const checkingLinks = listLinks.map(linkArray => {
-      const checkingLinks = linkArray.map(link => {
-        console.log(link.link);
+    const allLinks = listLinks.map(linkArray => {
+
+      const localLinks = linkArray.links.map(link => {
         http.get({
           hostname: 'localhost',
           port: 5000,
-          path: link,
+          path: encodeURI(link),
           agent: false
         }, (resp)  => {
-          console.log(resp.statusCode);
-
+          console.log("hello");
+          return {
+            link,
+            status: resp.statusCode
+          }
         }).on('error', function(e) {
-          console.log("Got error: " + e.message);
-        }); 
-      //   Axios.get("http://localhost:5000" + link).
-      //     then((resp) => {
-      //       // return {
-      //       //   link,
-      //       //   statusCode: resp.status,
-      //       //   statusText: resp.statusCode
-      //       // }
-      //     })
-      })
+          return {
+            link,
+            error: e
+          }
+        });
+      });
 
-
-
+      return {
+        file: linkArray.file,
+        links: localLinks
+      }
     });
 
 
-    // res.send(listLinks);
+    res.send(allLinks);
 
   });
 });
