@@ -174,20 +174,18 @@ app.get('/link-checker', (req, res) => {
         link = link.replace(/ target_blacnk/g, "");
         link = link.replace(/ target_blank/g, "");
         link = link.replace(/ relexternal/g, "");
-        if (typeof link !== "undefined" || link.includes("#") || link.includes("tel") || link.includes("mailto") || link.includes("javascript") || link.includes("<%") || link.includes("uikit-btn")) {
+        if (typeof link !== "undefined" || link.includes("${") || link.includes("#") || link.includes("tel") || link.includes("mailto") || link.includes("javascript") || link.includes("<") || link.includes("uikit-btn")) {
         } else {
-          console.log(link);
           return link
         }
       });
-      console.log({
-        file, links: fixedLinks
-      })
+      console.log(fixedLinks);
+
       return {
         file,
         links: fixedLinks
       }
-    })
+    });
 
     res.send(listLinks);
 
